@@ -7,6 +7,7 @@ src/assets
 *.exe
 
 *.env
+/*.env
 
 *.cloud_sql_proxy
 /e2e
