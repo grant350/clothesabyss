@@ -1,0 +1,9 @@
+{ "images": ["home.jpg", "accesories.jpg", "fr-home.jpg", "fr-home2.jpg",
+            "about.jpg", "fr-about.jpg", "fr-about2.jpg"],
+  "smallimages": ["home_square.jpg", "accesories_square.jpg", "fr-home_square.jpg", "fr-home2_square.jpg",
+            "about_square.jpg", "fr-about_square.jpg", "fr-about2_square.jpg"],
+  "classes": ["homeImage", "homeAccesoriesImage",  "homeEndImage",
+            "aboutImage", "aboutMiddle", "womensClothingImage",
+            "mensClothingImage","accesoriesImage",""]
+
+}

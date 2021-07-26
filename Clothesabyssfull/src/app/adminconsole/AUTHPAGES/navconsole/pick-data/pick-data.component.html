@@ -1,0 +1,46 @@
+<div class="ct">
+
+<div class="graphmain-ct">
+<mat-form-field appearance="fill" class="graphpicker" >
+  <mat-label>Pick Graph</mat-label>
+  <mat-select [(ngModel)]="selectedValue" name="dataform">
+    <mat-option *ngFor="let v of OBJECT.keys(dataForms)" [value]="v">
+      <h3 (click)="onclick(v)"> {{v}} </h3>
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<!-- add form here for picking arraykeys send them to pickgraph -->
+
+<!-- <input [(ngModel)]="key"  #ctrl="ngModel" required>
+
+<button style="display:block; margin:50px aut0;" class="btn" mat-button (click)="addkey(key)"> ADD KEY</button>
+
+<button style="display:block; margin:50px aut0;"  class="btn" mat-button (click)="done()"> DONE</button> -->
+
+<!--
+<app-pick-graph *ngIf="items && makegraph && arraykeys" [arraykeys]="arraykeys" [items]="items" [graphtype]="graphtype">
+</app-pick-graph>
+ -->
+
+  <div class="graphct" *ngIf="selectedValue !== undefined && selectedValue !== null && selectedValue !== '' ">
+     <!-- <app-pickgraph [selectedValue]="selectedValue"></app-pickgraph> -->
+    <button style="background:#2aff4ebf;" mat-button (click)="EDITPage(selectedValue)">editDataPage</button>
+    <button style="background:#2aff4ebf;" mat-button (click)="ADDPage(selectedValue)">addDataPage</button>
+  </div>
+</div>
+
+
+<!-- <div class="fromArea-ct" *ngIf="param">
+  <div class="fromArea" *ngIf="param === 'edit' ">
+    this is edit
+
+  </div>
+  <div class="fromArea" *ngIf="param === 'add' ">
+this is add
+
+  </div>
+
+</div> -->
+
+</div>

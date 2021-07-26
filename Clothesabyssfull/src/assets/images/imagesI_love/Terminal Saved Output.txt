@@ -1,0 +1,1299 @@
+Last login: Sun Jan 12 21:34:58 on ttys000
+MacBook-Air:~ grant$ cd /Users/grant/Desktop/Clothesabyss-app 
+MacBook-Air:Clothesabyss-app grant$ ng serve
+Browserslist: caniuse-lite is outdated. Please run next command `npm update`
+10% building 3/3 modules 0 activeℹ ｢wds｣: Project is running at http://localhost:4200/webpack-dev-server/
+ℹ ｢wds｣: webpack output is served from /
+ℹ ｢wds｣: 404s will fallback to //index.html
+30% building 144/144 modules 0 activeℹ ｢wdm｣: wait until bundle finished: /
+
+chunk {main} main.js, main.js.map (main) 27 kB [initial] [rendered]
+chunk {polyfills} polyfills.js, polyfills.js.map (polyfills) 264 kB [initial] [rendered]
+chunk {runtime} runtime.js, runtime.js.map (runtime) 6.15 kB [entry] [rendered]
+chunk {scripts} scripts.js, scripts.js.map (scripts) 86.1 kB [entry] [rendered]
+chunk {styles} styles.js, styles.js.map (styles) 16.3 kB [initial] [rendered]
+chunk {vendor} vendor.js, vendor.js.map (vendor) 4.08 MB [initial] [rendered]
+Date: 2020-01-13T09:20:37.050Z - Hash: 8b3101899bd683e9f0a0 - Time: 13813ms
+
+ERROR in ./src/app/app.component.scss
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+}
+^
+      Expected "{".
+   ╷
+41 │ }
+   │  ^
+   ╵
+  stdin 41:2  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/app/app.component.scss (line 41, column 2)
+** Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:21:53.817Z - Hash: a49acc232e15ad3d130b
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 30.2 kB [initial] [rendered]
+Time: 1129ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:21:54.628Z - Hash: a49acc232e15ad3d130b
+6 unchanged chunks
+
+Time: 416ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:23:11.264Z - Hash: fc2ee9f49483acf4477e
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 30.2 kB [initial] [rendered]
+Time: 562ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:25:30.429Z - Hash: c7cd1c9f4ec94758a292
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 30.6 kB [initial] [rendered]
+Time: 502ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+ℹ ｢wdm｣: wait until bundle finished: /styles.js
+ℹ ｢wdm｣: wait until bundle finished: /runtime.js
+ℹ ｢wdm｣: wait until bundle finished: /polyfills.js
+ℹ ｢wdm｣: wait until bundle finished: /vendor.js
+ℹ ｢wdm｣: wait until bundle finished: /main.js
+ℹ ｢wdm｣: wait until bundle finished: /scripts.js
+
+Date: 2020-01-13T09:25:31.932Z - Hash: a37343a1126e2c37f235
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 30.8 kB [initial] [rendered]
+Time: 692ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+ℹ ｢wdm｣: wait until bundle finished: /styles.js.map
+ℹ ｢wdm｣: wait until bundle finished: /runtime.js.map
+ℹ ｢wdm｣: wait until bundle finished: /polyfills.js.map
+ℹ ｢wdm｣: wait until bundle finished: /scripts.js.map
+ℹ ｢wdm｣: wait until bundle finished: /main.js.map
+95% emitting CopyPluginℹ ｢wdm｣: wait until bundle finished: /vendor.js.map
+
+Date: 2020-01-13T09:25:34.521Z - Hash: a37343a1126e2c37f235
+6 unchanged chunks
+
+Time: 2104ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:35:27.027Z - Hash: 1e6bffa4a27822259079
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 37.1 kB [initial] [rendered]
+Time: 561ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+ℹ ｢wdm｣: wait until bundle finished: /
+
+Date: 2020-01-13T09:35:28.360Z - Hash: 1e6bffa4a27822259079
+6 unchanged chunks
+
+Time: 326ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:35:51.427Z - Hash: a3214fb4421297c32515
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 37 kB [initial] [rendered]
+Time: 449ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:36:03.353Z - Hash: 497de368be0c5ce5bd5d
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 37 kB [initial] [rendered]
+Time: 341ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:36:27.395Z - Hash: 3185b74203b80e38e9b3
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 37 kB [initial] [rendered]
+Time: 363ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+95% emitting CopyPluginℹ ｢wdm｣: wait until bundle finished: /
+
+Date: 2020-01-13T09:36:28.353Z - Hash: 3185b74203b80e38e9b3
+6 unchanged chunks
+
+Time: 491ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:36:42.981Z - Hash: 01ab0128eb3b5150f25b
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 37 kB [initial] [rendered]
+Time: 337ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:36:46.768Z - Hash: 01ab0128eb3b5150f25b
+6 unchanged chunks
+
+Time: 219ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:37:08.583Z - Hash: 6c9d100144bac9b4b5ed
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 37 kB [initial] [rendered]
+Time: 308ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:37:12.732Z - Hash: 9196349b5bef17231372
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 37 kB [initial] [rendered]
+Time: 245ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:37:15.958Z - Hash: fe1184370cd4166bd0f5
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 37.1 kB [initial] [rendered]
+Time: 273ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:37:18.217Z - Hash: 11f7603b157f2dd557cf
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 37.1 kB [initial] [rendered]
+Time: 251ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:38:04.089Z - Hash: 39a4ce525abc605e1815
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 36.8 kB [initial] [rendered]
+Time: 399ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+ℹ ｢wdm｣: wait until bundle finished: /vendor.js.map
+
+Date: 2020-01-13T09:38:07.372Z - Hash: abdff479456f4cdbc159
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 36.8 kB [initial] [rendered]
+Time: 648ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:38:08.692Z - Hash: e76f93fabb24ce5faf2f
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 36.8 kB [initial] [rendered]
+Time: 455ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+ℹ ｢wdm｣: wait until bundle finished: /runtime.js
+ℹ ｢wdm｣: wait until bundle finished: /polyfills.js
+ℹ ｢wdm｣: wait until bundle finished: /styles.js
+
+Date: 2020-01-13T09:38:09.678Z - Hash: e76f93fabb24ce5faf2f
+6 unchanged chunks
+
+Time: 330ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:38:24.765Z - Hash: 0049fa95f5916e9fc96e
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 36.8 kB [initial] [rendered]
+Time: 342ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:38:35.469Z - Hash: b1b20964b1f4a52f6cc7
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 36.8 kB [initial] [rendered]
+Time: 516ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+ℹ ｢wdm｣: wait until bundle finished: /styles.js.map
+ℹ ｢wdm｣: wait until bundle finished: /scripts.js.map
+ℹ ｢wdm｣: wait until bundle finished: /vendor.js.map
+95% emitting CopyPluginℹ ｢wdm｣: wait until bundle finished: /main.js.map
+
+Date: 2020-01-13T09:38:37.687Z - Hash: b936a7a2d293f57b7e0d
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 36.9 kB [initial] [rendered]
+Time: 525ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:38:39.283Z - Hash: f0971efe442f2949190a
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 36.9 kB [initial] [rendered]
+Time: 264ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+ℹ ｢wdm｣: wait until bundle finished: /vendor.js.map
+ℹ ｢wdm｣: wait until bundle finished: /main.js.map
+
+Date: 2020-01-13T09:38:41.879Z - Hash: 943dcb5054ddb7b3a918
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 36.9 kB [initial] [rendered]
+Time: 669ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:38:46.820Z - Hash: d10259f0559f86569b23
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 36.9 kB [initial] [rendered]
+Time: 209ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:39:00.933Z - Hash: 9ad66fc9a85312c93806
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 36.9 kB [initial] [rendered]
+Time: 252ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+95% emitting CopyPluginℹ ｢wdm｣: wait until bundle finished: /
+
+Date: 2020-01-13T09:39:02.172Z - Hash: 6e5589e9e2a856c4ddd9
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 37.5 kB [initial] [rendered]
+Time: 300ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+ℹ ｢wdm｣: wait until bundle finished: /scripts.js
+ℹ ｢wdm｣: wait until bundle finished: /main.js
+ℹ ｢wdm｣: wait until bundle finished: /runtime.js.map
+ℹ ｢wdm｣: wait until bundle finished: /styles.js.map
+ℹ ｢wdm｣: wait until bundle finished: /polyfills.js.map
+
+Date: 2020-01-13T09:39:03.724Z - Hash: 6e5589e9e2a856c4ddd9
+6 unchanged chunks
+
+Time: 687ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+ℹ ｢wdm｣: wait until bundle finished: /assets/favicon-96x96.png
+
+Date: 2020-01-13T09:39:05.158Z - Hash: 28298b39399f2fab2e95
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 37.5 kB [initial] [rendered]
+Time: 266ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:39:05.782Z - Hash: 28298b39399f2fab2e95
+6 unchanged chunks
+
+Time: 303ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:39:07.299Z - Hash: 28298b39399f2fab2e95
+6 unchanged chunks
+
+Time: 521ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:39:27.559Z - Hash: 6f6ed7d93c2718f8260b
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 37.5 kB [initial] [rendered]
+Time: 228ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+ℹ ｢wdm｣: wait until bundle finished: /vendor.js.map
+
+Date: 2020-01-13T09:39:31.062Z - Hash: a06a229d8779570c32a7
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 37.6 kB [initial] [rendered]
+Time: 741ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:39:35.423Z - Hash: 13fad8d20a98c969c90c
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 38.1 kB [initial] [rendered]
+Time: 366ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+95% emitting CopyPluginℹ ｢wdm｣: wait until bundle finished: /
+
+Date: 2020-01-13T09:39:36.191Z - Hash: 13fad8d20a98c969c90c
+6 unchanged chunks
+
+Time: 424ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:39:40.550Z - Hash: e5fa6bb8b7e0d9fe4fbc
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 38.1 kB [initial] [rendered]
+Time: 364ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+50% building ...dules 1 active ....scssℹ ｢wdm｣: wait until bundle finished: /
+
+Date: 2020-01-13T09:39:41.370Z - Hash: e5fa6bb8b7e0d9fe4fbc
+6 unchanged chunks
+
+Time: 499ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:39:46.569Z - Hash: 5cc1827e2a1075862e0b
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 33.8 kB [initial] [rendered]
+Time: 103ms
+
+ERROR in ./src/app/app.component.scss
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+    f
+    ^
+      Expected "{".
+   ╷
+24 │     f
+   │      ^
+   ╵
+  stdin 24:6  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/app/app.component.scss (line 24, column 6)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:39:49.117Z - Hash: 192126c9d8903996c84a
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 38.1 kB [initial] [rendered]
+Time: 318ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:39:52.341Z - Hash: e40a9f87abe9855c09c0
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 38.2 kB [initial] [rendered]
+Time: 302ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+ℹ ｢wdm｣: wait until bundle finished: /assets/favicon-96x96.png
+
+Date: 2020-01-13T09:39:53.668Z - Hash: e40a9f87abe9855c09c0
+6 unchanged chunks
+
+Time: 849ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:40:21.394Z - Hash: 1cbda12a5a940afabd8c
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 38.2 kB [initial] [rendered]
+Time: 293ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:40:23.663Z - Hash: b4d4dc7ba7c34685ed94
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 33.8 kB [initial] [rendered]
+Time: 174ms
+
+ERROR in ./src/app/app.component.scss
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+a{font}
+     ^
+      Expected "{".
+  ╷
+9 │ a{font}
+  │       ^
+  ╵
+  stdin 9:7  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/app/app.component.scss (line 9, column 7)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:40:25.849Z - Hash: 59448ce2a6cf1b356b86
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 33.9 kB [initial] [rendered]
+Time: 147ms
+
+ERROR in ./src/app/app.component.scss
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+a{font-size:}
+           ^
+      Expected expression.
+  ╷
+9 │ a{font-size:}
+  │             ^
+  ╵
+  stdin 9:13  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/app/app.component.scss (line 9, column 13)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:40:27.715Z - Hash: 2d115a9c653cc579c344
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 38.4 kB [initial] [rendered]
+Time: 229ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:40:29.150Z - Hash: 2d115a9c653cc579c344
+6 unchanged chunks
+
+Time: 206ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:41:02.313Z - Hash: bf9172983b9b22929994
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 38.4 kB [initial] [rendered]
+Time: 441ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:41:18.902Z - Hash: 2441580c4a409a9ddd30
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 38.3 kB [initial] [rendered]
+Time: 299ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:41:19.813Z - Hash: 2441580c4a409a9ddd30
+6 unchanged chunks
+
+Time: 219ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+95% emitting CopyPluginℹ ｢wdm｣: wait until bundle finished: /vendor.js.map
+ℹ ｢wdm｣: wait until bundle finished: /styles.js.map
+
+Date: 2020-01-13T09:41:21.917Z - Hash: e3fa1472d17f9a119038
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 38.3 kB [initial] [rendered]
+Time: 434ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:41:33.601Z - Hash: f0a60582a2e1395d4e0f
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 38.4 kB [initial] [rendered]
+Time: 447ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:41:36.403Z - Hash: c9a1871431c817fdc884
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 38.3 kB [initial] [rendered]
+Time: 639ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:41:49.358Z - Hash: 9179f1b183ad3df93bd2
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 33.8 kB [initial] [rendered]
+Time: 166ms
+
+ERROR in ./src/app/app.component.scss
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+  .
+  ^
+      Expected identifier.
+  ╷
+10│   .
+  │    ^
+  ╵
+  stdin 10:4  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/app/app.component.scss (line 10, column 4)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:41:51.882Z - Hash: ae12b00cbfa3a0d4cfdc
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 38.4 kB [initial] [rendered]
+Time: 391ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+ℹ ｢wdm｣: wait until bundle finished: /
+
+Date: 2020-01-13T09:41:53.674Z - Hash: 03ed9a646d83ba7216d1
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 38.4 kB [initial] [rendered]
+Time: 289ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:42:01.701Z - Hash: f4c8deba723e8a461621
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 38.6 kB [initial] [rendered]
+Time: 409ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:42:10.927Z - Hash: bec3d48edc473bc7b1bd
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 38.9 kB [initial] [rendered]
+Time: 433ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:42:49.331Z - Hash: c94f716e6c9bc10d3ba9
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 33.8 kB [initial] [rendered]
+Time: 268ms
+
+ERROR in ./src/app/app.component.scss
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+    di
+     ^
+      Expected "{".
+   ╷
+17 │     di
+   │       ^
+   ╵
+  stdin 17:7  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/app/app.component.scss (line 17, column 7)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:42:51.557Z - Hash: 13f3568a9889f43b75da
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 33.8 kB [initial] [rendered]
+Time: 330ms
+
+ERROR in ./src/app/app.component.scss
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+    d
+    ^
+      Expected "{".
+   ╷
+17 │     d
+   │      ^
+   ╵
+  stdin 17:6  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/app/app.component.scss (line 17, column 6)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:42:54.462Z - Hash: 2a5a8994490d3bbe99a5
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 39 kB [initial] [rendered]
+Time: 582ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:43:02.907Z - Hash: 7ac69937cc792fbd5eff
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 33.8 kB [initial] [rendered]
+Time: 143ms
+
+ERROR in ./src/app/app.component.scss
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+    ul
+     ^
+      Expected "{".
+   ╷
+18 │     ul
+   │       ^
+   ╵
+  stdin 18:7  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/app/app.component.scss (line 18, column 7)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:43:05.809Z - Hash: 65ce606bf01670c116bf
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 39 kB [initial] [rendered]
+Time: 611ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:43:15.868Z - Hash: 0127d324fa21d2db5822
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 41 kB [initial] [rendered]
+Time: 416ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+ℹ ｢wdm｣: wait until bundle finished: /
+
+Date: 2020-01-13T09:43:17.522Z - Hash: 0127d324fa21d2db5822
+6 unchanged chunks
+
+Time: 352ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:43:30.775Z - Hash: 6164774e220abe5a9035
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 41.2 kB [initial] [rendered]
+Time: 506ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:43:34.293Z - Hash: 42a7855ced96965b4aaa
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 41.2 kB [initial] [rendered]
+Time: 360ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:43:51.980Z - Hash: e15c45b26fad17ba9c4d
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 41.2 kB [initial] [rendered]
+Time: 268ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+ℹ ｢wdm｣: wait until bundle finished: /vendor.js.map
+ℹ ｢wdm｣: wait until bundle finished: /styles.js.map
+ℹ ｢wdm｣: wait until bundle finished: /polyfills.js.map
+
+Date: 2020-01-13T09:43:54.499Z - Hash: 9d246b9e2434c3ee666e
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 41.2 kB [initial] [rendered]
+Time: 620ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:44:07.661Z - Hash: f4aa8e1ae84beaaa7fcf
+5 unchanged chunks
+chunk {main} main.js, main.js.map (main) 41.4 kB [initial] [rendered]
+Time: 352ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+95% emitting CopyPluginℹ ｢wdm｣: wait until bundle finished: /scripts.js.map
+
+Date: 2020-01-13T09:44:09.559Z - Hash: f4aa8e1ae84beaaa7fcf
+6 unchanged chunks
+
+Time: 580ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:45:02.041Z - Hash: 66a43bde4edb1bf4f60e
+5 unchanged chunks
+chunk {styles} styles.js, styles.js.map (styles) 9.92 kB [initial] [rendered]
+Time: 161ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+list-style-type: none;
+                    ^
+      Expected "{".
+   ╷
+84 │ list-style-type: none;
+   │                      ^
+   ╵
+  stdin 84:22  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 84, column 22)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:45:03.608Z - Hash: 66a43bde4edb1bf4f60e
+6 unchanged chunks
+
+Time: 134ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+list-style-type: none;
+                    ^
+      Expected "{".
+   ╷
+84 │ list-style-type: none;
+   │                      ^
+   ╵
+  stdin 84:22  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 84, column 22)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:45:08.791Z - Hash: 011550d5705334c4030a
+5 unchanged chunks
+chunk {styles} styles.js, styles.js.map (styles) 9.93 kB [initial] [rendered]
+Time: 112ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+*{list-style-type: none;
+                       ^
+      Expected "}".
+   ╷
+84 │ *{list-style-type: none;
+   │                         ^
+   ╵
+  stdin 84:25  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 84, column 25)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:45:11.982Z - Hash: ae51036810cfe0fad74c
+5 unchanged chunks
+chunk {styles} styles.js, styles.js.map (styles) 16.4 kB [initial] [rendered]
+Time: 505ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+ℹ ｢wdm｣: wait until bundle finished: /main.js.map
+ℹ ｢wdm｣: wait until bundle finished: /styles.js.map
+95% emitting CopyPluginℹ ｢wdm｣: wait until bundle finished: /scripts.js.map
+
+Date: 2020-01-13T09:45:14.137Z - Hash: 2a35a0a400795351616d
+5 unchanged chunks
+chunk {styles} styles.js, styles.js.map (styles) 16.4 kB [initial] [rendered]
+Time: 749ms
+ℹ ｢wdm｣: Compiled successfully.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:51:53.586Z - Hash: 897ea09f8b8a70666d45
+5 unchanged chunks
+chunk {styles} styles.js, styles.js.map (styles) 10.1 kB [initial] [rendered]
+Time: 3234ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+    @extend .product-form__cart-submit;
+   ^
+      The target selector was not found.
+Use "@extend .product-form__cart-submit !optional" to avoid this error.
+     ╷
+3520 │     @extend .product-form__cart-submit;
+     │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     ╵
+  stdin 3520:5  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 3520, column 5)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:51:56.754Z - Hash: 897ea09f8b8a70666d45
+6 unchanged chunks
+
+Time: 2414ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+    @extend .product-form__cart-submit;
+   ^
+      The target selector was not found.
+Use "@extend .product-form__cart-submit !optional" to avoid this error.
+     ╷
+3520 │     @extend .product-form__cart-submit;
+     │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     ╵
+  stdin 3520:5  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 3520, column 5)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:52:22.370Z - Hash: 91ae674d32f6bad7bec8
+5 unchanged chunks
+chunk {styles} styles.js, styles.js.map (styles) 9.9 kB [initial] [rendered]
+Time: 888ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+}@extend
+^
+      @extend may only be used within style rules.
+     ╷
+9688 │ }@extend
+     │  ^^^^^^^
+     ╵
+  stdin 9688:2  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 9688, column 2)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:52:25.780Z - Hash: 91ae674d32f6bad7bec8
+6 unchanged chunks
+
+Time: 1231ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+}@extend
+^
+      @extend may only be used within style rules.
+     ╷
+9688 │ }@extend
+     │  ^^^^^^^
+     ╵
+  stdin 9688:2  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 9688, column 2)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:52:42.003Z - Hash: 897ea09f8b8a70666d45
+5 unchanged chunks
+chunk {styles} styles.js, styles.js.map (styles) 10.1 kB [initial] [rendered]
+Time: 2001ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+    @extend .product-form__cart-submit;
+   ^
+      The target selector was not found.
+Use "@extend .product-form__cart-submit !optional" to avoid this error.
+     ╷
+3520 │     @extend .product-form__cart-submit;
+     │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     ╵
+  stdin 3520:5  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 3520, column 5)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:57:01.890Z - Hash: ca99d2818a47b6653446
+5 unchanged chunks
+chunk {styles} styles.js, styles.js.map (styles) 9.87 kB [initial] [rendered]
+Time: 283ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+   h1;
+    ^
+      Expected "{".
+     ╷
+1175 │    h1;
+     │      ^
+     ╵
+  stdin 1175:6  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 1175, column 6)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:57:03.566Z - Hash: ca99d2818a47b6653446
+6 unchanged chunks
+
+Time: 149ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+   h1;
+    ^
+      Expected "{".
+     ╷
+1175 │    h1;
+     │      ^
+     ╵
+  stdin 1175:6  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 1175, column 6)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:57:07.499Z - Hash: ca99d2818a47b6653446
+6 unchanged chunks
+
+Time: 330ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+   h1;
+    ^
+      Expected "{".
+     ╷
+1175 │    h1;
+     │      ^
+     ╵
+  stdin 1175:6  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 1175, column 6)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:58:05.856Z - Hash: 97cfb7d25d96d06f67cf
+5 unchanged chunks
+chunk {styles} styles.js, styles.js.map (styles) 9.87 kB [initial] [rendered]
+Time: 347ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+   h2;
+    ^
+      Expected "{".
+     ╷
+1179 │    h2;
+     │      ^
+     ╵
+  stdin 1179:6  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 1179, column 6)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:58:17.025Z - Hash: 25e93009bdcd42c0f235
+5 unchanged chunks
+chunk {styles} styles.js, styles.js.map (styles) 9.87 kB [initial] [rendered]
+Time: 332ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+   h3;
+    ^
+      Expected "{".
+     ╷
+1183 │    h3;
+     │      ^
+     ╵
+  stdin 1183:6  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 1183, column 6)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:58:18.756Z - Hash: 25e93009bdcd42c0f235
+6 unchanged chunks
+
+Time: 377ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+   h3;
+    ^
+      Expected "{".
+     ╷
+1183 │    h3;
+     │      ^
+     ╵
+  stdin 1183:6  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 1183, column 6)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:58:34.418Z - Hash: b619e2b38ea485de5708
+5 unchanged chunks
+chunk {styles} styles.js, styles.js.map (styles) 9.87 kB [initial] [rendered]
+Time: 180ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+   h4;
+    ^
+      Expected "{".
+     ╷
+1187 │    h4;
+     │      ^
+     ╵
+  stdin 1187:6  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 1187, column 6)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:58:36.223Z - Hash: b619e2b38ea485de5708
+6 unchanged chunks
+
+Time: 211ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+   h4;
+    ^
+      Expected "{".
+     ╷
+1187 │    h4;
+     │      ^
+     ╵
+  stdin 1187:6  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 1187, column 6)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:58:38.475Z - Hash: 36b85e04a160f401e0a6
+5 unchanged chunks
+chunk {styles} styles.js, styles.js.map (styles) 9.87 kB [initial] [rendered]
+Time: 164ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+   h5;
+    ^
+      Expected "{".
+     ╷
+1191 │    h5;
+     │      ^
+     ╵
+  stdin 1191:6  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 1191, column 6)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:58:42.850Z - Hash: 36b85e04a160f401e0a6
+6 unchanged chunks
+
+Time: 257ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+   h5;
+    ^
+      Expected "{".
+     ╷
+1191 │    h5;
+     │      ^
+     ╵
+  stdin 1191:6  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 1191, column 6)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:58:48.867Z - Hash: 326fc0346076c80abcfd
+5 unchanged chunks
+chunk {styles} styles.js, styles.js.map (styles) 9.87 kB [initial] [rendered]
+Time: 189ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+   h6;
+    ^
+      Expected "{".
+     ╷
+1195 │    h6;
+     │      ^
+     ╵
+  stdin 1195:6  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 1195, column 6)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:58:50.640Z - Hash: 326fc0346076c80abcfd
+6 unchanged chunks
+
+Time: 171ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+   h6;
+    ^
+      Expected "{".
+     ╷
+1195 │    h6;
+     │      ^
+     ╵
+  stdin 1195:6  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 1195, column 6)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:58:52.791Z - Hash: a8bde5f46ce58651ce3e
+5 unchanged chunks
+chunk {styles} styles.js, styles.js.map (styles) 9.92 kB [initial] [rendered]
+Time: 123ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+   .visually-hidden;
+                  ^
+      Expected "{".
+     ╷
+1650 │    .visually-hidden;
+     │                    ^
+     ╵
+  stdin 1650:20  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 1650, column 20)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:58:54.625Z - Hash: a8bde5f46ce58651ce3e
+6 unchanged chunks
+
+Time: 129ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+   .visually-hidden;
+                  ^
+      Expected "{".
+     ╷
+1650 │    .visually-hidden;
+     │                    ^
+     ╵
+  stdin 1650:20  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 1650, column 20)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:59:00.069Z - Hash: a8bde5f46ce58651ce3e
+6 unchanged chunks
+
+Time: 179ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+   .visually-hidden;
+                  ^
+      Expected "{".
+     ╷
+1650 │    .visually-hidden;
+     │                    ^
+     ╵
+  stdin 1650:20  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 1650, column 20)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:59:05.710Z - Hash: a8bde5f46ce58651ce3e
+6 unchanged chunks
+
+Time: 116ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+   .visually-hidden;
+                  ^
+      Expected "{".
+     ╷
+1650 │    .visually-hidden;
+     │                    ^
+     ╵
+  stdin 1650:20  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 1650, column 20)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:59:07.209Z - Hash: a8bde5f46ce58651ce3e
+6 unchanged chunks
+
+Time: 326ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+   .visually-hidden;
+                  ^
+      Expected "{".
+     ╷
+1650 │    .visually-hidden;
+     │                    ^
+     ╵
+  stdin 1650:20  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 1650, column 20)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:59:39.765Z - Hash: 5d4e77d5d7ef35643ecd
+5 unchanged chunks
+chunk {styles} styles.js, styles.js.map (styles) 9.88 kB [initial] [rendered]
+Time: 376ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+     .btn;
+        ^
+      Expected "{".
+     ╷
+3518 │      .btn;
+     │          ^
+     ╵
+  stdin 3518:10  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 3518, column 10)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:59:40.643Z - Hash: 5d4e77d5d7ef35643ecd
+6 unchanged chunks
+
+Time: 188ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+     .btn;
+        ^
+      Expected "{".
+     ╷
+3518 │      .btn;
+     │          ^
+     ╵
+  stdin 3518:10  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 3518, column 10)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T09:59:57.563Z - Hash: 9aec02e08d070f33a284
+5 unchanged chunks
+chunk {styles} styles.js, styles.js.map (styles) 9.97 kB [initial] [rendered]
+Time: 231ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/sass-loader/lib/loader.js):
+
+     .product-form__cart-submit;
+                              ^
+      Expected "{".
+     ╷
+3519 │      .product-form__cart-submit;
+     │                                ^
+     ╵
+  stdin 3519:32  root stylesheet
+      in /Users/grant/Desktop/Clothesabyss-app/src/styles.scss (line 3519, column 32)
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T10:00:19.247Z - Hash: 596dbbe503b0ee6142fc
+5 unchanged chunks
+chunk {styles} styles.js, styles.js.map (styles) 10.1 kB [initial] [rendered]
+Time: 3504ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/postcss-loader/src/index.js):
+SyntaxError
+
+(3371:9) Unknown word
+
+  3369 | 
+  3370 | .password-logo {
+> 3371 |   .logo {.
+       |         ^
+  3372 |     color: $color-navigation-text;
+  3373 |     font-weight: $font-weight-header--bold;
+
+ℹ ｢wdm｣: Failed to compile.
+ℹ ｢wdm｣: Compiling...
+
+Date: 2020-01-13T10:00:21.738Z - Hash: 596dbbe503b0ee6142fc
+6 unchanged chunks
+
+Time: 2153ms
+
+ERROR in ./src/styles.scss (./node_modules/@angular-devkit/build-angular/src/angular-cli-files/plugins/raw-css-loader.js!./node_modules/postcss-loader/src??embedded!./node_modules/sass-loader/lib/loader.js??ref--15-3!./src/styles.scss)
+Module build failed (from ./node_modules/postcss-loader/src/index.js):
+SyntaxError
+
+(3371:9) Unknown word
+
+  3369 | 
+  3370 | .password-logo {
+> 3371 |   .logo {.
+       |         ^
+  3372 |     color: $color-navigation-text;
+  3373 |     font-weight: $font-weight-header--bold;
+
+ℹ ｢wdm｣: Failed to compile.
+

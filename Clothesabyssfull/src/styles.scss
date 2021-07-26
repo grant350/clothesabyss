@@ -1,0 +1,132 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+body,html{
+  width:100%;
+   height:auto;
+   margin:0px;
+    padding:0px;
+  }
+
+
+
+.hauto{height:auto;}
+.maxw{width:100%;}
+/**************VARIABLES*****************/
+.ct-btn {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+
+a{    margin: 20px;
+   min-width: 190px !important;
+    font-size: 20px !important;
+    width: auto;
+    padding: 5px;
+  }
+
+}
+
+.btn:not([disabled]):hover{
+    background-color: #009386 !important;
+}
+
+ul,ol{
+     margin: 0;
+     padding: 0;
+     display: -webkit-flex;
+    display: -ms-flexbox;
+     display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+     display: -webkit-flex;
+     display: flex;
+     display: -webkit-flex;
+    display: -ms-flexbox;
+     display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+     display: -webkit-flex;
+    display: flex;
+    width: 100%;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+}
+
+
+p{margin: 0 0 20px;}
+.btn{
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    width: auto;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #1a6392;
+    border: 1px solid transparent;
+    padding: 8px 15px;
+    color: #fff !important;
+    font-family: "Original Surfer";
+    font-style: normal;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: normal;
+    min-width: 150px;
+    font-size: 12px;
+
+
+}
+
+
+
+.hero__btn{
+
+    width: 100px;
+    padding: 0px;
+    box-sizing: content-box;
+    height: 32px;
+    margin: 20px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    -webkit-align-content: center;
+    -ms-align-content: center;
+    align-content: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    margin: 20px;
+
+
+
+}
+p, a, span {
+    font-family: "Original Surfer";
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

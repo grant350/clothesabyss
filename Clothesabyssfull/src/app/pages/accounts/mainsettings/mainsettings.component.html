@@ -1,0 +1,103 @@
+<form class="mainroute-ct" [formGroup]="userformdata" >
+
+  <div class="row-ct" >
+<div style="width:80%;">
+    <label>Identity:</label>
+    <span class="result">{{userdata.firstname}} {{userdata.lastname}}</span>
+</div>
+    <button mat-button style="background:white"  (click)="dropdown('name')" *ngIf="obj.name !== null" >Edit
+    </button>
+    <div class="hidden-ct" *ngIf="obj.name === null" >
+      <div class="ct" *ngIf=" resets.firstname >=1 && resets.lastname >=1">
+      <div class="ct-field"><label>new first:</label><input pattern="^.{2,}[a-zA-Z]+$"  formControlName="firstname" required value="" matInput></div>
+      <div class="ct-field"> <label>new last:</label><input pattern="^.{2,}[a-zA-Z]+$"  formControlName="lastname" required value="" matInput></div>
+
+      <div class="note">
+        <p>Please Note: if you change your name once</p>
+      </div>
+    </div>
+<div class="note error" *ngIf=" resets.firstname <1 && resets.lastname <1">
+  <p>you may no longer change your name please wait a year or give us a call</p>
+</div>
+      <button mat-button style="background:white" (click)="cancel('name')">cancel
+      </button>
+      <button (click)="save(userformdata,['firstname','lastname'])" mat-button style="background:white">Save</button>
+
+    </div>
+  </div>
+<!-- //problem with angular routerchild getting data from testaccountspage
+//https://stackoverflow.com/questions/49039975/sibling-components-with-router-outlet -->
+  <div class="row-ct" >
+    <div style="width:80%;">
+      <label>username:</label>
+    <span class="result">{{userdata.username}}</span>
+</div>
+    <button mat-button style="background:white"  (click)="dropdown('username')" *ngIf="obj.username !== null" >Edit
+    </button>
+    <div class="hidden-ct" *ngIf="obj.username === null && resets.username >=1" #username>
+      <div class="ct" *ngIf=" resets.username >=1">
+
+      <div class="ct-field"><label>new username:</label><input formControlName="username" pattern="^.*[0-9]+.*[0-9]+.*[0-9]+[a-zA-Z0-9]+|.*[0-9]+.*[0-9]+.*[0-9]+$" matInput ></div>
+      <div class="note">
+        <p>Please Note: you can change your username once!</p>
+      </div>
+      </div>
+      <div class="note error" *ngIf=" resets.username <1">
+        <p>you may no longer change your username please wait a year or give us a call</p>
+      </div>
+      <button mat-button style="background:white" (click)="cancel('username')">cancel
+      </button>
+      <button mat-button style="background:white" (click)="save(userformdata,['username'])">Save</button>
+
+    </div>
+  </div>
+
+
+
+  <div class="row-ct" >
+    <div style="width:80%;"><label></label><span class="result">change your password?</span></div>
+
+    <button mat-button style="background:white"  (click)="dropdown('password')" *ngIf="obj.password !== null" >Edit
+    </button>
+    <div class="hidden-ct" *ngIf="obj.password === null && resets.password >=1" #password>
+      <div class="ct" *ngIf=" resets.password >=1">
+
+      <div class="note">
+        <p>Please Note: your code will be deliverd to your email connected to the associated account. </p>
+      </div>
+      </div>
+      <div class="note error" *ngIf=" resets.password <1">
+        <p>you may no longer change your password please wait a year or give us a call</p>
+      </div>
+      <button mat-button style="background:white" (click)="cancel('password')">cancel
+      </button>
+      <button mat-button style="background:white" (click)="sendemailCode(userformdata)">Send Code</button>
+    </div>
+
+    </div>
+
+  <div class="row-ct" >
+  <div style="width:80%;">  <label>Email:</label>
+    <span class="result">{{userdata.email}}</span>
+</div>
+    <button mat-button style="background:white"  (click)="dropdown('email')" *ngIf="obj.email !== null" >Edit
+    </button>
+    <div class="hidden-ct" *ngIf="obj.email === null && resets.email >=1" #email>
+      <div class="ct" *ngIf=" resets.email >=1">
+
+      <div class="ct-field"><label>new email:</label><input formControlName="email" matInput pattern="^.[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.{3,}[a-zA-Z0-9-]+$"></div>
+      <div class="note">
+        <p>Please Note: your code will be deliverd to your email connected to the associated account. </p>
+      </div>
+</div>
+<div class="note error" *ngIf=" resets.email <1">
+  <p>you may no longer change your email please wait a year or give us a call</p>
+</div>
+      <button mat-button style="background:white" (click)="cancel('email')">cancel
+      </button>
+      <button mat-button (click)="sendemailCode(userformdata)" style="background:white">send code to Email!</button>
+
+    </div>
+  </div>
+
+</form>

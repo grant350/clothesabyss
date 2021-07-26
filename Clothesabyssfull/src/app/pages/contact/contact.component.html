@@ -1,0 +1,25 @@
+<div class="contact-ct" style="min-height: 650px;">
+
+
+<div class="center">
+<form class="formct" style="min-width:450px; ">
+
+<div class="ct-inputs" *ngFor="let obj of formitems; let i = index">
+<label>{{obj}}</label>
+<input type="text" class="{{obj}}" required ngModel #variable="ngModel" (change)="eom(variable)" id="{{i}}" name="{{obj}}" placeholder="please enter your {{obj}} " value="">
+<div class="alertbox alert-danger alert" *ngIf=" variable.touched && variable.valid">error</div>
+</div>
+
+
+<div class="right-pos">
+<button type="submit" class="submit-btn btn" style="width:240px; height:35px; position:relative; right:60px; margin-top:30px; border:1px solid black; border-radius:6px;">
+Submit
+</button>
+</div>
+
+</form>
+</div>
+
+
+
+  </div>

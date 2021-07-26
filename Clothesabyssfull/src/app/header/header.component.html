@@ -1,0 +1,280 @@
+<header class="header-ct">
+
+  <div class="site_nav-ct">
+
+    <div class="logo-image">
+      <a routerLink="/">
+      <img src="assets/icons/blue_logo.png">
+    </a>
+    </div>
+
+
+    <nav class=" navbar " id="bignav" role="navigation">
+      <ul class="site-nav " id="SiteNav">
+
+        <li>
+          <a routerLink="/" routerLinkActive="underline_is-active" [routerLinkActiveOptions]="{exact:
+true}" class="site-nav__link site-nav__link--main ">
+            <span class="site-nav__label">Home</span>
+          </a>
+        </li>
+
+        <li  class="dropdown-ct " #dropdownct>
+
+          <button class=" drpdwn-ct-btn site-nav__link--main site-nav__link--button"  (click)="DesktopDrpDwm()" #dropdownbtn>
+            <span class="site-nav__label">Apparel</span>
+            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 498.98 284.49">
+              <defs></defs>
+              <path class="cls-1" d="M80.93 271.76A35 35 0 0 1 140.68 247l189.74 189.75L520.16 247a35 35 0 1 1 49.5 49.5L355.17 511a35 35 0 0 1-49.5 0L91.18 296.5a34.89 34.89 0 0 1-10.25-24.74z" transform="translate(-80.93 -236.76)"></path>
+            </svg>
+          </button>
+
+
+            <ul class="submenu"  #submenu>
+              <li >
+                <!-- fix router link -->
+                <a href="#" routerLink="/pages/mens-clothes" class="site-nav__link site-nav__child-link">
+                  <span class="site-nav__label">Mens Clothing</span>
+                </a>
+              </li>
+
+              <li >
+                <a href="#" routerLink="/pages/womens-clothes" class="site-nav__link site-nav__child-link">
+                  <span class="site-nav__label">Womens Clothing</span>
+                </a>
+              </li>
+
+              <li >
+                <a href="#" routerLink="/pages/boards" class="site-nav__link site-nav__child-link">
+                  <span class="site-nav__label">boards</span>
+                </a>
+              </li>
+
+              <li >
+                <a href="#" routerLink="/pages/accessories" class="site-nav__link site-nav__child-link">
+                  <span class="site-nav__label">Accessories</span>
+                </a>
+              </li>
+
+              <li >
+                <a href="#" routerLink="/pages/apparel" class="site-nav__link site-nav__child-link site-nav__link--last">
+                  <span class="site-nav__label">All products</span>
+                </a>
+              </li>
+
+            </ul>
+
+        </li>
+
+
+
+
+
+
+        <li>
+          <a  href="#" routerLink="/pages/about" routerLinkActive="underline_is-active" [routerLinkActiveOptions]="{exact:
+true}" class="site-nav__link site-nav__link--main">
+            <span #superclass class="site-nav__label" className="">About</span>
+          </a>
+        </li>
+
+        <li>
+          <a  href="#" routerLink="/pages/contact" routerLinkActive="underline_is-active" [routerLinkActiveOptions]="{exact:
+true}" class="site-nav__link site-nav__link--main">
+            <span #superclass class="site-nav__label" className="">Contact Us</span>
+          </a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+
+    <div class="icons-ct">
+
+
+      <button style="margin:0px 20px;" *ngIf="auth" (click)="logout()">LOGOUT</button>
+
+      <button type="button" class="">
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-search" viewBox="0 0 37 40">
+          <path
+            d="M35.6 36l-9.8-9.8c4.1-5.4 3.6-13.2-1.3-18.1-5.4-5.4-14.2-5.4-19.7 0-5.4 5.4-5.4 14.2 0 19.7 2.6 2.6 6.1 4.1 9.8 4.1 3 0 5.9-1 8.3-2.8l9.8 9.8c.4.4.9.6 1.4.6s1-.2 1.4-.6c.9-.9.9-2.1.1-2.9zm-20.9-8.2c-2.6 0-5.1-1-7-2.9-3.9-3.9-3.9-10.1 0-14C9.6 9 12.2 8 14.7 8s5.1 1 7 2.9c3.9 3.9 3.9 10.1 0 14-1.9 1.9-4.4 2.9-7 2.9z">
+          </path>
+        </svg>
+      </button>
+
+
+<div class="loginoutbtn">
+      <a *ngIf="!auth" routerLink="/pages/login" class="site-header__account login-i">
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-login" viewBox="0 0 28.33 37.68">
+          <path
+            d="M14.17 14.9a7.45 7.45 0 1 0-7.5-7.45 7.46 7.46 0 0 0 7.5 7.45zm0-10.91a3.45 3.45 0 1 1-3.5 3.46A3.46 3.46 0 0 1 14.17 4zM14.17 16.47A14.18 14.18 0 0 0 0 30.68c0 1.41.66 4 5.11 5.66a27.17 27.17 0 0 0 9.06 1.34c6.54 0 14.17-1.84 14.17-7a14.18 14.18 0 0 0-14.17-14.21zm0 17.21c-6.3 0-10.17-1.77-10.17-3a10.17 10.17 0 1 1 20.33 0c.01 1.23-3.86 3-10.16 3z">
+          </path>
+        </svg>
+      </a>
+</div>
+      <a href="#" routerLink="/pages/cartpage" class="site-header__cart">
+        <div class="items" *ngIf="ItemsCount > 0">
+{{ItemsCount}}
+        </div>
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-cart" viewBox="0 0 37 40">
+          <path
+            d="M36.5 34.8L33.3 8h-5.9C26.7 3.9 23 .8 18.5.8S10.3 3.9 9.6 8H3.7L.5 34.8c-.2 1.5.4 2.4.9 3 .5.5 1.4 1.2 3.1 1.2h28c1.3 0 2.4-.4 3.1-1.3.7-.7 1-1.8.9-2.9zm-18-30c2.2 0 4.1 1.4 4.7 3.2h-9.5c.7-1.9 2.6-3.2 4.8-3.2zM4.5 35l2.8-23h2.2v3c0 1.1.9 2 2 2s2-.9 2-2v-3h10v3c0 1.1.9 2 2 2s2-.9 2-2v-3h2.2l2.8 23h-28z">
+          </path>
+        </svg>
+
+      </a>
+
+      <a *ngIf="auth" routerLink='/pages/testaccountspage' class="icon" >
+      <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24"><g><path d="M0,0h24v24H0V0z" fill="none"/><path fill="white" d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></g></svg>
+      </a>
+      <a *ngIf="authAdmin" href="#" routerLink='/adminconsole/AUTHPAGES/console' class="icon" >
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+          <path d="M0 0h24v24H0z" fill="transparent"/>
+          <path fill="white" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-5h2v5zm4 0h-2v-3h2v3zm0-5h-2v-2h2v2zm4 5h-2V7h2v10z"/>
+        </svg>
+
+      </a>
+
+
+
+      <button (click)="MobileNav()" type="button" style="display:none;" class="site-header__ham js-mobile-nav-toggle MobileNavOpen " #mobilenavHam>
+
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-hamburger" viewBox="0 0 37 40" #iconopen>
+          <path d="M33.5 25h-30c-1.1 0-2-.9-2-2s.9-2 2-2h30c1.1 0 2 .9 2 2s-.9 2-2 2zm0-11.5h-30c-1.1 0-2-.9-2-2s.9-2 2-2h30c1.1 0 2 .9 2 2s-.9 2-2 2zm0 23h-30c-1.1 0-2-.9-2-2s.9-2 2-2h30c1.1 0 2 .9 2 2s-.9 2-2 2z"></path>
+        </svg>
+
+        <svg class="icon-x" style="height: 100%; width: 100%; display:none;" aria-hidden="true" focusable="false" role="presentation" class="icon " viewBox="0 0 40 40" #iconclose>
+          <path
+            d="M23.868 20.015L39.117 4.78c1.11-1.108 1.11-2.77 0-3.877-1.109-1.108-2.773-1.108-3.882 0L19.986 16.137 4.737.904C3.628-.204 1.965-.204.856.904c-1.11 1.108-1.11 2.77 0 3.877l15.249 15.234L.855 35.248c-1.108 1.108-1.108 2.77 0 3.877.555.554 1.248.831 1.942.831s1.386-.277 1.94-.83l15.25-15.234 15.248 15.233c.555.554 1.248.831 1.941.831s1.387-.277 1.941-.83c1.11-1.109 1.11-2.77 0-3.878L23.868 20.015z"
+            class="layer"></path>
+        </svg>
+
+      </button>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  <div class="hauto maxw banner-ct ">
+    <div class="banner_dis">
+
+      <p>Get 15% off for purchases over $50 </p>
+      <a routerLink="/pages/apparel">SHOP NOW</a>
+
+    </div>
+  </div>
+
+  <nav class="mobile-nav-wrapper" style=" display: none;" #mobileNavWrapper>
+    <ul class="mobile-nav">
+
+      <li class="mobile-nav__item border-bottom border-bottom">
+
+        <a routerLink="/" class="mobile-nav__link mobile-nav__link--active">
+          <span class="mobile-nav__label">Home</span>
+        </a>
+
+      </li>
+
+      <li class="mobile-nav__item border-bottom border-bottom">
+
+        <button type="button" class="btn--link js-toggle-submenu mobile-nav__link" (click)="ToggleSubMenu($event)" #jsToggleSubmenu>
+          <span class="mobile-nav__label">Apparel</span>
+          <div class="mobile-nav__icon">
+            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-right" viewBox="0 0 7 11">
+              <path d="M1.5 11A1.5 1.5 0 0 1 .44 8.44L3.38 5.5.44 2.56A1.5 1.5 0 0 1 2.56.44l4 4a1.5 1.5 0 0 1 0 2.12l-4 4A1.5 1.5 0 0 1 1.5 11z" fill="#fff"></path>
+            </svg>
+          </div>
+        </button>
+
+        <ul class="mobile-nav__dropdown" data-parent="apparel-2" data-level="2" #mobileNavDropdown>
+          <li class="mobile-nav__item border-bottom">
+            <div class="mobile-nav__table">
+              <div class="mobile-nav__table-cell mobile-nav__return">
+                <button class="btn--link js-toggle-submenu mobile-nav__return-btn"  (click)="ToggleSubMenu($event)" type="button" #jsToggleSubmenu>
+                  <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-left" viewBox="0 0 7 11">
+                    <path d="M5.5.037a1.5 1.5 0 0 1 1.06 2.56l-2.94 2.94 2.94 2.94a1.5 1.5 0 0 1-2.12 2.12l-4-4a1.5 1.5 0 0 1 0-2.12l4-4A1.5 1.5 0 0 1 5.5.037z" fill="#fff" class="layer"></path>
+                  </svg>
+                </button>
+              </div>
+              <span class="mobile-nav__sublist-link mobile-nav__sublist-header mobile-nav__sublist-header--main-nav-parent">
+                <span class="mobile-nav__label">Apparel</span>
+              </span>
+            </div>
+          </li>
+
+
+          <li class="border-bottom mobile-nav__item border-bottom border-bottom">
+
+
+            <a routerLink="/pages/mens-clothes" class="mobile-nav__sublist-link">
+              <span class="mobile-nav__label">Mens Clothing</span>
+            </a>
+
+          </li>
+
+          <li class="border-bottom mobile-nav__item border-bottom border-bottom">
+
+            <a routerLink="/pages/womens-clothes" class="mobile-nav__sublist-link">
+              <span class="mobile-nav__label">Womens Clothing</span>
+            </a>
+
+          </li>
+
+          <li class="border-bottom mobile-nav__item border-bottom border-bottom">
+
+
+            <a routerLink="/pages/accessories" class="mobile-nav__sublist-link">
+              <span class="mobile-nav__label">Accessories</span>
+            </a>
+
+          </li>
+
+          <li class="border-bottom mobile-nav__item border-bottom">
+
+
+            <a routerLink="/pages/apparel" class="mobile-nav__sublist-link">
+              <span class="mobile-nav__label">All products</span>
+            </a>
+
+          </li>
+
+
+        </ul>
+
+      </li>
+
+      <li class="mobile-nav__item border-bottom border-bottom">
+
+        <a routerLink="/pages/about" class="mobile-nav__link">
+          <span class="mobile-nav__label">About</span>
+        </a>
+
+      </li>
+
+      <li class="mobile-nav__item border-bottom">
+
+        <a routerLink="/pages/contact" class="mobile-nav__link">
+          <span class="mobile-nav__label">Contact Us</span>
+        </a>
+
+      </li>
+
+
+
+
+      <li *ngIf="!auth" routerLink="/pages/login" class="log-out mobile-nav__item border-bottom" style="border-bottom:1px solid-white;">
+        <a routerLink="/account/login" class="mobile-nav__link">Login</a>
+      </li>
+
+
+
+    </ul>
+  </nav>
+
+
+</header>

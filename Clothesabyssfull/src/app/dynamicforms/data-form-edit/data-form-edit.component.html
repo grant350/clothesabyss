@@ -1,0 +1,36 @@
+<body>
+
+  <div class="table">
+
+    <div class="row" *ngFor="let item of dataArray; let index=index">
+
+      <div class="col" >
+        <!-- {{product['VARIENTS'][0]['VARIENTINFO']['MAINIMAGE']['path']}} -->
+
+      </div>
+      <div class="col">
+
+      </div>
+
+      <div class="col">
+        <div class="btnct">
+          <div class="button-aligner">
+            <button   (click)="DELETE(item['ID'])" style="background:#c33c3cbf" mat-button >DELETE</button>
+
+            <button  (click)="EDIT(item['ID'])" style="background:#2aff4ebf;" mat-button >EDIT</button>
+            </div>
+
+          <div class="half productinfo">
+            <span style="display:block; width:100%;">PRODUCTID: {{item["ID"]}}</span>
+            <span style="display:block; width:100%;">Name: {{item["ID"]}}</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</body>

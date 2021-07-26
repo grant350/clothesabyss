@@ -1,0 +1,73 @@
+<div class="array-ct"  *ngIf="!auth && !control.get(data.name).disabled " [ngStyle]="data.style" >
+<div class="ct" [ngClass]="{
+  'ng-valid-main': control.get(data.name).status === 'VALID',
+  'ng-pending-main': control.get(data.name).status === 'PENDING',
+ 'ng-invalid-main': control.get(data.name).status === 'INVALID'
+}" [formGroup]="control">
+
+{{control.get(data.name).status}}
+    <mat-accordion  >
+      <mat-expansion-panel  [ngStyle]="data.substyle" class="mat-expansion-panel" hideToggle>
+        <mat-expansion-panel-header (click)="arrow(0)">
+          <mat-panel-title>
+            {{data.ClientName + arrayofControls.length}}
+            <div *ngIf="!array[0]"  style="position:absolute; right:20px;">
+              <img style="width:30px; height:30px; " src="../../../assets/icons/downarrow.svg" >
+            </div>
+            <div *ngIf="array[0]" style="position:absolute; right:20px;">
+              <img style="transition: 1s 4s; transform:rotate(180deg);  width:30px; height:30px;" src="../../../assets/icons/downarrow.svg">
+            </div>
+          </mat-panel-title>
+
+        </mat-expansion-panel-header>
+
+<div class="select"  [formGroup]="cont"  *ngFor="let cont of arrayofControls; let index=index; " >
+  {{index}}
+<mat-card class="card-ct section-suboption">
+<div class="group" *ngFor="let field of data.groupFields; let zi=index;">
+  {{zi}}
+  {{stringcontrol[field.name]}}
+  <app-singlecontrol style="
+  width: 100%;
+  display: block;
+  border:none!important;
+  "
+  [errorsfile]="errorsfile"
+  [control]="cont" [data]="field"
+    >
+  </app-singlecontrol>
+
+<!--
+  style="
+        width: 100%;
+        display: block;
+        border:none!important;
+        " [errorsfile]="errorsfile"
+        [singlecontrolenable]="singlecontrolenable"
+         [control]="arrayitem" [data]="data['controls'][i].groupFields[ci]" -->
+
+</div>
+
+
+<div class="button-aligner">
+
+  <button *ngIf=" arrayofControls.length !== 1"  (click)="DeleteGroup(index)" style="background:#c33c3cbf" mat-button >Remove Button</button>
+
+  <button *ngIf="arrayofControls.length >=0 " (click)="AddGroup()" style="background:#2aff4ebf;" mat-button >Add Button</button>
+  </div>
+  </mat-card>
+</div>
+
+</mat-expansion-panel>
+</mat-accordion>
+
+
+
+
+
+
+
+</div>
+
+
+</div>

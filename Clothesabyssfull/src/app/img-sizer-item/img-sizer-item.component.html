@@ -1,0 +1,16 @@
+<div  class="image-container" [ngStyle]="stylesbind()" >
+
+  <div [ngClass]="getImgClass()" id="imageChg"  >
+
+    <div class="hero_inner" style="text-align:center; color:white;"  *ngIf="banner ">
+      <p class="hero_inner-para">Surf the wave of life with the clothes you wear!
+</p>
+    </div>
+
+    <div class="ct-btn" *ngIf="box == true" >
+        <a  routerLink="/pages/{{page}}" class="btn hero__btn hero__btn">{{ text }}</a>
+    </div>
+
+  </div>
+
+</div>

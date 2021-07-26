@@ -1,0 +1,5 @@
+<mat-select formControlName="{{data.name}}">
+  <mat-option *ngFor="let item of data.groupFields" [value]="item.name" >
+    {{item.name}}
+  </mat-option>
+</mat-select>

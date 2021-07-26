@@ -1,0 +1,165 @@
+{
+  "images": [
+    {
+
+      "icons": [],
+      "bigimages": [],
+      "other": [],
+
+    "catagories": {
+      "women": [{
+          "image": [
+            "/catagoryimages/womens/womens-shorts.jpg",
+            "/catagoryimages/cancel.png",
+            "/catagoryimages/cancel.png",
+            "/catagoryimages/cancel.png",
+            "/catagoryimages/cancel.png",
+            "/catagoryimages/cancel.png",
+            "/catagoryimages/cancel.png"
+          ]
+        },
+
+        {
+          "text": [
+            "womens shorts",
+            "empty",
+            "empty",
+            "empty",
+            "empty",
+            "empty",
+            "empty"
+          ]
+        },
+        {
+          "collection": [
+            "womens-shorts",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        }
+      ],
+
+
+
+
+      "men": [{
+          "image": [
+            "/catagoryimages/cancel.png",
+            "/catagoryimages/cancel.png",
+            "/catagoryimages/cancel.png",
+            "/catagoryimages/cancel.png",
+            "/catagoryimages/cancel.png",
+            "/catagoryimages/cancel.png",
+            "/catagoryimages/cancel.png"
+          ]
+        },
+        {
+          "text": [
+            "mens shorts",
+            "empty",
+            "empty",
+            "empty",
+            "empty",
+            "empty",
+            "empty"
+          ]
+        },
+        {
+          "collection": [
+            "mens-shorts",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        }
+      ],
+
+
+      "boards": [{
+          "image": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "text": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "collection": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        }
+      ],
+
+
+      "accessories": [{
+          "image": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "text": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        }
+      ]
+
+
+
+    }
+  }
+],
+"settings":{
+  "MainCurrency":[{"USD":1},{"Mrate":1}],
+  "CurrencyAccepted":[
+{"Bitcoin": {"ratio":0.00008518, "symbol":"฿"} },
+{"CAD":{"ratio":1.32 , "symbol":"CA$"} },
+{"EUR":{"ratio":0.85 , "symbol":"€"} },
+{"SID":{"ratio":0.85}, "symbol":"S$"} }
+
+],
+"programs":[],
+"background-settings":{},
+"EXTRAINFO":{}
+}
+
+
+}

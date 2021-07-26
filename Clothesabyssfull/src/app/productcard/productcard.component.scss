@@ -1,0 +1,149 @@
+
+  @import '../../flickity.scss';
+
+  // using css grid instead. then mat pagination
+  @mixin large {
+    @media only screen and (max-width: 1000px) {
+      @content;
+   }
+  }
+  @mixin medium {
+    @media only screen and (max-width: 750px) {
+      @content;
+   }
+  }
+  @mixin small {
+    @media only screen and (max-width: 400px) {
+      @content;
+   }
+  }
+
+
+  .product-card-ct{
+    position: relative;
+    margin: 0px;
+}
+
+.grid-view-item__image-container {
+    text-align: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+.trap-image-grid {
+     width: 100%;
+      height: 240px;
+      box-sizing: border-box;
+      display: flex;
+      /* flex-wrap: wrap; */
+      -moz-align-items: center;
+      -ms-align-items: center;
+      -o-align-items: center;
+      align-items: center;
+      max-height: 70%;
+      min-width: -webkit-fill-available;
+      min-height: 60%;
+
+     img {
+    max-height: 80%;
+    max-width: 80%;
+    margin: auto auto;
+
+}
+
+}
+.product-card__title {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid transparent;
+}
+.grid-view-item__title {
+    margin-bottom: 0;
+    color: black;
+    text-align: center;
+}
+.price, .price__regular {
+    width: 100%;
+    text-align: center;
+}
+
+.price {
+    width: 100%;
+    color: black;
+    height: auto;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 13px;
+}
+
+.price__regular {
+    color: black;
+    width: 100%;
+    text-align: center;
+    width: 100%;
+}
+.price--on-sale .price-item--regular{
+    text-decoration: line-through;
+
+
+}
+.price-item {
+    font-weight: 400;
+        font-size: 18px;
+
+}
+span{ font-family: "Original Surfer";}
+.price--on-sale .price__sale {
+    display: block;
+}
+
+.price__sale {
+    color: red;
+    display: none;
+    width: 100%;
+    text-align: left;
+}
+
+.productcard-ct{
+
+    width: 100%;
+    height: 100%;
+    img{
+       width: 100%;
+}
+@include small{
+padding-bottom: 100%;
+
+
+}
+@include medium{
+padding-bottom: 100%;
+
+
+}
+@include large{
+padding-bottom: 100%;
+
+
+}
+
+}

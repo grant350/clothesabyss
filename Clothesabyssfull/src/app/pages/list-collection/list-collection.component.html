@@ -1,0 +1,14 @@
+<ul class="black-b special-grid grid grid--uniform">
+  <li class="grid__item " *ngFor="let item of arrayCat; let i=index">
+    <div class="collection-grid-item">
+      <a class="collection-grid-item__link" [routerLink]="['/pages/collection-page', arrayCollection[i] ]">
+        <div class="collection-grid-item__overlay box ratio-container js lazyloaded" [ngStyle]="{ 'background-image': 'url(' + arrayCat[i] + ')'}">
+          <div class="col-title">
+            <p class="col-title-p">{{ arrayText[i] }}
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </li>
+</ul>

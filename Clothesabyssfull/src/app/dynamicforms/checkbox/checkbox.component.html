@@ -1,0 +1,38 @@
+<div *ngIf="data && !auth" class="checkbox-form-com ng-invalid " [ngClass]="{'ng-valid': control.status === 'VALID'}"  [formGroup]="control">
+<label class="checkbox-label">{{data.ClientName}}</label>
+<mat-radio-group>
+  <div *ngFor="let con of arraykeys; let i = index">
+  <mat-checkbox style="border:none!important;" formControlName="{{con}}"
+        name="{{data.name}}"  color="primary"   [value]="control.get(con).value" (change)="box(i)"   >{{con}}</mat-checkbox>
+  </div>
+
+</mat-radio-group>
+</div>
+
+
+
+<!--
+
+
+<div *ngIf="data"  >
+         <div *ngFor="let opt of fields" class="form-check form-check">
+         <label class="form-check-label">
+            <input name="{{opt.name}}" [formControl]="control" class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" />
+            {{opt.value}}</label>
+         </div>
+<div class="dwd"></div>
+     </div>
+
+
+     <div *ngIf="data" class="checkbox-form-com ng-invalid " [ngClass]="{'ng-valid': control.status === 'VALID'}"  [formGroup]="control">
+     <label class="checkbox-label">{{data.name}}</label>
+     <mat-radio-group>
+       <div *ngFor="let opt of data.groupFields; let i = index">
+       <mat-checkbox style="border:none!important;" [(ngModel)] = "data.name"
+             name="{{data.name}}"  color="primary"   (change)="box(i)" value="{{control.get(opt.name).value}}" [checked]="control.get(opt.name).value === true " >{{opt.name}}</mat-checkbox>
+       </div>
+
+     </mat-radio-group>
+     </div>
+
+    -->

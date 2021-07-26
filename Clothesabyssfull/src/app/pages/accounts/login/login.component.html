@@ -1,0 +1,36 @@
+<div class="contact-ct" style="min-height: 650px;">
+
+
+<div class="center">
+<form [formGroup]="logingroup" class="formct" style="min-width:450px; ">
+
+<div class="ct-inputs" >
+<label>Username:</label>
+<input formControlName="USERNAME" type="text" class="username" required   id="1" name="username" placeholder="please enter your username " value="">
+</div>
+
+<div class="ct-inputs" >
+<label>Password:</label>
+<input formControlName="PASSWORD" type="password" class="password" required    id="2" name="password" placeholder="please enter your password " value="">
+</div>
+
+<div class="ct-inputs" *ngIf="auth" >
+<label>code:</label>
+<input formControlName="CODE" type="password" class="CODE" required    id="2" name="password" placeholder="please enter your code " value="">
+</div>
+<div *ngIf="errormessage" class="errormes">
+{{errormessage}}
+
+</div>
+<div class="right-pos">
+<button type="submit" (click)="submit(logingroup)" class="submit-btn btn" style="width:240px; height:35px; position:relative; right:60px; margin-top:30px; border:1px solid black; border-radius:6px;">
+Submit
+</button>
+</div>
+<div class="links">
+  <a routerLink="/pages/emailauth" class="block-link">Forgot Password?</a>
+  <a routerLink="/pages/signup" class="block-link">Sign Up</a>
+</div>
+</form>
+</div>
+  </div>

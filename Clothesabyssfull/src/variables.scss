@@ -1,0 +1,151 @@
+$font1: 'Lato', sans-serif;
+$font2:  'Open Sans', sans-serif;
+$font3:  'Roboto', sans-serif;
+$font4:  'Lobster', cursive;
+$font4:  'Pacifico', cursive;
+$font5: 'Original Surfer';
+$main-font-color1: black;
+$main-font-color2: #fff;
+$footerFontSize: 14px;
+$footerFontSizeGrow: 17px;
+$footerFontSizeDesktop: 18px;
+$footerFont: $font5;
+$font-stack-header: $font5;
+$font-weight-header: 400;
+$font-stack-body: $font5;
+$font-size-base: 14px;
+$font-stack-cart-notification: cursive;
+$main-font-style1: $font5;
+$font-size-mobile-input: 16px;
+$headerBackground: #1a6392  ;
+$bannerBackground: #9c27b0;
+$faceimage1: url('/assets/images/doly.jpg ');
+$faceimage2: url('/assets/images/doly.jpg ');
+$header-bc2: #1a6392;
+$header-bc1: #0099ff;
+$mobilenav-hover-bc2: #009386!important;
+$btn-hover-bc2:#00bbb3!important;
+$btn-hover-bc: #009386!important;
+$btn-normal-bc:#007786;
+$gutter-site-mobile: 30px;
+$mainFooterColor:  #f4f4ed;
+// footer normal cell color
+$footerCellColor:  /*#D3D3D3*/#009386 !important;
+$footerCellColor2: /*#ffffff*/#009386 !important;
+$footerCellColor3: /*#A9A9A9!important*/#009386 !important;
+$headerBackgroundColor:#1a6392;
+$footerHoverCellColor:  #1a6392 !important;
+$footerHoverCellColor2: #1a6392  !important;
+$footerHoverCellColor3: #1a6392 !important;
+$return-button-width: 55px;
+$nav-button-padding: 15px;
+
+$footerTextColor: black;
+$color-body: white;
+$color-bg: white;
+$color-drawer-background: white;
+$color-bg-alt: white;
+$color-text: white;
+$color-text-shadow: white;
+$color-body-text: white;
+$color-sale-text: white;
+$color-small-button-text-border: white;
+$color-text-field: white;
+$color-text-field-text: white;
+$color-navigation-text: white;
+$color-btn-primary: white;
+$color-btn-primary-text: red;
+$color-text-focus: white;
+$color-overlay-text-focus: white;
+$color-btn-primary-focus: white;
+$color-btn-social-focus: white;
+$color-small-button-text-border-focus: white;
+$color-link: $color-body-text;
+$opacity-link-hover:white;
+$transition-link-hover: 0.1s cubic-bezier(0.44, 0.13, 0.48, 0.87);
+$color-overlay-title-text: white;
+$color-image-overlay: transparent;
+$opacity-image-overlay: 1;
+$hover-overlay-opacity: .8;
+$color-disabled: #f4f4f4;
+$color-disabled-border: #f4f4f4;
+$color-error: #d20000;
+$color-error-bg: #fff8f8;
+$color-success: #1F873D;
+$color-success-bg: #f8fff9;
+$color-form-text: #333;
+$color-border-form:black;
+$color-error-input-text: $color-error;
+$color-facebook: #3b5998;
+$color-twitter: #00aced;
+$color-pinterest: #cb2027;
+$color-border: black;
+$bannerDis-bc1: #5798c3;
+
+
+@mixin prefix($property, $value, $prefixes) {
+  @each $prefix in $prefixes {
+    @if $prefix == webkit {
+      -webkit-#{$property}: $value;
+    } @else if $prefix == moz {
+      -moz-#{$property}: $value;
+    } @else if $prefix == ms {
+      -ms-#{$property}: $value;
+    } @else if $prefix == o {
+      -o-#{$property}: $value;
+    } @else if $prefix == spec {
+      #{$property}: $value;
+    } @else  {
+      @warn 'Unrecognized prefix: #{$prefix}';
+    }
+  }
+}
+@mixin align-content($align: center) {
+  @include prefix(align-content, $align, webkit ms spec);
+}
+
+@mixin maxw-flexbox() {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;    /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Chrome */
+  display: flex;
+  width: 100%; // necessary for ie10
+}
+@mixin flex-box() {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;    /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Chrome */
+  display: flex;
+
+}
+@mixin flex-wrap($value: nowrap) {
+  @include prefix(flex-wrap, $value, webkit moz ms spec);
+}
+
+@mixin justify-content($justify: flex-start) {
+  @include prefix(justify-content, $justify, webkit ms spec);
+}
+
+@mixin flex-direction($value) {
+  @include prefix(flex-direction, $value, webkit moz ms spec);
+}
+
+@mixin align-items($value: stretch) {
+  $alt-value: $value;
+
+  @if $value == 'flex-start' {
+    $alt-value: start;
+  } @else if $value == 'flex-end' {
+    $alt-value: end;
+  }
+
+  // sass-lint:disable no-misspelled-properties
+  -ms-flex-align: $alt-value;
+  @include prefix(align-items, $value, webkit moz ms o spec);
+}

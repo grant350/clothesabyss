@@ -1,0 +1,96 @@
+.feature-row-ct {
+    height: auto !important;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    position: relative;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+}
+.fr-title-ct {
+    text-align: center;
+    width: 100%;
+    height: 100px;
+    position: relative;
+    font-size: 3vw;
+}
+.text-center {
+    text-align: center;
+}
+.fr-title-ct p {
+    width: 100%;
+    font-family: "Original Surfer";
+    text-align: center;
+}
+
+.feature-row-ct .image-side-ct {
+    width: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.feature-row-ct .text-side-ct {
+    width: 50%;
+    height: 90%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+}
+
+.box {
+    background: no-repeat;
+    background-color: #f7f7f7;
+    background-size: contain;
+}
+.feature-row-ct .text-side-ct .box {
+    width: 80%;
+    height: 80%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    background: none;
+}
+.feature-row-ct .text-side-ct span, .feature-row-ct .text-side-ct p {
+    font-family: "Original Surfer";
+    color: black;
+    font-size: 15px !important;
+}
+
+.fr-home {
+    background-image: url(//cdn.shopify.com/s/files/1/0182/1471/5476/t/1/assets/fr-home.jpg?57188);
+}
+.fr-home2 {
+    background-image: url(//cdn.shopify.com/s/files/1/0182/1471/5476/t/1/assets/fr-home2.jpg?57188);
+}

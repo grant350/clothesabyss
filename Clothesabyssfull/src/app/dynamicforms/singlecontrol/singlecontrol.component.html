@@ -1,0 +1,67 @@
+<div class="singlecontrol-ct"  *ngIf="!auth && control && singlecontrolenable" style="border:none;" (change)="runchange()">
+<p *ngIf="image">{{JSON.stringify(image)}}</p>
+<div  class="ct" [ngClass]="{
+  'ng-valid-main': status === 'VALID',
+  'ng-pending-main': status === 'PENDING',
+ 'ng-invalid-main': status === 'INVALID'
+}" [formGroup]="control">
+  <label class="fieldlabel" *ngIf="!data.hidename">
+    <span style="font-size:18px;" [ngStyle]="data.textStyle">{{data.ClientName}}</span>
+  </label>
+
+
+ <div *ngIf="data.subtypehtml === 'image'" class="image-ct">
+   <button class="image-ct-btn" (click)="filePickersingle.click()">Pick Image</button>
+
+  <input  style="display:none;" type="file" #filePickersingle (change)="onImagePicksinglecontrol($event,data.name,control.get(data.name))" name="{{data.name}}">
+
+  <div class="selectedimg-ct" *ngIf="image" style="max-height:200px; max-width:300px;">
+      <img src="{{image}}" accept="image/*" style="max-height:200px; max-width:300px;" class="selectedimg" >
+  </div>
+<!--
+  <canvas *ngIf="image" class="canvas-ct" id="canvasimg">
+
+  </canvas> -->
+  </div>
+
+<div *ngIf="data.subtypehtml === 'options'" class="image-ct">
+
+<app-options [auth]="auth" [ngStyle]="data.style" formControlName="{{data.name}}" [errorsfile]="errorsfile"  [data]="data"></app-options>
+ </div>
+
+  <input matInput class="input-singlefield" [ngStyle]="data.style"  *ngIf="data.subtypehtml === 'singlefield' || data.type === 'field' "  formControlName="{{data.name}}" value="{{control.get(data.name).value}}" >
+
+<div *ngIf="data.subtypehtml === 'date' || data.type === 'date' "  style="display:flex;" >
+  <input style="margin-right:20px;" matInput class="input-singlefield" [ngStyle]="data.style"  formControlName="{{data.name}}" value="{{dateval}}" >
+  <button class="image-ct-btn" (click)="autodate()"> AUTODATE</button>
+</div>
+
+  <textarea  class="textbox-content"  [ngStyle]="data.style" *ngIf="data.subtypehtml === 'textarea' || data.type === 'textarea' "  formControlName="{{data.name}}" value="{{control.get(data.name).value}}" >
+  </textarea>
+
+
+
+</div>
+<!-- {{errorsfile[(data.name.toLowerCase())]}} -->
+
+<!-- the whole file breaks if the errors file isnt here with the correct value
+prevent it from going into error -->
+
+  <!-- <p *ngIf="!errorsfile[(data.name.toLowerCase())]">NO ERROR FILE JSON </p> -->
+  <div  *ngIf="errorsfile">
+  <div class="container-errors"  *ngIf="errorsfile[data.name] && control.get(data.name).errors && control.get(data.name).touched ">
+
+    <label>{{errorsfile[(data.name)].message}}</label>
+
+  <ul class="list-errors-ct">
+    <li
+     *ngFor="let error of errorsfile[data.name].list">
+     {{error}}
+    </li>
+
+  </ul>
+
+</div>
+</div>
+
+</div>

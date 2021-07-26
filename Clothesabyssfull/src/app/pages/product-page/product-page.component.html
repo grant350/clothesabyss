@@ -1,0 +1,322 @@
+<div class="productpage-ct" (click)="onClick($event)" *ngIf="VARIENTLENGTH > 0" #fullpage>
+
+  <div class="modal-background" style="display:none;" #lightbox>
+<button (click)="exit()" style="position:absolute; right:10px; top:10px; width:30px; height:30px;">
+<svg _ngcontent-guk-c65="" aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 40 40" class="icon" style="height: 100%; width: 100%; display: block;"><path _ngcontent-guk-c65="" d="M23.868 20.015L39.117 4.78c1.11-1.108 1.11-2.77 0-3.877-1.109-1.108-2.773-1.108-3.882 0L19.986 16.137 4.737.904C3.628-.204 1.965-.204.856.904c-1.11 1.108-1.11 2.77 0 3.877l15.249 15.234L.855 35.248c-1.108 1.108-1.108 2.77 0 3.877.555.554 1.248.831 1.942.831s1.386-.277 1.94-.83l15.25-15.234 15.248 15.233c.555.554 1.248.831 1.941.831s1.387-.277 1.941-.83c1.11-1.109 1.11-2.77 0-3.878L23.868 20.015z" class="layer"></path></svg>
+</button>
+     <div class="gridmain" style="height:100%;">
+
+       <div class="left-ct height:100%; height:100%;">
+
+         <div class="header main grid-item" style="">
+           Added to your cart:</div>
+
+         <div class="column-img grid-item" style="display:flex; align-items:center; justify-content:center;"> <img src="https://ae01.alicdn.com/kf/Hccefda1536e44d9a9b75a35f9b493e43O/Soft-Silicone-Cases-For-Apple-Airpods-1-2-Protective-Bluetooth-Wireless-Earphone-Cover-For-Apple-Air.jpg" style="width:100px; height:100px;"> </div>
+         <ul class="column-des grid-item" style=" overflow:auto; display:flex; align-items:center; flex-wrap:wrap;  margin:0px; ">
+           <li style="display:block; width:100%;"><span class="title">{{ProductObj['TITLE']}}</span></li>
+
+           <div class="ct" style="width:100%;   display:block;" >
+             <!-- <span *ngFor="let valuesa of arrayOfKeys" >
+               {{valuesa}} : {{ProductObj['OPTIONS'][valuesa]}}
+             </span> -->
+
+           </div>
+
+           <li style="display:block; width:100%;"><span class="dollar">${{ProductObj['PRODUCTPRICE']}} USD</span></li>
+         </ul>
+
+       </div>
+
+          <div class="right-ct">
+                 <div class="header main grid-item">
+                   Subtotal: <span>${{ProductObj.subtotal}}</span></div>
+
+            <div class="column-img atag grid-item" style="text-align:center;   overflow-wrap: break-word;
+ ">
+              <p>Please review our <a href="#"> terms and conditions</a> before placeing your order.</p>
+            </div>
+
+         <div class="goto grid-item" style="display:flex; justify-content:space-evenly; height:auto; align-items:center;">
+           <button class="btns"><a routerLink="/pages/cartpage">Visit Cart ({{number}})</a></button>
+           <button class="btns">Checkout</button>
+           <button class="btns">Contiue Shopping</button>
+         </div>
+
+       </div>
+
+
+     </div>
+
+
+
+   </div>
+
+  <div style="color:black" class="left-pduct-item-container">
+    <div class="product-image-ct" *ngIf='onthumb'>
+      <img class="featured_image" src="{{onthumb}}" #featuredImage>
+
+
+    </div>
+    <ul class=" product-thumbnails ">
+      <li class=" product-thumbnails-li " *ngFor="let thumbnail of thumbnails">
+        <a class=" product-single__thumbnail ">
+          <img class="product-single__thumbnail-image " src="{{thumbnail.path}}" (click)="changeimg($event)">
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="right-pduct-item-container">
+    <h1 style="width:100%;" class="product-single__title">
+      {{ProductObj['TITLE']}}
+    </h1>
+    <div class="line-ct">
+      <div style="text-align:left" class="productprice-ct">
+        <span class="productprice">{{onspecProduct['VARIENTINFO']['PRODUCTPRICE']}}</span>
+          <span class="number" style="display:block; width:100%; font-size:14px;">Stock: {{onspecProduct['VARIENTINFO']['INVENTORY']}}</span>
+      </div>
+
+      <div class="star-ct">
+        <div class="stars">
+          <div class="starempty">
+          </div>
+          <div class="starempty">
+          </div>
+          <div class="starempty">
+          </div>
+          <div class="starempty">
+          </div>
+          <div class="starempty">
+          </div>
+        </div> <span>3 Reviews</span>
+      </div>
+    </div>
+
+
+
+    <div class="para-ct" style="margin-top:20px;" >
+      <p *ngFor="let para of ProductObj['PARAGRAPHS']">
+        {{para['PARAGRAPH']}}
+      </p>
+
+    </div>
+
+    <div class="share text-center">
+
+      <a target="_blank" class="share__link">
+        <span class="icon icon-facebook" aria-hidden="true">
+          <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
+            <path d="M17.525,9H14V7c0-1.032,0.084-1.682,1.563-1.682h1.868v-3.18C16.522,2.044,15.608,1.998,14.693,2 C11.98,2,10,3.657,10,6.699V9H7v4l3-0.001V22h4v-9.003l3.066-0.001L17.525,9z" /></svg>
+        </span>
+        <span class="share__text">Share</span>
+      </a>
+
+
+      <a target="_blank" class="share__link">
+        <span class="icon icon-twitter" aria-hidden="true">
+
+
+          <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26" width="26px" height="26px">
+            <path
+              d="M 25.855469 5.574219 C 24.914063 5.992188 23.902344 6.273438 22.839844 6.402344 C 23.921875 5.75 24.757813 4.722656 25.148438 3.496094 C 24.132813 4.097656 23.007813 4.535156 21.8125 4.769531 C 20.855469 3.75 19.492188 3.113281 17.980469 3.113281 C 15.082031 3.113281 12.730469 5.464844 12.730469 8.363281 C 12.730469 8.773438 12.777344 9.175781 12.867188 9.558594 C 8.503906 9.339844 4.636719 7.246094 2.046875 4.070313 C 1.59375 4.847656 1.335938 5.75 1.335938 6.714844 C 1.335938 8.535156 2.261719 10.140625 3.671875 11.082031 C 2.808594 11.054688 2 10.820313 1.292969 10.425781 C 1.292969 10.449219 1.292969 10.46875 1.292969 10.492188 C 1.292969 13.035156 3.101563 15.15625 5.503906 15.640625 C 5.0625 15.761719 4.601563 15.824219 4.121094 15.824219 C 3.78125 15.824219 3.453125 15.792969 3.132813 15.730469 C 3.800781 17.8125 5.738281 19.335938 8.035156 19.375 C 6.242188 20.785156 3.976563 21.621094 1.515625 21.621094 C 1.089844 21.621094 0.675781 21.597656 0.265625 21.550781 C 2.585938 23.039063 5.347656 23.90625 8.3125 23.90625 C 17.96875 23.90625 23.25 15.90625 23.25 8.972656 C 23.25 8.742188 23.246094 8.515625 23.234375 8.289063 C 24.261719 7.554688 25.152344 6.628906 25.855469 5.574219" />
+          </svg>
+        </span>
+        <span class="share__text">Tweet</span>
+      </a>
+
+
+      <a target="_blank" class="share__link">
+        <span class="icon icon-instagram" aria-hidden="true">
+
+
+
+          <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48px" height="48px">
+            <path
+              d="M 8 3 C 5.243 3 3 5.243 3 8 L 3 16 C 3 18.757 5.243 21 8 21 L 16 21 C 18.757 21 21 18.757 21 16 L 21 8 C 21 5.243 18.757 3 16 3 L 8 3 z M 8 5 L 16 5 C 17.654 5 19 6.346 19 8 L 19 16 C 19 17.654 17.654 19 16 19 L 8 19 C 6.346 19 5 17.654 5 16 L 5 8 C 5 6.346 6.346 5 8 5 z M 17 6 A 1 1 0 0 0 16 7 A 1 1 0 0 0 17 8 A 1 1 0 0 0 18 7 A 1 1 0 0 0 17 6 z M 12 7 C 9.243 7 7 9.243 7 12 C 7 14.757 9.243 17 12 17 C 14.757 17 17 14.757 17 12 C 17 9.243 14.757 7 12 7 z M 12 9 C 13.654 9 15 10.346 15 12 C 15 13.654 13.654 15 12 15 C 10.346 15 9 13.654 9 12 C 9 10.346 10.346 9 12 9 z" />
+          </svg>
+
+        </span>
+        <span class="share__text">instagram</span>
+      </a>
+
+    </div>
+
+    <form  [formGroup]="formgroups" >
+
+      <div class="maxw-container-options " >
+
+        <div class="container-options"  *ngFor="let key of Object.keys(OPTIONSARRAY) " >
+
+
+            <label for="optionitem" >{{key}}</label>
+
+
+             <div class="aligner">
+
+              <select formControlName="{{key}}"  id="{{key}}" class="form-control" (change)="eom($event,formgroups)" >
+
+
+                <option class="option" id="0" value="" [ngValue]="" [selected]="true">
+                  please select
+                </option>
+
+                <option *ngFor="let value of OPTIONSARRAY[key] " class="option" [ngValue]="value" id="{{key}}">
+                  {{value}}
+                </option>
+
+              </select>
+
+
+              <div class="dropdown-arrow">
+
+              </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="qty-ct">
+        <input (change)="quant($event)" maxlength="3" name="qtyincrem" id="product_quantity" type="text" value="{{number}}" class="qtyinput" required >
+
+        <div class="qty_incrementer">
+          <button type="button" (click)="down()" class="qty_up qtybtn" aria-label="increase quantity" data-ae-blurbtype="button" data-ae-form-field="true"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path d="M19 13H5v-2h14v2z" /></svg></button>
+
+          <button type="button" (click)="up()" class="qty_down qtybtn" aria-label="decrease quantity" data-ae-blurbtype="button" data-ae-form-field="true"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+              <path d="M0 0h24v24H0z" fill="none" />
+              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" /></svg></button>
+
+        </div>
+      </div>
+
+      <button class="btn" type="submit" style="width:90%; margin: 40px 0; display:block; box-sizing:border-box; border: 1px solid black;" (click)="onSubmit(formgroups,$event)">
+        ADD TO CART
+      </button>
+
+    </form>
+  </div>
+
+  <div class="related-pslider" style="border-bottom:1px solid grey; height:450px; width:100%;">
+  </div>
+
+  <h3 class="moreinfo-title">
+    More Information
+  </h3>
+
+  <div class="contentbox" #contentbox>
+
+
+
+    <div class="dropdown-ct " style="border-top: 2px solid black;">
+
+      <button class="drpdown-info" (click)="dropDownInfo($event)">
+        <span class="btn-title">Specification</span>
+
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 498.98 284.49">
+          <path class="cls-1" d="M80.93 271.76A35 35 0 0 1 140.68 247l189.74 189.75L520.16 247a35 35 0 1 1 49.5 49.5L355.17 511a35 35 0 0 1-49.5 0L91.18 296.5a34.89 34.89 0 0 1-10.25-24.74z" transform="translate(-80.93 -236.76)"></path>
+        </svg>
+      </button>
+
+      <div class="content-dropdown" #submenuinfo>
+
+        <div class="productInfoDrop">
+<div class="space">
+</div>
+          <div class="grid-item-ct"  *ngFor="let a of ProductObj.specifications ">
+            <div class="gridkey" *ngFor="let specobj of a |keyvalue "><span style="width:100%;height:100%; display:flex; align-items:center;">{{specobj.key}}</span></div><div class="griddes" *ngFor="let specobj of a |keyvalue "><span style="width:100%;height:100%; display:flex; align-items:center;">{{specobj.value}}</span></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="dropdown-ct " *ngIf=" ProductObj.MultiProductInfo !== null ||  ProductObj.MultiProductInfo !== undefined" style="border-top: 2px solid black;">
+
+      <button class="drpdown-info" (click)="dropDownInfo($event)">
+        <span class="btn-title">productsIncluded</span>
+
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 498.98 284.49">
+          <path class="cls-1" d="M80.93 271.76A35 35 0 0 1 140.68 247l189.74 189.75L520.16 247a35 35 0 1 1 49.5 49.5L355.17 511a35 35 0 0 1-49.5 0L91.18 296.5a34.89 34.89 0 0 1-10.25-24.74z" transform="translate(-80.93 -236.76)"></path>
+        </svg>
+      </button>
+
+      <div class="content-dropdown" #submenuinfo>
+
+        <div class="productInfoDrop">
+<div class="space">
+</div>
+          <div class="grid-item-ct"  *ngFor="let z of ProductObj.MultiProductInfo  ">
+              <div class="productImage-ct">
+                <img src="../../assets/productCatagories/productImages/{{z.subsetImage}}">
+                <div class="productInfo">
+                  <label>name: {{z.name}}</label>
+                  <label>specId: {{z.productSpecId}}</label>
+                  </div>
+              </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+</div>
+
+    <div class="dropdown-ct ">
+
+      <button class="drpdown-info" (click)="dropDownInfo($event)">
+        <span class="btn-title">Reviews</span>
+
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 498.98 284.49">
+          <path class="cls-1" d="M80.93 271.76A35 35 0 0 1 140.68 247l189.74 189.75L520.16 247a35 35 0 1 1 49.5 49.5L355.17 511a35 35 0 0 1-49.5 0L91.18 296.5a34.89 34.89 0 0 1-10.25-24.74z" transform="translate(-80.93 -236.76)"></path>
+        </svg>
+      </button>
+
+      <div class="content-dropdown" #submenuinfo>
+
+        <div class="productInfoDrop">
+
+          <div class="grid-item-ct" >
+            <div class="gridkey"></div><div class="griddes"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+    <div class="dropdown-ct ">
+
+      <button class="drpdown-info" (click)="dropDownInfo($event)">
+        <span class="btn-title">Shipping</span>
+
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 498.98 284.49">
+          <path class="cls-1" d="M80.93 271.76A35 35 0 0 1 140.68 247l189.74 189.75L520.16 247a35 35 0 1 1 49.5 49.5L355.17 511a35 35 0 0 1-49.5 0L91.18 296.5a34.89 34.89 0 0 1-10.25-24.74z" transform="translate(-80.93 -236.76)"></path>
+        </svg>
+      </button>
+
+      <div class="content-dropdown" #submenuinfo>
+
+        <div class="productInfoDrop">
+
+          <div class="grid-item-ct" >
+            <div class="gridkey"></div><div class="griddes"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+</div>

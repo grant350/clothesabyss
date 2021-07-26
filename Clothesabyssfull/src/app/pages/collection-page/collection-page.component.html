@@ -1,0 +1,24 @@
+
+<div class="listcol-body" >
+
+   <table class="main-col-ct">
+     <div class="productlist-ct" *ngFor="let product of newArray">
+
+
+     <app-productcard  [product]="product" >
+     </app-productcard>
+
+</div>
+ </table>
+
+<div class="pageinator" >
+<button class="btn-pagination" (click)="Click('left')">
+  Previous
+</button>
+<div class="pagenum">{{currentPage}}</div>
+<button class="btn-pagination" (click)="Click('right')">
+  Next
+</button>
+
+</div>
+</div>

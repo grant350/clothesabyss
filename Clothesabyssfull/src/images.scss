@@ -1,0 +1,10 @@
+$admin_background_image: url('/assets/images/admin_background_image.jpg');
+$homeImage: url('/assets/images/homepage_background_image.jpg ');
+
+.admin_background_Image{
+background-image:$admin_background_image;
+}
+
+.home_image{
+background-image:$homeImage;
+}

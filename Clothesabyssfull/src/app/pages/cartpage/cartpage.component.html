@@ -1,0 +1,109 @@
+<div class="cartpage">
+
+
+  <main class="main-content">
+    <div class="centered-ct">
+      <div class="ct-cart">
+        <h2 class="cart-head">Cart</h2>
+          <div class="cart">
+            <p class="noitems" #noitems> you have no items in your cart?</p>
+
+        <div class="row cart-item" *ngFor="let obj of this.productObjs; let index = index">
+          <div class="col">
+            <img class="cartitem-img" style="width:100px; height:100px;" src="../../assets/productCatagories/productImages/{{obj.thumb}}">
+          </div>
+          <div class="col">
+            <div class="des">
+              <span>womens shirt for womens only beachy</span>
+              <span>womens clothes</span>
+              <span>size 22, color:blue/black
+              </span>
+              <span>weight:.3oz, leather</span>
+              <span>ProductSpec: 3392832</span>
+            </div>
+            <button class="rm-p" (click)="removeproduct(index)"><a>remove product</a></button>
+          </div>
+
+          <div class="col qtyprice">
+            <span class="price"> {{obj.productPrice}}</span>
+            <div class="qty-ct">
+              <input (change)="quant($event,obj.qty,obj.selectedQty,index)" maxlength="3" name="qtyincrem" id="product_quantity" type="text" value="{{obj.selectedQty}}" class="qtyinput" required>
+
+              <div class="qty_incrementer">
+                <button type="button" (click)="down(obj.qty,obj.selectedQty,index)" class="qty_up qtybtn" aria-label="increase quantity" data-ae-blurbtype="button" data-ae-form-field="true"><svg xmlns="http://www.w3.org/2000/svg" height="24"
+                    viewBox="0 0 24 24" width="24">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path d="M19 13H5v-2h14v2z" /></svg></button>
+
+                <button type="button" (click)="up(obj.qty,obj.selectedQty,index)" class="qty_down qtybtn" aria-label="decrease quantity" data-ae-blurbtype="button" data-ae-form-field="true"><svg xmlns="http://www.w3.org/2000/svg" height="24"
+                    viewBox="0 0 24 24" width="24">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" /></svg></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+<div class="ct-sum">
+      <h4 class="title-sum">Summary</h4>
+
+      <div class="summary" style="margin-left:5%;">
+        <div class="promo">
+          <input placeholder="promocode" value="">
+          <button> apply</button>
+        </div>
+
+        <div class="subtotal-sum">
+          <span class="head-sum" >estimated shipping & handling</span>
+          <span class="handling val" *ngIf="subtotal >= 50.00">FREE SHIPPING</span>
+    <span class="handling val" *ngIf="subtotal < 50.00">$8.99</span>
+         </div>
+        <div class="subtotal-sum">
+          <span class="head-sum" >assumed Estimated Tax</span>
+          <span class="tax val">$0.00</span></div>
+        <div class="subtotal-sum" >
+          <span class="head-sum" >total</span>
+          <span class="handling val" *ngIf="subtotal >= 50.00">${{subtotal}}</span>
+          <span class="handling val" *ngIf="subtotal < 50.00">${{shippingsubtotal}}</span>
+
+        </div>
+        <button (click)="paypalcheckout()"  class="paypal-btn paybutton" #paypal>
+        <img  src="https://www.nike.com/assets/experience/pet/payment-icons/paypal@2x.png" alt="Check out with PayPal" />
+      </button>
+
+
+
+
+
+      <button class="stripe-btn paybutton"    >
+  CHECKOUT
+   </button>
+
+
+        <div  [@toggleCout]="show ? true : false" class="paybtns" #btnsct style="display:block;">
+          <button class="showcheckbtn" (click)="showcheckout($event)" style="position:absolute; right:10px; top:15px; width:35px; height:35px;  cursor:pointer;">
+          <svg _ngcontent-guk-c65="" aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 40 40" class="icon" style="height: 100%; width: 100%; display: block;"><path _ngcontent-guk-c65="" d="M23.868 20.015L39.117 4.78c1.11-1.108 1.11-2.77 0-3.877-1.109-1.108-2.773-1.108-3.882 0L19.986 16.137 4.737.904C3.628-.204 1.965-.204.856.904c-1.11 1.108-1.11 2.77 0 3.877l15.249 15.234L.855 35.248c-1.108 1.108-1.108 2.77 0 3.877.555.554 1.248.831 1.942.831s1.386-.277 1.94-.83l15.25-15.234 15.248 15.233c.555.554 1.248.831 1.941.831s1.387-.277 1.941-.83c1.11-1.109 1.11-2.77 0-3.878L23.868 20.015z" class="layer"></path></svg>
+          </button>
+          <h2 style="width:100%; margin:15px auto; border-top: 1px solid gray; padding-top:5px;">CHECKOUT</h2>
+        <button class="paypal-btn paybutton" #paypal>
+        <img style="width:100%; height:100%;" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal" />
+      </button>
+        </div>
+      </div>
+</div>
+
+
+    </div>
+
+
+  </main>
+
+
+
+
+
+
+
+
+</div>

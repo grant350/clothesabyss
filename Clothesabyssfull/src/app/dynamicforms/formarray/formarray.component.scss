@@ -1,0 +1,63 @@
+
+.mat-expansion-panel{
+      border-bottom: 2px solid #ff00bc;
+  background: repeating-linear-gradient(45deg, #2eebd1, #3ebfc6e0 100px);
+}
+.mat-card{
+  padding: 0px;
+}
+.array-ct{
+
+  width: 90%;
+  margin-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+.ng-invalid-main  {
+      border-radius: 5px!important;
+      border-left: 5px solid red!important;
+    }
+    .ng-valid-main  {
+    border-radius: 5px!important;
+    border-left: 5px solid #046d04!important;
+}
+
+.ng-pending-main{
+  border-radius: 5px!important;
+  border-left: 5px solid orange!important;
+}
+
+.mat-icon-button{
+  border-radius: 4px;
+      position: relative;
+      left: -45px;
+      width: 30px;
+
+}
+.mat-expansion-panel{
+  position: relative!important;
+}
+.section-suboption{
+  padding: 10px;
+  width:100%;
+    box-sizing: border-box;
+    background: linear-gradient(45deg, #0043ff, #f92b2b73);
+    border-left: 1px solid transparent !important;
+    border-radius: 5px !important;
+
+    .button-aligner{
+      width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+    padding: 10px;
+button{
+  display:flex;
+  position: relative;
+}
+}
+
+}

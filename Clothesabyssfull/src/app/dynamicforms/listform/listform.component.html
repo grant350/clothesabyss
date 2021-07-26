@@ -1,0 +1,78 @@
+<div class="ct" *ngIf="!control.get(data.name).disabled  && !auth">
+        <div class="block" *ngIf="data.multiadder">
+        <label>{{data.ClientName}}  {{arraycount+1}}</label>
+        <div class="scrollVarients">
+
+          <div class="box"  *ngFor="let cont of control.get([this.data.name]).controls; let iz = index" (click)="editSelectedForm(iz)">
+            <div  class="active-edit"  >
+        <div class="center">
+        <button mat-button (click)="removeSelectedForm(iz)" style="background:#c33c3cbf" class="remove">
+          <div class="icon-button"></div>
+
+        </button>
+        <button mat-button (click)="editSelectedForm(iz)" style="background:#2aff4ebf" class="edit">
+        <div class="icon-button"></div>
+        </button>
+
+        </div>
+            </div>
+
+            <span class="hover-edit" >{{iz+1}}</span>
+
+        </div>
+        <button mat-icon-button class="icon-plus" (click)="addVarient(control.get([this.data.name]).controls)"> </button>
+        </div>
+</div>
+  <div *ngFor="let arrayitem of onarray; let i = index">
+
+    <div class="switch" [ngSwitch]="data['controls'][i]['type']" (click)="arrow(i)">
+
+
+      <div *ngSwitchCase="'formGroup'" [formGroup]="arrayitem">
+        <mat-accordion>
+          <mat-expansion-panel class="mat-expansion-panel" hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{data['controls'][i].name}}
+
+                <div *ngIf="!array[i]"  style="position:absolute; right:20px;">
+                  <img style="width:30px; height:30px; " src="../../../assets/icons/downarrow.svg" >
+                </div>
+                <div *ngIf="array[i]" style="position:absolute; right:20px;">
+                  <img style="transition: 1s 4s; transform:rotate(180deg);  width:30px; height:30px;" src="../../../assets/icons/downarrow.svg">
+                </div>
+
+
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-card class="card-ct">
+              <div *ngFor="let card of Object.keys(arrayitem.value); let ci = index" style="display:block; width:80%; padding: 20px;" id="{{card}}-{{ci}}">
+                <label class="label" *ngIf="data['controls'][i].groupFields[ci].ClientName"> {{data['controls'][i].groupFields[ci].ClientName}}
+                </label>
+
+                <label class="label" *ngIf="!data['controls'][i].groupFields[ci].ClientName"> {{card}} </label>
+                <app-singlecontrol style="
+                      width: 100%;
+                      display: block;
+                      border:none!important;
+                      " [errorsfile]="errorsfile"
+                      [singlecontrolenable]="singlecontrolenable"
+                       [control]="arrayitem" [data]="data['controls'][i].groupFields[ci]"
+                      >
+                </app-singlecontrol>
+
+              </div>
+            </mat-card>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+      <div *ngSwitchCase="'plainArray'" style="width:100%;">
+        <mat-card class="mutli" style="width:100%;">
+
+          <app-formarray style="margin:0px; padding:0px; width:100%;" [auth]="auth" [control]="arrayitem" [errorsfile]="errorsfile" [data]="data.controls[i]">
+          </app-formarray>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

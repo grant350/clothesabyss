@@ -1,0 +1,36 @@
+
+<form class="form-group" *ngIf="enabled" [formGroup]="mainformgroup" enctype="multipart/form-data">
+
+  <div class="form-array"  >
+  <div *ngFor="let formObject of formObj; let i = index">
+  <div class="col-md-9"  [ngSwitch]="formObject.html">
+    <app-checkbox  *ngSwitchCase="'checkbox'" [auth]="auth" [control]="mainformgroup.get(formObject.name)" [data]="formObject" [errorsfile]="errorsfile" style="width:100%; min-height:100%; height:auto;">
+    </app-checkbox>
+
+    <app-listform   *ngSwitchCase="'multiform'" [auth]="auth" [control]="mainformgroup" [errorsfile]="errorsfile" [data]="formObject" >
+    </app-listform>
+
+    <app-formarray   *ngSwitchCase="'plainArray'" [auth]="auth" [control]="mainformgroup" [errorsfile]="errorsfile" [data]="formObject" >
+    </app-formarray>
+
+    <app-options   *ngSwitchCase="'options'" [auth]="auth" [control]="mainformgroup" [errorsfile]="errorsfile"  [data]="formObject" >
+    </app-options>
+    <app-singlecontrol  *ngSwitchCase="'singlefield'" [auth]="auth" [errorsfile]="errorsfile" [control]="mainformgroup" [data]="formObject" >
+    </app-singlecontrol>
+    <app-auth  *ngSwitchCase="'auth'"  [auth]="auth" [errorsfile]="errorsfile" [control]="mainformgroup" [data]="formObject" >
+    </app-auth>
+
+
+  </div>
+
+</div>
+</div>
+<div class="btn-ct">
+<button type="submit" mat-btn class="submit-btn btn" (click)="submit(mainformgroup)">
+    Submit
+
+</button>
+</div>
+
+</form>
+<!-- send form groups to right components -->

@@ -1,0 +1,87 @@
+// using css grid instead. then mat pagination
+
+
+@mixin large {
+  @media only screen and (max-width: 1000px) {
+    @content;
+ }
+}
+
+@mixin medium {
+  @media only screen and (max-width: 750px) {
+    @content;
+ }
+}
+@mixin small {
+  @media only screen and (max-width: 400px) {
+    @content;
+ }
+}
+
+.listcol-body{
+width:100%;
+height:100%;
+
+}
+
+.main-col-ct{
+  display:flex;
+  width:95%;
+  margin:0 auto;
+  margin-top: 60px;
+  height:auto;
+  flex-wrap: wrap;
+  flex-direction:row;
+  align-content:flex-start;
+  justify-content: center;
+margin-bottom:50px;
+
+}
+
+.productlist-ct{
+  width: 200px;//change to 3 or 2
+  height: 300px;
+background: white;
+
+@include  large {
+margin: 20px auto;
+width:calc(100%/4);
+};
+@include  medium {
+margin: 20px auto;
+width:calc(100%/3);
+};
+@include  small {
+flex-direction: column;
+margin: 20px auto;
+width:80%;
+height:auto;
+
+};
+
+}
+
+
+
+
+.pageinator{
+      width: 240px;
+      height: 50px;
+      display: flex;
+      background: #6767679c;
+      color: black;
+      margin: 0 auto;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+.pagenum{
+margin:0 auto;
+
+}
+  .btn-pagination{
+    width:60px;
+    height:100%;
+    background:#64b164;
+
+  }
+}

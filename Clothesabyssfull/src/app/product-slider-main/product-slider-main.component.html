@@ -1,0 +1,41 @@
+
+
+  <p class="text-center center maxw" style="font-size:20px;"></p>
+
+<div  class="page-width" style="display:flex; align-items:center;" >
+
+
+<div class="container-XY slider_center">
+<div class="main-carousel" style="width:80%; height:400px;  " data-flickity='{
+                                 "cellAlign": "left",
+                                 "contain": true,
+                                 "setGallerySize": false,
+                                  "wrapAround":true,
+                                 "resize": true,
+                                  "pageDots": true,
+                                  "groupCells": true,
+								                  "prevNextButtons": true,
+                                  "touchVerticalScroll": false
+
+
+
+
+}'>
+
+
+
+  <div class="carousel-cell" *ngFor="let product of array " >
+<app-productcard [product]="product">
+
+</app-productcard>
+</div>
+
+
+          </div>
+
+  </div>
+
+
+
+
+     </div>

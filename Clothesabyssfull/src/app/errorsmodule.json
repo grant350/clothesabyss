@@ -1,0 +1,138 @@
+{
+
+
+"SALESDATAFORM":{
+
+
+
+
+
+},
+
+
+"accountCreate":{
+
+  "password_retype_fail":"please retype your password correctly",
+  "password_fail":["1 special char","1 capital letter","must be at least 6 letters"],
+  "password_match_fail":"password does not match"
+
+},
+
+
+"addsale":{
+
+
+},
+
+"signup":{
+  "username":{
+    "list":[
+      ">4 letters",
+      ">4 numbers"
+    ],
+    "message":"username must be:"
+  },
+  "password":{
+    "list":[
+      ">4 letters",
+      ">4 numbers",
+      "3 special characters"
+    ],
+    "message":"password must be:"
+  },
+  "passwordmatch":{
+    "list":[
+      ">4 letters",
+      ">4 numbers",
+      "3 special characters"
+    ],
+    "message":"password must be:"
+  }
+},
+
+"addMapData":{
+
+  "address":{
+    "list":[
+      "between:18-100",
+      "validnumber"
+    ],
+    "message":"age must be:"
+  },
+  "namea":{
+    "list":[
+      "between:18-100",
+      "validnumber"
+    ],
+    "message":"age must be:"
+  }
+
+
+},
+
+
+"PRODUCTADDFORM":{
+  "BINLOCATION":{
+      "list":[
+        "Location (L) 4digits",
+        "Floor (F) 3digits",
+        "Section (S) 4digits",
+        "BIN (B) 7digits",
+        "[Ll][0-9]{4}[Ff][0-9]{3}[sS][0-9]{4}[bB][0-9]{7}",
+        "EXAMPLE: L0001F001S0001B0000001"
+
+      ],
+      "message":"BIN must be:"
+  },
+
+"age":{
+  "list":[
+    "between:18-100",
+    "validnumber"
+  ],
+  "message":"age must be:"
+},
+"companyname":{
+  "list":[
+    "between:5-40 char"
+  ],
+  "message":"please put company name"
+},
+"binlocation":{
+  "list":["[Ll][0-9]{4}[Ff][0-9]{3}[sS][0-9]{4}[bB][0-9]{7}"],
+  "message":"binlocation must be:"
+},
+"type":{
+  "list":[
+    "greaterthan 5(char)",
+    "string"
+  ],
+  "message":"type must be:"
+},
+"productName":{
+  "list":[
+    "greaterthan 3(char)",
+    "string"
+  ],
+  "message":"type must be:"
+},
+"title":{
+  "list":[
+    "greaterthan 8(char)",
+    "string"
+  ],
+  "message":"type must be:"
+},
+"productCatagory":{
+  "list":[
+    "string"
+  ],
+  "message":"type must be:"
+}
+
+
+
+}
+
+
+}

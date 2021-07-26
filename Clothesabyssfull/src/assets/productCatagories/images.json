@@ -1,0 +1,160 @@
+{
+  "images": [
+    {
+
+      "settings": {
+        "emailIcon":"blue_logo.png",
+        "passwordIcon":"blue_logo.png",
+        "settingsIcon":"settings.svg",
+        "ordersIcon":"blue_logo.png",
+        "ordersIcon":"blue_logo.png",
+        "ordersIcon":"blue_logo.png",
+        "ordersIcon":"blue_logo.png",
+        "cancelBtn":"blue_logo.png"
+      },
+
+      "bigimages": [],
+      "other": [],
+
+    "catagories": {
+      "women": [{
+          "image": [
+            "/catagoryimages/womens/womens-shorts.jpg",
+            "/catagoryimages/cancel.png",
+            "/catagoryimages/cancel.png",
+            "/catagoryimages/cancel.png",
+            "/catagoryimages/cancel.png",
+            "/catagoryimages/cancel.png",
+            "/catagoryimages/cancel.png"
+          ]
+        },
+
+        {
+          "text": [
+            "womens shorts",
+            "empty",
+            "empty",
+            "empty",
+            "empty",
+            "empty",
+            "empty"
+          ]
+        },
+        {
+          "collection": [
+            "womens-shorts",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        }
+      ],
+
+
+
+
+      "men": [{
+          "image": [
+            "/catagoryimages/cancel.png",
+            "/catagoryimages/cancel.png",
+            "/catagoryimages/cancel.png",
+            "/catagoryimages/cancel.png",
+            "/catagoryimages/cancel.png",
+            "/catagoryimages/cancel.png",
+            "/catagoryimages/cancel.png"
+          ]
+        },
+        {
+          "text": [
+            "mens shorts",
+            "empty",
+            "empty",
+            "empty",
+            "empty",
+            "empty",
+            "empty"
+          ]
+        },
+        {
+          "collection": [
+            "mens-shorts",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        }
+      ],
+
+
+      "boards": [{
+          "image": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "text": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "collection": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        }
+      ],
+
+
+      "accessories": [{
+          "image": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "text": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        }
+      ]
+
+
+
+    }
+  }
+]
+}

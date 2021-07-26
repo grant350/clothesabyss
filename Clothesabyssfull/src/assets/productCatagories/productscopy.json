@@ -1,0 +1,717 @@
+{
+  "product": [{
+    "id": "1",
+    "TYPE": "mainslider",
+    "NAME": "womens shirt",
+    "TITLE": "womens shirt for womens only beachy",
+    "PARAGRAPHS": ["this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo", "this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo"],
+    "SPECIFICATIONS": [{
+      "height": "44"
+    }],
+    "MULTISETPRODUCTS": [{
+      "productSpecId": 323241,
+      "name": "superman creame",
+      "subsetImage": "womens/1/varient1/img4.jpg",
+      "content": "Aqua / Water / Eau, Cocamidopropyl Hydroxysultaine, Glycerin, Sodium Lauroyl Sarcosinate, Peg-150 Pentaerythrityl Tetrastearate, Niacinamide, Peg-6 Caprylic/Capric Glycerides, Sodium Methyl Cocoyl, Taurate, Propylene Glycol, Ceramide Np, Ceramide Ap, Ceramide Eop, Carbomer, Methylparaben, Sodium Chloride, Sodium Lauroyl Lactylate, Cholesterol, Disodium Edta, Propylparaben, Citric Acid, Tetrasodium Edta, Hydrolyzed Hyaluronic Acid, Phytosphingosine, Xanthan Gum",
+      "specs": [{
+        "weight": "10lbs"
+      }, {
+        "height": "12in"
+      }]
+    }, {
+      "productSpecId": 323290,
+      "name": "aquagust creame",
+      "subsetImage": "womens/1/varient1/img2.jpg",
+      "content": "Aqua / Water / Eau, Cocamidopropyl Hydroxysultaine, Glycerin, Sodium Lauroyl Sarcosinate, Peg-150 Pentaerythrityl Tetrastearate, Niacinamide, Peg-6 Caprylic/Capric Glycerides, Sodium Methyl Cocoyl, Taurate, Propylene Glycol, Ceramide Np, Ceramide Ap, Ceramide Eop, Carbomer, Methylparaben, Sodium Chloride, Sodium Lauroyl Lactylate, Cholesterol, Disodium Edta, Propylparaben, Citric Acid, Tetrasodium Edta, Hydrolyzed Hyaluronic Acid, Phytosphingosine, Xanthan Gum",
+      "specs": [{
+        "weight": "10lbs"
+      }, {
+        "height": "12in"
+      }]
+    }],
+    "reviews": [],
+    "shipping": [],
+    "VARIENTS": [{
+      "varientId": "1",
+      "main": "./src/assets/productCatagories/productImages/mens/product0/gflannel2.png",
+      "image_pair": ["womens/1/varient1/img4.jpg", "womens/1/varient1/main.jpg", "womens/1/varient1/img2.jpg", "womens/1/varient1/img3.jpg"],
+      "ImageOutlook": [],
+      "options": [{
+        "size": {
+          "values": ["22"],
+          "id": 1
+        }
+      }, {
+        "color": {
+          "values": ["blue"],
+          "id": 1
+        }
+      }, {
+        "design": {
+          "values": ["flower-blue"],
+          "id": 1
+        }
+      }],
+      "inventory": 12,
+      "specId": "1093498",
+      "sku": 3131938,
+      "weight": "3oz",
+      "cost": 12,
+      "productExtInfo": "",
+      "productPrice": 18.99,
+      "productSalePrice": 19.99
+    }, {
+      "varientId": "2",
+      "main": "main.jpg",
+      "image_pair": ["womens/1/varient2/main.jpg"],
+      "ImageOutlook": [],
+      "options": [{
+        "size": {
+          "values": ["22"],
+          "id": 1
+        }
+      }, {
+        "color": {
+          "values": ["blue"],
+          "id": 1
+        }
+      }, {
+        "design": {
+          "values": ["flower-blue"],
+          "id": 1
+        }
+      }],
+      "inventory": 12,
+      "specId": "2093498",
+      "sku": 3131938,
+      "weight": "3oz",
+      "cost": 12,
+      "productExtInfo": "",
+      "productPrice": 18.99,
+      "productSalePrice": 19.99
+    }],
+    "id": "3902670",
+    "productCatagory": "womens-shirts"
+  }, {
+    "id": "2",
+    "type": "mainslider",
+    "name": "womens shirt",
+    "title": "womens shirt for womens only beachy",
+    "paragraphs": ["this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo", "this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo"],
+    "specifications": [{
+      "height": "44"
+    }, {
+      "width": "33"
+    }],
+    "reviews": [],
+    "shipping": [],
+    "VARIENTS": [{
+      "varientId": "1",
+      "main": "womens/2/varient1/main.jpg",
+      "image_pair": ["womens/2/varient1/main.jpg", "womens/2/varient1/img2.jpg", "womens/2/varient1/img3.jpg"],
+      "ImageOutlook": [],
+      "inventory": 18,
+      "specId": "3093498",
+      "sku": 3131938,
+      "weight": "3oz",
+      "cost": 12,
+      "productExtInfo": "",
+      "productPrice": 18.99,
+      "productSalePrice": 19.99
+    }, {
+      "varientId": "2",
+      "main": "main.jpg",
+      "image_pair": ["womens/2/varient2/main.jpg", "womens/2/varient2/img2.jpg", "womens/2/varient2/img3.jpg"],
+      "ImageOutlook": [],
+      "inventory": 12,
+      "specId": "5093498",
+      "sku": 3131938,
+      "weight": "3oz",
+      "cost": 12,
+      "productExtInfo": "",
+      "productPrice": 18.99,
+      "productSalePrice": 19.99
+    }, {
+      "varientId": "3",
+      "main": "womens/2/varient3/main.jpg",
+      "image_pair": ["womens/2/varient3/main.jpg", "womens/2/varient3/img2.jpg", "womens/2/varient3/img3.jpg"],
+      "ImageOutlook": [],
+      "inventory": 12,
+      "specId": "6093498",
+      "sku": 3131938,
+      "weight": "3oz",
+      "cost": 12,
+      "productExtInfo": "",
+      "productPrice": 18.99,
+      "productSalePrice": 19.99
+    }],
+    "id": "3902570",
+    "productPrice": 28.99,
+    "productSalePrice": 19.99,
+    "productCatagory": "womens-shirts",
+    "productInventory": 10,
+    "productExtInfo": "",
+    "cost": 12,
+    "imgName": "idk",
+    "sale": "false"
+  }, {
+    "id": "3",
+    "type": "mainslider",
+    "name": "womens shirt",
+    "title": "womens shirt for womens only beachy",
+    "paragraphs": ["this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo", "this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo"],
+    "specifications": [{
+      "height": "44"
+    }, {
+      "width": "33"
+    }],
+    "reviews": [],
+    "shipping": [],
+    "VARIENTS": [{
+      "varientId": "1",
+      "main": "womens/3/varient1/main.jpg",
+      "image_pair": ["womens/3/varient1/main.jpg", "womens/3/varient1/img2.jpg", "womens/3/varient1/img3.jpg"],
+      "ImageOutlook": [],
+      "inventory": 12,
+      "sku": 3131938,
+      "weight": "3oz",
+      "cost": 12,
+      "productExtInfo": "",
+      "productPrice": 28.99,
+      "productSalePrice": 19.99
+    }],
+    "id": "340d2370",
+    "productPrice": 28.99,
+    "productSalePrice": 19.99,
+    "productCatagory": "womens-shirts",
+    "productInventory": 10,
+    "productExtInfo": "",
+    "cost": 12,
+    "imgName": "idk",
+    "sale": "false"
+  }, {
+    "id": "4",
+    "type": "mainslider",
+    "name": "womens shirt",
+    "title": "womens shirt for womens only beachy",
+    "paragraphs": ["this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo", "this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo"],
+    "specifications": [{
+      "height": "44"
+    }, {
+      "width": "33"
+    }],
+    "reviews": [],
+    "shipping": [],
+    "VARIENTS": [{
+      "varientId": "1",
+      "main": "womens/4/varient1/main.jpg",
+      "image_pair": ["womens/4/varient1/main.jpg", "womens/4/varient1/img2.jpg"],
+      "ImageOutlook": [],
+      "inventory": 12,
+      "specId": "7093498",
+      "sku": 3131938,
+      "weight": "3oz",
+      "cost": 12,
+      "productExtInfo": "",
+      "productPrice": 18.99,
+      "productSalePrice": 19.99
+    }, {
+      "varientId": "2",
+      "main": "womens/4/varient2/main.jpg",
+      "image_pair": ["womens/4/varient2/main.jpg", "womens/4/varient2/img2.jpg"],
+      "ImageOutlook": [],
+      "inventory": 12,
+      "specId": "8093498",
+      "sku": 3131938,
+      "weight": "3oz",
+      "cost": 12,
+      "productExtInfo": "",
+      "productPrice": 18.99,
+      "productSalePrice": 19.99
+    }, {
+      "varientId": "3",
+      "main": "womens/4/varient3/main.jpg",
+      "image_pair": ["womens/4/varient3/main.jpg", "womens/4/varient3/img2.jpg"],
+      "ImageOutlook": [],
+      "inventory": 12,
+      "specId": "9093498",
+      "sku": 3131938,
+      "weight": "3oz",
+      "cost": 12,
+      "productExtInfo": "",
+      "productPrice": 18.99,
+      "productSalePrice": 19.99
+    }],
+    "id": "3902360",
+    "productPrice": 28.99,
+    "productSalePrice": 19.99,
+    "productCatagory": "womens-shirts",
+    "productInventory": 10,
+    "productExtInfo": "",
+    "cost": 12,
+    "imgName": "idk",
+    "sale": "false"
+  }, {
+    "id": "5",
+    "type": "mainslider",
+    "name": "womens shirt",
+    "title": "womens shirt for womens only beachy",
+    "paragraphs": ["this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo", "this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo"],
+    "specifications": [{
+      "height": "44"
+    }, {
+      "width": "33"
+    }],
+    "reviews": [],
+    "shipping": [],
+    "VARIENTS": [{
+      "varientId": "1",
+      "main": "womens/5/varient1/main.jpg",
+      "image_pair": ["womens/5/varient1/main.jpg", "womens/5/varient1/img2.jpg", "womens/5/varient1/img3.jpg", "womens/5/varient1/img4.jpg", "womens/5/varient1/img5.jpg"],
+      "ImageOutlook": [],
+      "options": [{
+        "size": {
+          "values": ["22"],
+          "id": 1
+        }
+      }, {
+        "color": {
+          "values": ["blue"],
+          "id": 1
+        }
+      }, {
+        "design": {
+          "values": ["flower-blue"],
+          "id": 1
+        }
+      }],
+      "inventory": 12,
+      "specId": "1193498",
+      "sku": 3131938,
+      "weight": "3oz",
+      "cost": 42,
+      "productExtInfo": "",
+      "productPrice": 18.99,
+      "productSalePrice": 19.99
+    }, {
+      "varientId": "2",
+      "main": "womens/5/varient2/main.jpg",
+      "image_pair": ["womens/5/varient2/main.jpg", "womens/5/varient2/img2.jpg", "womens/5/varient2/img3.jpg"],
+      "ImageOutlook": [],
+      "options": [{
+        "size": {
+          "values": ["55"],
+          "id": 2
+        }
+      }, {
+        "color": {
+          "values": ["red"],
+          "id": 2
+        }
+      }, {
+        "design": {
+          "values": ["plain"],
+          "id": 2
+        }
+      }],
+      "inventory": 5,
+      "specId": "1293498",
+      "sku": 3131938,
+      "weight": "3oz",
+      "cost": 12,
+      "productExtInfo": "",
+      "productPrice": 14.99,
+      "productSalePrice": 19.99
+    }],
+    "id": "352370",
+    "productPrice": 28.99,
+    "productSalePrice": 19.99,
+    "productCatagory": "womens-shorts",
+    "productInventory": 10,
+    "productExtInfo": "",
+    "cost": 12,
+    "imgName": "idk",
+    "sale": "false"
+  }, {
+    "id": "6",
+    "type": "mainslider",
+    "name": "womens shirt",
+    "title": "womens shirt for womens only beachy",
+    "paragraphs": ["this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo", "this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo"],
+    "specifications": [{
+      "height": "44"
+    }, {
+      "width": "22"
+    }, {
+      "color": "multicolor"
+    }, {
+      "material": "cotton"
+    }],
+    "reviews": [],
+    "shipping": [],
+    "VARIENTS": [{
+      "varientId": "1",
+      "main": "womens/6/varient1/main.jpg",
+      "image_pair": ["womens/6/varient1/main.jpg", "womens/6/varient1/img2.jpg", "womens/6/varient1/img3.jpg", "womens/6/varient1/img4.jpg"],
+      "inventory": 7,
+      "specId": "1493498",
+      "sku": 3131938,
+      "weight": "3oz",
+      "cost": 12,
+      "productExtInfo": "",
+      "productPrice": 18.99,
+      "productSalePrice": 19.99
+    }],
+    "id": "3931370",
+    "productPrice": 28.99,
+    "productCatagory": "womens-shorts",
+    "productInventory": 10,
+    "productExtInfo": "",
+    "cost": 12,
+    "imgName": "idk",
+    "sale": "false"
+  }, {
+    "id": "7",
+    "type": "mainslider",
+    "name": "womens shirt",
+    "title": "womens shirt for womens only beachy",
+    "paragraphs": ["this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo", "this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo"],
+    "specifications": [{
+      "height": "44"
+    }, {
+      "width": "22"
+    }, {
+      "color": "multicolor"
+    }, {
+      "material": "cotton"
+    }],
+    "reviews": [],
+    "shipping": [],
+    "VARIENTS": [{
+      "varientId": "1",
+      "main": "womens/7/varient1/main.jpg",
+      "image_pair": ["womens/7/varient1/main.jpg"],
+      "inventory": 10,
+      "specId": "1593498",
+      "sku": 3131938,
+      "weight": "3oz",
+      "cost": 12,
+      "productExtInfo": "",
+      "productPrice": 13.99,
+      "productSalePrice": 19.99
+    }],
+    "id": "3901370",
+    "productPrice": 28.99,
+    "productSalePrice": 19.99,
+    "productCatagory": "womens-shorts",
+    "productInventory": 10,
+    "productExtInfo": "",
+    "cost": 12,
+    "imgName": "idk",
+    "sale": "false"
+  }, {
+    "id": "8",
+    "type": "product",
+    "name": "womens shirt",
+    "title": "womens shirt for womens only beachy",
+    "paragraphs": ["this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo", "this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo"],
+    "specifications": [{
+      "height": "44"
+    }, {
+      "width": "22"
+    }, {
+      "color": "multicolor"
+    }, {
+      "material": "cotton"
+    }],
+    "reviews": [],
+    "shipping": [],
+    "VARIENTS": [{
+      "varientId": "1",
+      "main": "womens/8/varient1/main.jpg",
+      "image_pair": ["womens/8/varient1/main.jpg", "womens/8/varient1/img2.jpg", "womens/8/varient1/img3.jpg", "womens/8/varient1/img4.jpg"],
+      "inventory": 12,
+      "specId": "1693498",
+      "sku": 3131938,
+      "weight": "3oz",
+      "cost": 12,
+      "productExtInfo": "",
+      "productPrice": 18.99,
+      "productSalePrice": 19.99
+    }],
+    "id": "3402370",
+    "productPrice": 28.99,
+    "productSalePrice": 19.99,
+    "productCatagory": "womens-shorts",
+    "productInventory": 10,
+    "productExtInfo": "",
+    "cost": 12,
+    "imgName": "idk",
+    "sale": "false"
+  }, {
+    "id": "9",
+    "type": "product",
+    "name": "womens shirt",
+    "title": "womens shirt for womens only beachy",
+    "paragraphs": ["this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo", "this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo"],
+    "specifications": [{
+      "height": "44"
+    }, {
+      "width": "22"
+    }, {
+      "color": "multicolor"
+    }, {
+      "material": "cotton"
+    }],
+    "reviews": [],
+    "shipping": [],
+    "VARIENTS": [{
+      "varientId": "1",
+      "main": "womens/9/varient1/main.jpg",
+      "image_pair": ["womens/9/varient1/main.jpg", "womens/9/varient1/img2.jpg", "womens/9/varient1/img3.jpg", "womens/9/varient1/img4.jpg"],
+      "inventory": 12,
+      "specId": "1793498",
+      "sku": 3131938,
+      "weight": "3oz",
+      "cost": 12,
+      "productExtInfo": "",
+      "productPrice": 18.99,
+      "productSalePrice": 19.99
+    }],
+    "id": "1902370",
+    "productPrice": 28.99,
+    "productSalePrice": 19.99,
+    "productCatagory": "womens-shorts",
+    "productInventory": 10,
+    "productExtInfo": "",
+    "cost": 12,
+    "imgName": "idk",
+    "sale": "false"
+  }, {
+    "id": "10",
+    "type": "product",
+    "name": "womens shirt",
+    "title": "womens shirt for womens only beachy",
+    "paragraphs": ["this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo", "this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo"],
+    "specifications": [{
+      "height": "44"
+    }, {
+      "width": "22"
+    }, {
+      "color": "multicolor"
+    }, {
+      "material": "cotton"
+    }],
+    "reviews": [],
+    "shipping": [],
+    "VARIENTS": [{
+      "varientId": "1",
+      "main": "womens/10/varient1/main.jpg",
+      "image_pair": ["womens/10/varient1/main.jpg", "womens/10/varient1/img2.jpg", "womens/10/varient1/img3.jpg", "womens/10/varient1/img4.jpg"],
+      "inventory": 12,
+      "specId": "1893498",
+      "sku": 3131938,
+      "weight": "3oz",
+      "cost": 12,
+      "productExtInfo": "",
+      "productPrice": 18.99,
+      "productSalePrice": 19.99
+    }],
+    "id": "3962370",
+    "productPrice": 28.99,
+    "productSalePrice": 19.99,
+    "productCatagory": "womens-shorts",
+    "productInventory": 10,
+    "productExtInfo": "",
+    "cost": 12,
+    "imgName": "idk",
+    "sale": "false"
+  }, {
+    "id": "11",
+    "type": "product",
+    "name": "womens shirt",
+    "title": "womens shirt for womens only beachy",
+    "paragraphs": ["this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo", "this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo"],
+    "specifications": [{
+      "height": "44"
+    }, {
+      "width": "22"
+    }, {
+      "color": "multicolor"
+    }, {
+      "material": "cotton"
+    }],
+    "reviews": [],
+    "shipping": [],
+    "VARIENTS": [{
+      "varientId": "1",
+      "main": "womens/11/varient1/main.jpg",
+      "image_pair": ["womens/11/varient1/main.jpg", "womens/11/varient1/img2.jpg", "womens/11/varient1/img3.jpg", "womens/11/varient1/img4.jpg"],
+      "inventory": 12,
+      "specId": "193498",
+      "sku": 3131938,
+      "weight": "3oz",
+      "cost": 12,
+      "productExtInfo": "",
+      "productPrice": 18.99,
+      "productSalePrice": 19.99
+    }],
+    "id": "3902370",
+    "productPrice": 28.99,
+    "productSalePrice": 19.99,
+    "productCatagory": "womens-shorts",
+    "productInventory": 10,
+    "productExtInfo": "",
+    "cost": 12,
+    "imgName": "idk",
+    "sale": "false"
+  }, {
+    "id": "12",
+    "type": "product",
+    "name": "womens shirt",
+    "title": "womens shirt for womens only beachy",
+    "paragraphs": ["this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo", "this is a lovely description how awesome is this. i like to put stuff here so that i can put more and more stuff. one sec i will go tooo"],
+    "specifications": [{
+      "height": "44"
+    }, {
+      "width": "22"
+    }, {
+      "color": "multicolor"
+    }, {
+      "material": "cotton"
+    }],
+    "reviews": [],
+    "shipping": [],
+    "VARIENTS": [{
+      "varientId": "1",
+      "main": "womens/12/varient1/main.jpg",
+      "image_pair": ["womens/12/varient1/main.jpg", "womens/12/varient1/img2.jpg", "womens/12/varient1/img3.jpg"],
+      "inventory": 12,
+      "specId": "2093498",
+      "sku": 3131938,
+      "weight": "3oz",
+      "cost": 12,
+      "productExtInfo": "",
+      "productPrice": 18.99,
+      "productSalePrice": 19.99
+    }],
+    "id": "3902970",
+    "productPrice": 28.99,
+    "productSalePrice": 19.99,
+    "productCatagory": "womens-shorts",
+    "productInventory": 10,
+    "productExtInfo": "",
+    "cost": 12,
+    "imgName": "idk",
+    "sale": "false"
+  }, {
+    "id":13,
+    "Type": "mainslider",
+    "PRODUCTNAME": "the surfboard",
+    "TITLE": "surfboard is cool",
+    "PRODUCTCATAGORY": "surfboards",
+    "PARAGRAPHS": [
+      [{
+        "paragraphs": "this is the best surfboard"
+      }]
+    ],
+    "SPECIFICATIONS": [
+      [
+        [{
+          "key": "width",
+          "value": "33"
+        }]
+      ]
+    ],
+    "VARIENTS": [
+      [{
+          "MAINIMAGE": {
+            "path": "./src/assets/productCatagories/productImages/surfboards/product1/Screen Shot 2021-02-15 at 7.58.28 AM.png"
+          },
+          "SKU": "92837428",
+          "WEIGHT": "22",
+          "PRODUCTPRICE": "32849",
+          "indgredients/contents": "",
+          "PRODUCTSALEPRICE": "939"
+        },
+        [{
+          "key": "color",
+          "value": "red"
+        }],
+        [{
+          "ADDIMAGE": {
+            "path": "./src/assets/productCatagories/productImages/surfboards/product1/surboard1.png"
+          }
+        }], {
+          "id": 19
+        }
+      ]
+    ]
+  },
+   {
+    "TYPE": "mainslider",
+    "id":14,
+    "PRODUCTNAME": "mens-tshirt",
+    "TITLE": "mens awesome beach tshirt",
+    "PRODUCTCATAGORY": "mens",
+    "PARAGRAPHS": [
+      [{
+        "paragraphs": "this is a nice flannel t-shirt"
+      }]
+    ],
+    "SPECIFICATIONS": [
+      [
+        [{
+          "key": "size",
+          "value": "m"
+        }]
+      ]
+    ],
+    "VARIENTS": [
+      [{
+          "MAINIMAGE": {
+            "path": "./src/assets/productCatagories/productImages/mens/product0/flannel.png"
+          },
+          "SKU": "23984728",
+          "WEIGHT": "3",
+          "PRODUCTPRICE": "33.32",
+          "indgredients/contents": "",
+          "PRODUCTSALEPRICE": "22.22"
+        },
+        [{
+          "key": "color",
+          "value": "blue"
+        }],
+        [{
+          "ADDIMAGE": {
+            "path": "./src/assets/productCatagories/productImages/mens/product0/flannel2.png"
+          }
+        }], {
+          "id": 20
+        }
+      ],
+      [{
+          "MAINIMAGE": {
+            "path": "./src/assets/productCatagories/productImages/mens/product0/gflannel.png"
+          },
+          "SKU": "32487428",
+          "WEIGHT": "3",
+          "PRODUCTPRICE": "23.22",
+          "indgredients/contents": "none",
+          "PRODUCTSALEPRICE": "19.44"
+        },
+        [{
+          "key": "color",
+          "value": "green"
+        }],
+        [{
+          "ADDIMAGE": {
+            "path": "./src/assets/productCatagories/productImages/mens/product0/gflannel2.png"
+          }
+        }], {
+          "id": 21
+        }
+      ]
+    ]
+  }]
+}

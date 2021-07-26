@@ -1,0 +1,83 @@
+
+<div class="accountspage-container" *ngIf="userdata" >
+
+  <div class="profile-ct">
+    <div class="elipse-prfile">
+        <img class="profile-img #profileImg">
+    </div>
+
+  </div>
+
+<div class="contentbox">
+  <div class="coverbackground-panel">
+
+  <nav class="nav-col" >
+    <div class="rowitem">
+      <span>height</span>
+<input style="width:100px;" type="text" value=' {{userdata.sidenav.height}}" ' >
+      <mat-slider
+  thumbLabel
+  [displayWith]="formatLabel"
+  tickInterval="1"
+  min="36"
+  max="100"
+  (change)="onChanges('height',$event)"></mat-slider>
+    </div>
+
+    <div class="rowitem">
+      <span>waist</span>
+<input style="width:100px;" type="text" value='{{userdata.sidenav.waist}}" '>
+      <mat-slider
+  thumbLabel
+  [displayWith]="formatLabel"
+  tickInterval="1"
+  min="36"
+  max="100"
+  (change)="onChanges('waist',$event)"></mat-slider>
+    </div>
+
+    <div class="rowitem">
+      <span>color</span>
+<input style="width:100px;" type="text" value="{{userdata.sidenav.color}}" (change)="onChanges('color',$event)">
+    </div>
+
+    <div class="rowitem">
+      <span>shoe-size</span>
+<input style="width:100px;" type="text" value='{{userdata.sidenav.shoe}}' >
+      <mat-slider
+  thumbLabel
+  [displayWith]="formatLabel"
+  tickInterval="1"
+  min="3"
+  max="18"
+  (change)="onChanges('shoe',$event)"></mat-slider>
+    </div>
+
+
+
+<button type="submit" (click)="ifSubmit()" style="margin-top: 70px;">Submit changes</button>
+  </nav>
+  </div>
+<div class="ct-content">
+<nav class="nav-row">
+<button (click)="viewclicked('AccountSettings')" mat-button >Account Settings</button>
+<button (click)="viewclicked('Orders')"  mat-button >Orders</button>
+<button (click)="viewclicked('History')" mat-button >History</button>
+
+</nav>
+<div class="content" id="1" >
+<h2 style="display:block; width:100%;">My Account:</h2>
+<router-outlet  ></router-outlet>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+
+</div>

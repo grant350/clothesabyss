@@ -1,0 +1,102 @@
+.col_2 {
+    height: auto!important;
+    margin-bottom: 50px;
+}
+
+
+.img-cell2 {
+    width: 100%;
+    height: 0%;
+    padding-top: 60%;
+}
+
+.text-cell, .text-cell2 {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    color: white;
+    flex-wrap: wrap;
+    bottom: 0px;
+    left: 0px;
+}
+.text-cell2 .overlay_btn {
+    width: auto;
+    right: 0px;
+}
+.text-cell a, .text-cell2 a {
+    bottom: 0px;
+    font-size: 14px;
+    position: absolute;
+    width: -webkit-fill-available;
+}
+
+.container-slide .img-cell2, .container-slide .img-cell3 {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.center-cells .main-carousel {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.container-slide{
+width: 100%;
+margin: 100px auto;
+    flex-wrap: wrap;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+.container-XZ .main-carousel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.col_3 {
+    height: auto!important;
+    margin-bottom: 50px;
+}
+.img-cell3 {
+    width: 100%;
+    height: 0%;
+    padding-top: 120%;
+}
+.container-slide .img-cell2, .container-slide .img-cell3 {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.text-cell, .text-cell2 {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    color: white;
+    flex-wrap: wrap;
+    bottom: 0px;
+    left: 0px;
+}
+.text-cell a {
+    left: 0px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.text-cell a, .text-cell2 a {
+    bottom: 0px;
+    font-size: 14px;
+    position: absolute;
+    width: -webkit-fill-available;
+}

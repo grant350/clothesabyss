@@ -1,0 +1,35 @@
+
+
+<div class="productcard-ct grid-view-item" *ngIf="product && product.SHOWONSITE">
+<a href="#" [routerLink]="['/pages/product-page',product['PRODUCTID'] ]">
+<div class="trap-image-grid">
+<img src="{{product['VARIENTS'][0]['VARIENTINFO']['MAINIMAGE'].path}}" alt="{{ product.PRODUCTNAME }}">
+</div>
+</a>
+
+<div class="h4 product-card__title" aria-hidden="false">
+  {{ product.TITLE }}
+</div>
+<div class="price" >
+  <div class="price__regular" *ngIf="product['VARIENTS'][0]['VARIENTINFO'].PRODUCTPRICE">
+    <span class="price-item price-item--regular">
+            ${{product['VARIENTS'][0]['VARIENTINFO'].PRODUCTPRICE}}
+      <p style="color:red;" *ngIf="product['VARIENTS'][0]['VARIENTINFO'].INVENTORY <= 0 "> we are currently soldout
+      </p>
+      <p style="color:green;" *ngIf="product['VARIENTS'][0]['VARIENTINFO'].INVENTORY"> <span style="color:black;">qty:</span>{{product['VARIENTS'][0]['VARIENTINFO'].INVENTORY}}
+      </p>
+      </span>
+  </div>
+
+  <div class="price__sale" *ngIf="product['VARIENTS'][0]['VARIENTINFO'].PRODUCTSALEPRICE < product['VARIENTS'][0]['VARIENTINFO'].PRODUCTPRICE && product['VARIENTS'][0]['VARIENTINFO'].PRODUCTSALEPRICE && product['VARIENTS'][0]['VARIENTINFO'].INVENTORY >= 1">
+
+    <span class="visually-hidden visually-hidden--inline">{{product['VARIENTS'][0]['VARIENTINFO'].PRODUCTSALEPRICE}}</span>
+
+    <span class="price-item price-item--sale" >
+        {{ product['VARIENTS'][0]['VARIENTINFO'].PRODUCTPRICE }}
+      </span>
+      <span class="price-item__label" aria-hidden="true">on sale</span>
+
+  </div>
+</div>
+</div>

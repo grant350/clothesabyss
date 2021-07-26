@@ -1,0 +1,155 @@
+.mainroute-ct{
+width:100%;
+span,p,label{color:black!important;}
+height:100%;
+.row-ct{
+width:100%;
+background:white;
+height: auto;
+min-height: 70px;
+display:flex;
+flex-wrap:wrap;
+align-items:center;
+border-top:2px solid blue;
+color:black;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+
+}
+.result{
+  width:60%;
+}
+.mat-form-field{
+  width:60%;
+}
+
+.note{
+margin-top: 20px;
+p{
+  background:rgba(44, 122, 122, 0.7)!important;
+}
+}
+.ct{
+  width:100%;
+  height:auto;
+  background:white;
+  border-bottom:2px solid pink;
+}
+.ct-item{
+  width:100%;
+  height:70px;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  border-top:2px solid blue;
+
+
+}
+label{
+      margin: 0px 20px;
+      height: auto;
+      color: white;
+      text-indent: 10px;
+}
+.inputs{
+  width:60%;
+  height:auto;
+  color:white;
+    //border:2px solid transparent;
+  border-radius:10px;
+}
+.inputstyle{
+  background:gray;
+  height:40%;
+}
+.editbtn{
+  margin:0  15px;
+  width:60px;
+  height:30px;
+  background:transparent;
+  color:white;
+  font-size:15px;
+}
+/*add display: flex; to label and displaynone to all elements for edit optionclicked*/
+.content{
+  color:white;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.content span{
+  margin-right:20px;
+  width: 65px;
+    display: inline-block;
+  font-weight:bold;
+  font-size:16px;
+}
+.inputedit{
+  width:200px;
+  height:20px;
+}
+
+.hidden-ct{
+      margin-top: 35px;
+  margin: 12px 0px;
+      width: 100%;
+      p{
+        text-align: center;
+        margin: 0 auto;
+      }
+}
+.ct-field{
+
+  .mat-input-element{
+      //  border: 1px solid;
+        width: 50%;
+        margin: 2px;
+        //border-bottom: 1px solid black;
+        text-indent: 5px;
+  }
+
+width:90%;
+display:flex;
+flex-wrap:wrap;
+margin-left: 10%;
+}
+
+.item{
+
+  width:100%;
+  margin:10px;
+  display:block;
+  text-align:center;
+  margin:10px auto;
+}
+.ct-cont{
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+    margin-bottom:60px;
+
+}
+.pct {
+  width:100%;
+  display:flex;
+  height:200px;
+  justify-content:center;
+}
+p{
+  width:300px;
+  height:100%;
+  background:rgba(240,250,250,0.7);
+  border:1px solid transparent;
+  border-radius:10px;
+  box-sizing:border-box;
+  padding:10px;
+}

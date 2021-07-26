@@ -1,0 +1,12 @@
+/src/assets
+/src/assets/
+.DS_Store
+*.exe
+*.cloud_sql_proxy
+/node_modules
+/e2e
+/__pycache__
+__pycache__/
+*.sh
+node_modules/
+node_modules/

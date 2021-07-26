@@ -1,0 +1,63 @@
+
+
+<div class="table">
+
+  <div class="row"  *ngFor="let aaa of displayObjects; let index=index" [ngStyle]="{'grid-template-columns': (aaa['IMAGE'] === null  || aaa['IMAGE'] === undefined) ? '70% 30%' : '20% 50% 30%' }">
+    <div class="col" *ngIf="aaa['IMAGE'] !== null && aaa['IMAGE'] !== undefined" >
+      <img class="image" *ngIf="aaa['IMAGE']"
+       src="{{aaa['IMAGE']['path']}}">
+    </div>
+    <div class="col">
+
+    <div class="des" *ngFor="let a of OBJECT.keys(aaa['SUMMARY'])">
+
+<label style="width:100%; height:30px; display:block;">{{a}}:</label>
+
+  <div class="arraylist" *ngIf="aaa['SUMMARY'][a]['type'] === 'object' ">
+
+    <ul>
+      <li *ngFor="let dd of aaa['SUMMARY'][a]['val']">
+        {{dd[OBJECT.keys(dd)[0]]}}
+      </li>
+
+    </ul>
+
+  </div>
+
+  <div class="arraylist" *ngIf="aaa['SUMMARY'][a]['type'] === 'string'  ">
+    <!-- {{JSON.stringify(tabledataDisplay['SUMMARY'][a]['val'])}} -->
+    <ul>
+      <li *ngFor="let ss of aaa['SUMMARY'][a]['val']">
+        {{ss}}
+      </li>
+    </ul>
+
+  </div>
+
+
+
+
+      </div>
+
+
+    </div>
+
+    <div class="col">
+      <div class="btnct">
+        <div class="button-aligner">
+
+          <button   (click)="DELETE(aaa['ID'])" style="background:#c33c3cbf" mat-button >DELETE</button>
+
+          <button  (click)="EDIT(aaa['ID'])" style="background:#2aff4ebf;" mat-button >EDIT</button>
+          </div>
+        <div class="half productinfo">
+          <span style="display:block; width:100%;">ID: {{aaa['ID']}}</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>
