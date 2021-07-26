@@ -5,7 +5,7 @@ src/assets
 
 .DS_Store
 *.exe
-
+.env
 *.env
 /*.env
 
