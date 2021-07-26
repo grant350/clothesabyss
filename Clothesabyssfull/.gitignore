@@ -5,6 +5,7 @@ src/assets
 
 .DS_Store
 *.exe
+
 *.env
 
 *.cloud_sql_proxy
