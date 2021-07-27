@@ -83,69 +83,68 @@ if ( this.control.get(this.data.name)['64bit'] || this.control.get(this.data.nam
 
 
   getImageToCanvas(obj) {
+    //
+    // if (obj['64bit']) { console.log("64")}
+    // if (obj['path']) {console.log("path") }
+    //
+    // var path = obj['path'];
+    // if (!path){
+    //   path = obj['64bit'];
+    // }
+    // if (path){
+    //
+    // }else{return false}
+    // var filetype = obj.image_structure['filetype'];
 
-    if (obj['64bit']) { console.log("64")}
-    if (obj['path']) {console.log("path") }
-
-    var path = obj['path'];
-    if (!path){
-      path = obj['64bit'];
-    }
-    if (path){
-
-    }else{return false}
-    var filetype = obj.image_structure['filetype'];
-
-    var xhr = new XMLHttpRequest()
     //("XHR")
     //(xhr)
 
-    function imageExists(image_url) {
-      //("image_url line 252")
-      //(image_url)
-      var http = new XMLHttpRequest();
-      http.open('HEAD', image_url, false);
-      http.send();
-      //("http.satus")
-      //(http.status)
-      return http.status != 404;
-    }
-    var x = imageExists(path)
-    //(x)
-
-    if (x) {
-      xhr.onload = (e) => {
-        var blob = new Blob([xhr.response], { type: "image/png" })
-        var url = URL.createObjectURL(blob)
-        //("SUCH A BITCH BLOB")
-        //(blob)
-        //(url)
-        console.log(url)
-
-        const reader = new FileReader()
-        reader.readAsDataURL(blob)
-        reader.onload = function(e) {
-          var img: any = new Image;
-          var url = e.target.result;
-          img.src = e.target.result;
-          // this.image = reader.result
-          var canvas = <HTMLCanvasElement>document.getElementById('canvasimg')
-          var ctx = canvas.getContext('2d');
-          canvas.width = 200
-          canvas.height = 200
-          ctx.drawImage(img, 0, 0, 200, 200)
-        }
-      }
-    } else {
-      this.control.patchValue({ [this.data.name]: null })
-      this.control.updateValueAndValidity();
-      // return false
-    }
-    xhr.open('GET', path)
-    xhr.responseType = "arraybuffer"
-    xhr.send()
+    function TABLENAME(image_url) {
+    //   //("image_url line 252")
+    //   //(image_url)
+    //   var http = new XMLHttpRequest();
+    //   http.open('HEAD', image_url, false);
+    //   http.send();
+    //   //("http.satus")
+    //   //(http.status)
+    //   return http.status != 404;
+    // }
+    // var x = imageExists(path)
+    // //(x)
+    //
+    // if (x) {
+    //   xhr.onload = (e) => {
+    //     var blob = new Blob([xhr.response], { type: "image/png" })
+    //     var url = URL.createObjectURL(blob)
+    //     //("SUCH A BITCH BLOB")
+    //     //(blob)
+    //     //(url)
+    //     console.log(url)
+    //
+    //     const reader = new FileReader()
+    //     reader.readAsDataURL(blob)
+    //     reader.onload = function(e) {
+    //       var img: any = new Image;
+    //       var url = e.target.result;
+    //       img.src = e.target.result;
+    //       // this.image = reader.result
+    //       var canvas = <HTMLCanvasElement>document.getElementById('canvasimg')
+    //       var ctx = canvas.getContext('2d');
+    //       canvas.width = 200
+    //       canvas.height = 200
+    //       ctx.drawImage(img, 0, 0, 200, 200)
+    //     }
+    //   }
+    // } else {
+    //   this.control.patchValue({ [this.data.name]: null })
+    //   this.control.updateValueAndValidity();
+    //   // return false
+    // }
+    // xhr.open('GET', path)
+    // xhr.responseType = "arraybuffer"
+    // xhr.send()
   }
-
+}
 
 
   ngOnInit() {
@@ -215,11 +214,11 @@ onImagePicksinglecontrol(e, cardname, controlpick) {
         } catch{
           controlpick.updateValueAndValidity()
         }
-        var canvas = <HTMLCanvasElement>document.getElementById('canvasimg')
-        var ctx = canvas.getContext('2d');
-        canvas.width = 200
-        canvas.height = 200
-        ctx.drawImage(img, 0, 0, 200, 200)
+        // var canvas = <HTMLCanvasElement>document.getElementById('canvasimg')
+        // var ctx = canvas.getContext('2d');
+        // canvas.width = 200
+        // canvas.height = 200
+        // ctx.drawImage(img, 0, 0, 200, 200)
         // console.log(this.parent)
 
         // if (this.parent){

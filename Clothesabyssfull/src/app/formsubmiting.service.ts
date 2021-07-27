@@ -116,7 +116,7 @@ export class FormSubmitting {
 addDataCallback(returninfo){
   console.log(returninfo);
 
-  if (returninfo.data && returninfo.data !== null && returninfo.data !== undefined) {
+  if (returninfo.JSONDATA && returninfo.JSONDATA !== null && returninfo.JSONDATA !== undefined) {
     console.log("jsondata.data LINE:73")
     this.postConnnection("http://localhost:4201/databasePush", returninfo, null)
   } else {
@@ -198,7 +198,7 @@ localStorage.removeItem('products')
         "MainJsonData": formdatajson,
 
           "MANIPULATIONINFO":{
-           "FileMap": fileMap,
+           "fileMap": fileMap,
             "TABLENAME":"PRODUCTFORM",
             "TABLEID":"PRODUCTID",
             "JSONFILEURL":"src/assets/productCatagories/products.json",

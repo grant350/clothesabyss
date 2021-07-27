@@ -32,6 +32,7 @@ ul,li{
   grid-row-gap: 0px;
   justify-content: start;
   align-content: start;
+  overflow: scroll!important;
 }
 .row {
   display: grid;

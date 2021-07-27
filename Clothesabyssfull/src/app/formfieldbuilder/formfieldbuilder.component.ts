@@ -103,7 +103,14 @@ export class FormfieldbuilderComponent implements OnInit, OnChanges {
           if (this.formbuilderdataobj) {
             if (this.formbuilderdataobj['MANIPULATIONINFO']) {
               if (this.formbuilderdataobj['MANIPULATIONINFO'].path && this.variablepath) {
-                this.formbuilderdataobj['MANIPULATIONINFO'].path['startpath'] += form.value[this.variablepath];
+                var path = this.formbuilderdataobj['MANIPULATIONINFO'].path['startpath']
+                if (this.formbuilderdataobj['MANIPULATIONINFO'].path['startpath'].includes(`${form.value[this.variablepath]}`)){
+                  console.log("already has forvalue in path")
+                }else{
+                  this.formbuilderdataobj['MANIPULATIONINFO'].path['startpath'] = `${path}${form.value[this.variablepath]}`;
+                }
+              
+
                 console.log("LINE 106 form value")
                 console.log(form.value[this.variablepath])
                 //change to variable

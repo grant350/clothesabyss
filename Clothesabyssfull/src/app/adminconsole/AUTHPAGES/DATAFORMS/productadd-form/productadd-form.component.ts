@@ -1085,8 +1085,8 @@ public variablepath="PRODUCTCATAGORY";
      "AGE",
      "MULTISET",
      "GENDERS",
-     "MULTISETPRODUCTOPTIONS",
-     "CHOOSEOTHERPLATFORMS",
+     "CHOOSEOTHERPLATFORMS"
+
    ];
 
    RemoveKeysForJSON = [
