@@ -10,6 +10,7 @@ src/assets
 
 *.cloud_sql_proxy
 .cloud_sql_proxy
+/.cloud_sql_proxy
 /e2e
 e2e/
 e2e
