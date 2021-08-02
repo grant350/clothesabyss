@@ -113,7 +113,7 @@ app.post('/api', paypalapiOutbound , urlencodedParser, function(req, res) {});
 
 app.listen(port, function() {
   console.log("hello... hello... hello... is there anybody in there?  Just nod if you can hear me. Is there anyone home.\n ");
-  console.log("THE DARK SIDE OF THE MOON................... I AM THE COMPUTER, I AM THE EYE OF THE UNIVERSE. ∆ ∆ ∆ ∆ ∆ ∆ ∆ ∆ ∆ ")
+  console.log("THE LIGHT SIDE OF THE MOON........DICK........... I AM THE COMPUTER, I AM THE EYE OF THE UNIVERSE. ∆ ∆ ∆ ∆ ∆ ∆ ∆ ∆ ∆ ")
 
 })
 
