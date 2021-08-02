@@ -36,11 +36,22 @@ console.log(this.data)
 x.subscribe(z=>{
   console.log("THIS IS A MESSAGE FROM LINE 40")
   console.log(z)
-  try{
-    z = z['PRODUCTS'].filter(i=> i['SHOWONSITE'] == true)
-    console.log(z)
-  }catch{
-    console.log("items have no showonsite param")
+  if (z[0].data || z[0].DATA){
+    try{
+      z = z['PRODUCTS'].filter(i=> i.data['SHOWONSITE'] == true)
+      console.log(z)
+    }catch{
+      console.log("items have no showonsite param")
+    }
+
+  }else{
+    try{
+      z = z['PRODUCTS'].filter(i=> i['SHOWONSITE'] == true)
+      console.log(z)
+    }catch{
+      console.log("items have no showonsite param")
+    }
+
   }
 
   this.AuthListener.next(z)
@@ -49,11 +60,6 @@ x.subscribe(z=>{
 
 
 
-
-    // .subscribe(x=>{
-    //   this.AuthListener.next(x)
-    //   console.log(x)
-    // });
 
 
   }

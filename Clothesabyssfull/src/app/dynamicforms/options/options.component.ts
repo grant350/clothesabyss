@@ -15,14 +15,6 @@ export class OptionsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log("options line16")
-    console.log(this.data)
-    console.log("options line18")
-    console.log(this.control)
-
-
-
-
   }
 
 }

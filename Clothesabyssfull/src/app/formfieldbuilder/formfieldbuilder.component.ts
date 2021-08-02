@@ -6,6 +6,8 @@ import { DataService } from '../products.service';
 import * as rawjson from '../errorsmodule.json';
 import { ListFormComponent } from '../dynamicforms/listform/listform.component'
 import { BehaviorSubject, Subscription, Subject } from 'rxjs';
+import {UNITTEST} from './unittest';
+
 
 
 @Component({
@@ -16,7 +18,6 @@ import { BehaviorSubject, Subscription, Subject } from 'rxjs';
 export class FormfieldbuilderComponent implements OnInit, OnChanges {
   @Input() formObj: any;
   //retrieves formobj
-
   //instead of submit function use provided data obj for submiit fun
   public auth: any;
   public mainformgroup = this.fb.group({});
@@ -27,6 +28,7 @@ export class FormfieldbuilderComponent implements OnInit, OnChanges {
   imageGroup: any = [];
   public errorjson: any = (rawjson as any).default;
 
+
   @Input() formbuilderdataobj: any;
   @Input() dataobjvalues: any;
   @Input() index: any;
@@ -35,54 +37,50 @@ export class FormfieldbuilderComponent implements OnInit, OnChanges {
   @Input() variablepath: any;
 
   //should return // {index:33,"localstorageName":MapData}
+
   constructor(private changeDetector: ChangeDetectorRef, private fb: FormBuilder, private fs: FormSubmitting, private json: DataService) {
     if (this.selectedValue) {
       localStorage.removeItem(this.selectedValue)
     }
-
+    this.enabled = true;
   }
-
 
   clicks(a) {
   }
 
-
-
-
   ngOnChanges(changes: SimpleChanges) {
-    console.log(changes)
+  //  console.log(changes)
     if ('index' in changes) {
-      console.log("is index")
-      console.log(this.index)
-
+    //  console.log("is index")
+      //console.log(this.index)
     }
     if ('dataobjvalues' in changes) {
-      console.log("IS HERE YAYAYAYY")
-      console.log(this.dataobjvalues)
+    //  console.log("IS HERE YAYAYAYY")
+      //console.log(this.dataobjvalues)
       try { this.dataobjvalues = JSON.parse(this.dataobjvalues) }
       catch{ console.log("datavalues is undefined or problem") }
-      console.log(this.dataobjvalues)
-
+     console.log(this.dataobjvalues)
     }
+    //you can get any girl you want
     if ('formbuilderdataobj' in changes) {
-      console.log("IS HERE formbuilderdataobj yayayaya")
-      console.log(this.formbuilderdataobj)
+      // console.log("IS HERE formbuilderdataobj yayayaya")
+      // console.log(this.formbuilderdataobj)
       try { this.formbuilderdataobj = JSON.parse(this.formbuilderdataobj) }
-      catch{ console.log("formbuilderdataobj is undefined or problem") }
-      console.log(this.formbuilderdataobj)
-
+      catch{
+      //   console.log("formbuilderdataobj is undefined or problem")
+       }
+    //  console.log(this.formbuilderdataobj)
     }
-
     if ('formObj' in changes) {
-      console.log("IS HERE YAYAYAYY")
-      console.log(this.formObj)
+      // console.log("IS HERE YAYAYAYY")
+      // console.log(this.formObj)
       try { this.formObj = JSON.parse(this.formObj) }
-      catch{ console.log("datavalues is undefined or problem") }
-      console.log(this.formObj)
+      catch{
+      //  console.log("datavalues is undefined or problem")
+       }
+    //  console.log(this.formObj)
       //this.reloadTree()
     }
-
-
   }
 
   reloadTree() {
@@ -94,7 +92,6 @@ export class FormfieldbuilderComponent implements OnInit, OnChanges {
     this.enabled = true;
   }
 
-
   submit(form) {
     if (form) {
       //(form.value)
@@ -105,25 +102,23 @@ export class FormfieldbuilderComponent implements OnInit, OnChanges {
               if (this.formbuilderdataobj['MANIPULATIONINFO'].path && this.variablepath) {
                 var path = this.formbuilderdataobj['MANIPULATIONINFO'].path['startpath']
                 if (this.formbuilderdataobj['MANIPULATIONINFO'].path['startpath'].includes(`${form.value[this.variablepath]}`)){
-                  console.log("already has forvalue in path")
+                  console.log("already has form value in path")
                 }else{
                   this.formbuilderdataobj['MANIPULATIONINFO'].path['startpath'] = `${path}${form.value[this.variablepath]}`;
                 }
-              
-
-                console.log("LINE 106 form value")
-                console.log(form.value[this.variablepath])
-                //change to variable
-                console.log("FUTURE ERROR LINE 104")
+                // console.log("LINE 106 form value")
+                // console.log(form.value[this.variablepath])
+                // //change to variable
+                // console.log("FUTURE ERROR LINE 104")
               }
             }
             if (this.formbuilderdataobj["MainJsonData"]["DATA"]) {
               this.formbuilderdataobj["MainJsonData"]["DATA"] = form.value
-              console.log("MAINEDIT num line102")
-              console.log(this.formbuilderdataobj)
+              // console.log("MAINEDIT num line102")
+              // console.log(this.formbuilderdataobj)
             } else {
+              this.formbuilderdataobj["MainJsonData"] = { }
               this.formbuilderdataobj["MainJsonData"] = form.value
-
             }
           }
         try {
@@ -131,10 +126,10 @@ export class FormfieldbuilderComponent implements OnInit, OnChanges {
           // form.reset()
         }
         catch{
-          console.log("ERROR line 109")
+      //    console.log("ERROR line 109")
         }
       } else {
-        console.log("form is not valid??")
+      //  console.log("form is not valid??")
         if (this.selectedValue) {
           localStorage.removeItem(this.selectedValue)
         }
@@ -144,8 +139,6 @@ export class FormfieldbuilderComponent implements OnInit, OnChanges {
 
 
   checkValidation(name, validation, group) {
-
-
     if (validation) {
       if (validation.required || validation.customValidator) {
         if (validation.customValidator) {
@@ -178,398 +171,252 @@ export class FormfieldbuilderComponent implements OnInit, OnChanges {
       group.addControl(name, this.fb.control(""))
 
     }
+return group
+  }
+
+
+
+checkDataInput(group,OBJDATA,formobj){
+
+  console.log("OBJDATA")
+console.log(OBJDATA)
+
+if (formobj.valueAutoset ){
+  group.patchValue({ [formobj.name]: formobj.valueAutoset })
+  group.updateValueAndValidity()
+};
+
+  if (this.dataobjvalues ){
+  //  console.log("DATAOBJ IS HERE LINE 186")
+    try {
+      var name = formobj.name
+
+          if (OBJDATA !== undefined || OBJDATA !== null){
+            if (formobj.type.toLowerCase() == "image"){
+                if (OBJDATA.image_structure){
+                    console.log("has image structure");
+                    this.checkIMAGE(group,OBJDATA,name)
+                }
+
+            }else{
+                   group.patchValue({ [name]: OBJDATA })
+                   group.updateValueAndValidity()
+                 }
+          }
+
+      return true
+    } catch{
+      console.log("ERROR VALUE BROKEN checkDataInput")
+      return false
+    }
+  }else{
+    console.log("dataobj cannot be set Function checkDataInput Line 190")
+    return false
+  }
+}
+
+
+checkIMAGE(formgroup,objdata,name){
+
+    function dataURItoBlob(objdata) {
+        var filetype = objdata.image_structure['filetype'];
+        var path = objdata['path'];
+        var xhr = new XMLHttpRequest()
+        function imageExists(image_url) {
+          var http = new XMLHttpRequest();
+          http.open('HEAD', image_url, false);
+          http.send();
+          return http.status != 404;
+        }
+
+        var imageExistBool = imageExists(path)
+
+        if (imageExistBool) {
+          xhr.onload = (e) => {
+            var blob = new Blob([xhr.response], { type: filetype })
+            var url = URL.createObjectURL(blob)
+            const reader = new FileReader()
+            reader.readAsDataURL(blob)
+            reader.onload = function() {
+              objdata['64bit'] = reader.result
+              formgroup.patchValue({ [name]: objdata})
+              formgroup.updateValueAndValidity();
+            }
+          }
+        }else{
+          formgroup.patchValue({ [name]: null})
+          formgroup.updateValueAndValidity();
+        //  console.log("IMAGE DOES NOT EXIST FB LINE 238")
+
+        }
+        xhr.open('GET', path)
+        xhr.responseType = "arraybuffer"
+        xhr.send()
+      }
+       dataURItoBlob(objdata)
+}
+
+  BUILDFORMCONTROL(obj,group,datavalue){
+
+      this.checkValidation(obj.name, obj.validation, group)
+    try{
+      var set = this.checkDataInput(group,datavalue,obj)
+      if (set){
+        console.log("PASSED")
+      }
+      }
+    catch{
+        console.log("INVALID path this.dataobjvalues[obj.name]")
+    }
+  }
+// this.dataobjvalues[htmlobj.name][control.name]
+
+  BUILDFORMGROUP(obj,datavalue){
+    //BUILDFORMCONTROL()
+    var group = this.fb.group({})
+      obj.controls.forEach((control, index) => {
+        if (datavalue !== null && datavalue !== undefined){
+          this.BUILDFORMCONTROL(control,group,datavalue[control.name])
+        }else{
+          this.BUILDFORMCONTROL(control,group,null)
+        }
+      });
+      return {"objname":obj.name,"group":group};
+  }
+
+  BUILDFORMARRAY(obj,datavalues){
+    console.log(obj.groupFields)
+    var array = this.fb.array([])
+    if (datavalues !== null){
+      datavalues.forEach(object=>{
+        console.log(object)
+        obj.groupFields.forEach((field, index) => {
+          var result = this.BUILDFORMGROUP(field,datavalues[field.name])
+          array.push(result.group)
+        })
+      })
+    }else{
+      obj.groupFields.forEach((field, index) => {
+        var result =this.BUILDFORMGROUP(field,null)
+        array.push(result.group)
+      })
+    }
+    return {"objname":obj.name,"array":array};
+
 
   }
 
 
 
-
-
-  ngOnInit() {
-
+  parseObjs(){
     try { this.dataobjvalues = JSON.parse(this.dataobjvalues) }
-    catch{ console.log("datavalues is undefined or problem") }
-    console.log(this.dataobjvalues)
-
+    catch{
+    //   console.log("datavalues is undefined or problem NgOnInit line 200 formbuilder")
+     }
     try { this.formbuilderdataobj = JSON.parse(this.formbuilderdataobj) }
-    catch{ console.log("formbuilderdataobj is undefined or problem") }
-    console.log(this.dataobjvalues)
-
-    console.log("IS HERE YAYAYAYY")
-    console.log(this.formObj)
+    catch{
+      //console.log("formbuilderdataobj is undefined or problem NgOnInit line 200 formbuilder")
+     }
     try { this.formObj = JSON.parse(this.formObj) }
-    catch{ console.log("datavalues is undefined or problem") }
-    console.log(this.formObj)
-
-    this.fs.SignUpCodeView().subscribe((x) => {
-      //(x);
-      this.auth = x
-    })
-
+    catch{
+    //   console.log("datavalues is undefined or problem NgOnInit line 200 formbuilder")
+     }
     try {
       this.errorsfile = this.errorjson[this.selectedValue]
-
     } catch{
-      console.log("no error file")
+      //console.log("no error file LINE212")
     }
-    this.mainformgroup.reset({ onlySelf: true })
-
-
-    this.formObj.forEach((htmlobj) => {
-      if (htmlobj.type === "singleControl") {
-        this.checkValidation(htmlobj.name, htmlobj.validation, this.mainformgroup)
-        try {
-          //("VALUES")
-          //(this.dataobjvalues[htmlobj.name])
-          //("dataobj[htmlobj.name]");
-          //(this.dataobjvalues[htmlobj.name])
-          this.mainformgroup.patchValue({ [htmlobj.name]: this.dataobjvalues[htmlobj.name] })
-          //(this.mainformgroup)
-        } catch{
-          console.log("no values to be set")
-        }
-        //("singlecontrol Done")
-      }
-
-      if (htmlobj.type === "auth") {
-        this.checkValidation(htmlobj.name, htmlobj.validation, this.mainformgroup)
-        try {
-          this.mainformgroup.patchValue({ [htmlobj.name]: this.dataobjvalues[htmlobj.name] })
-          //(this.mainformgroup)
-        } catch{
-          console.log("no values to be set")
-        }
-        //("auth Done")
-      }
-      //formgroup
-      if (htmlobj.type === "formGroup") {
-        var group = this.fb.group({})
-        htmlobj.groupFields.forEach((field, index) => {
-          this.checkValidation(field.name, field.validation, group)
-          try {
-            //("VALUES")
-            //(this.dataobjvalues[htmlobj.name])
-            //("dataobj[htmlobj.name]");
-            //(this.dataobjvalues[htmlobj.name][field.name])
-            this.mainformgroup.get(htmlobj.name).patchValue({ [field.name]: this.dataobjvalues[htmlobj.name][field.name] })
-            //(this.mainformgroup)
-          } catch{
-            console.log("no values to be set")
-          }
-        });
-
-        this.mainformgroup.addControl(htmlobj.name, group)
-      }
-
-      if (htmlobj.type === "plainArray") {
-        var formarray = this.fb.array([])
-        try {
-          //("this.dataobjvalues 189")
-          //(this.dataobjvalues)
-          //((htmlobj.name).toUpperCase())
-          this.dataobjvalues[(htmlobj.name).toUpperCase()].forEach((item, index) => {
-            //(item)
-
-            var formgroup = this.fb.group({})
-            htmlobj.groupFields.forEach((field) => {
-              this.checkValidation(field.name, field.validation, formgroup)
-              try {
-                //("VALUES 194")
-                //(item)
-                formgroup.patchValue({ [field.name]: item[field.name] })
-                //("formgroup")
-                //(formgroup)
-
-              } catch{
-                //("no values to be set 201")
-              }
-            })
-            formarray.push(formgroup)
-          })
-        } catch{
-          var formgroup = this.fb.group({})
-          htmlobj.groupFields.forEach((field, index) => {
-            this.checkValidation(field.name, field.validation, formgroup)
-          })
-          formarray.push(formgroup)
-
-        }
-
-
-
-        this.mainformgroup.addControl(htmlobj.name, formarray)
-      }
-
-
-      if (htmlobj.type === "formArray") {
-        var mainarray = this.fb.array([])
-        var mainarray = this.fb.array([])
-        var groupContents = this.fb.group({})
-        htmlobj.controls.forEach((control) => {
-          //(control)
-
-          /** this is Listform -> group **/
-          if (control.type === "formGroup") {
-            /** this is Listform -> group **/
-
-
-            var group = this.fb.group({})
-
-            if (this.dataobjvalues) {
-              try {
-                var x = this.dataobjvalues[htmlobj.name].filter(o => o.hasOwnProperty(control.name))
-                var element = x[0][control.name]
-                //("ELEMENT :234")
-
-                //(element)
-
-                control.groupFields.forEach((field) => {
-                  this.checkValidation(field.name, field.validation, group)
-                  if (field.validation.options.datatype['Type'] === 'image') {
-                    //("trying")
-                    function dataURItoBlob(obj) {
-                      //("object :244")
-                      //(obj)
-                      var filetype = obj.image_structure['filetype'];
-                      var path = obj['path'];
-                      var xhr = new XMLHttpRequest()
-                      //("XHR")
-                      //(xhr)
-
-                      function imageExists(image_url) {
-                        //("image_url line 252")
-                        //(image_url)
-                        var http = new XMLHttpRequest();
-                        http.open('HEAD', image_url, false);
-                        http.send();
-                        //("http.satus")
-                        //(http.status)
-                        return http.status != 404;
-                      }
-                      var x = imageExists(path)
-                      //(x)
-
-                      if (x) {
-                        xhr.onload = (e) => {
-                          var blob = new Blob([xhr.response], { type: "image/png" })
-                          var url = URL.createObjectURL(blob)
-                          //("SUCH A BITCH BLOB")
-                          //(blob)
-                          //(url)
-
-                          const reader = new FileReader()
-                          reader.readAsDataURL(blob)
-                          reader.onload = function() {
-                            //("reader.result :283")
-                            //(reader.result)
-                            element[field.name]['64bit'] = reader.result
-                            group.patchValue({ [field.name]: element[field.name] })
-                            group.updateValueAndValidity();
-                            //("GROUP : 279")
-                            //(group)
-                          }
-                        }
-                      } else {
-                        group.patchValue({ [field.name]: null })
-                        group.updateValueAndValidity();
-                        //("GROUP : 284")
-                        return false
-
-                      }
-                      xhr.open('GET', path)
-                      xhr.responseType = "arraybuffer"
-                      xhr.send()
-                    }
-                    // dataURItoBlob(element)
-
-                    try {
-                      dataURItoBlob(element[field.name])
-                    } catch{
-                      //("image error in group")
-                    }
-
-                    //("ELEMENT 306")
-                    //(element)
-                    //("grOUP line 306")
-                    //(group)
-
-                  } else {
-                    group.patchValue({ [field.name]: element[field.name] })
-                    //("GROUP : 306")
-                    //(group)
-                  }
-                })
-
-              } catch{
-                //("cant add values")
-              }
-              groupContents.addControl(control.name, group)
-              groupContents.updateValueAndValidity();
-
-              //catch group
-            } else {
-              control.groupFields.forEach((field) => {
-                this.checkValidation(field.name, field.validation, group)
-                groupContents.addControl(control.name, group)
-              })
-            }
-
-          }
-          //end of group
-          //end of group
-          //end of group
-
-          //("groupContents")
-          //(groupContents)
-
-
-
-
-          /** this is Listform -> array **/
-          if (control.type === "plainArray") {
-            /** this is Listform -> array **/
-
-            var subarray = this.fb.array([])
-            if (this.dataobjvalues) {
-              //var fgroup = this.fb.group({})
-
-              try {
-                var x = this.dataobjvalues[htmlobj.name].filter(o => o.hasOwnProperty(control.name))
-                //(x)
-                var element = x[0][control.name]
-                console.log("Element: 341")
-                console.log(element)
-                //(control.name)
-                //(element)
-
-                element.forEach((item, index) => {
-                  var fgroup = this.fb.group({})
-
-                  console.log("item")
-                  console.log(item)
-                  console.log("index")
-                  console.log(index)
-
-                  //{addimage:{}}
-                  control.groupFields.forEach((field, zindex) => {
-                    console.log("field:354")
-                    console.log(field)
-
-                    this.checkValidation(field.name, field.validation, fgroup)
-                    if (field.validation.options.datatype['Type'] === 'image') {
-                      console.log("Fieldname")
-                      console.log(field.name)
-                      console.log("zindex")
-                      console.log(zindex)
-                      console.log("item")
-                      console.log(item[field.name])
-                      //("trying")
-
-                      function dataURItoBlob(obj) {
-                        console.log("obj line 362")
-                        console.log(obj)
-                        var filetype = obj.image_structure['filetype'];
-                        var path = obj['path'];
-                        console.log("path:365")
-                        console.log(path)
-                        var xhr = new XMLHttpRequest()
-                        //("XHR")
-                        //(xhr)
-                        function imageExists(image_url) {
-                          var http = new XMLHttpRequest();
-                          http.open('HEAD', image_url, false);
-                          http.send();
-                          //("http.satus")
-                          //(http.status)
-                          return http.status != 404;
-                        }
-                        var x = imageExists(path)
-                        var b;
-
-
-                        if (x) {
-                          xhr.onload = (e) => {
-                            var blob = new Blob([xhr.response], { type: "image/png" })
-                            var url = URL.createObjectURL(blob)
-                            const reader = new FileReader()
-                            reader.readAsDataURL(blob)
-                            reader.onload = function() {
-                              //("READER RESULT :427")
-                              //(reader.result)
-                              item[field.name]['64bit'] = reader.result
-                              fgroup.patchValue({ [field.name]: item[field.name] })
-                            }
-
-                          }
-                        } else {
-                          fgroup.patchValue({ [field.name]: null })
-                          console.log("image does not exist!!")
-                          return false
-                        }
-                        try {
-                          xhr.open('GET', path)
-                          xhr.responseType = "arraybuffer"
-                          xhr.send()
-                        } catch{
-                          console.log("error")
-                          fgroup.patchValue({ [field.name]: null })
-                        }
-
-
-                      }
-
-                      dataURItoBlob(item[field.name])
-                      console.log("fgroup:418")
-                      console.log(fgroup)
-                    } else {
-                      fgroup.patchValue({ [field.name]: item[field.name] })
-                    }
-
-                  })
-
-                  subarray.push(fgroup)
-                  console.log("SUBARRAY")
-                  console.log(subarray)
-
-                })
-              }
-              catch{
-                //("cannot make use data provided :457")
-              }
-
-            } else {
-              var fgroup = this.fb.group({})
-              control.groupFields.forEach((field, index) => {
-                this.checkValidation(field.name, field.validation, fgroup)
-              })
-              subarray.push(fgroup)
-
-            }
-            groupContents.addControl(control.name, subarray)
-            groupContents.updateValueAndValidity();
-
-          }
-
-          //main control list >below
-        })
-        mainarray.push(groupContents)
-        //(mainarray)
-        this.mainformgroup.addControl(htmlobj.name, mainarray)
-        this.mainformgroup.updateValueAndValidity();
-
-
-
-
-      }
-    })
-    //("135")
-    console.log("mainformgroup")
-    this.mainformgroup.updateValueAndValidity();
-
-    console.log(this.mainformgroup)
   }
 
+  ngOnInit() {
+    var that=this
+
+    this.parseObjs()
+    this.mainformgroup.reset({ onlySelf: true })
+
+    this.formObj.forEach((htmlobj) => {
+      if (htmlobj.subtypehtml == "singleControl" || htmlobj.subtypehtml == "options"){
+        try {
+          this.BUILDFORMCONTROL(htmlobj,this.mainformgroup,this.dataobjvalues[htmlobj.name])
+        } catch{
+          this.BUILDFORMCONTROL(htmlobj,this.mainformgroup,null)
+        }
+      }
+
+      if (htmlobj.subtypehtml == "formGroup" ){
+        try{
+          var resultC = this.BUILDFORMGROUP(htmlobj,this.dataobjvalues[htmlobj.name])
+          this.mainformgroup.addControl(resultC['objname'], resultC['group'])
+
+        }catch{
+          var resultD = this.BUILDFORMGROUP(htmlobj,null)
+          this.mainformgroup.addControl(resultD['objname'], resultD['group'])
+        }
+      }
+
+      if (htmlobj.subtypehtml == "plainArray" ){
+        try{
+          var resultE = this.BUILDFORMARRAY(htmlobj,this.dataobjvalues[htmlobj.name])
+          this.mainformgroup.addControl(resultE['objname'], resultE['array'])
+        }catch{
+        var resultF = this.BUILDFORMARRAY(htmlobj,null)
+          this.mainformgroup.addControl(resultF['objname'], resultF['array'])
+        }
+      }
+      if (htmlobj.subtypehtml == "multiform" ){
+        var mainarray = that.fb.array([])
+         var groupContents = that.fb.group({})
+         console.log("this.dataobjvalues")
+         console.log(that.dataobjvalues)
+         console.log(htmlobj.name)
+
+                    if (that.dataobjvalues[htmlobj.name]  !== null && that.dataobjvalues[htmlobj.name]  !== undefined){
+
+                      that.dataobjvalues[htmlobj.name].forEach(varient=>{
+                        run(varient)
+                      })
+                    }else{
+                      run(null)
+                    }
+
+// run(null)
+
+    function run(varient){
+                    console.log("VARIENT")
+                    console.log(varient)
+
+        htmlobj.multiformControls.forEach(control=>{
+          console.log("CONTROLNAME line 366")
+          console.log(control.name)
 
 
+          if (control.subtypehtml == "formGroup" ){
+            try{
+              var resultA = that.BUILDFORMGROUP(control,varient[control.name])
+              groupContents.addControl(resultA['objname'], resultA['group'])
+            }catch{
+              var resultAB = that.BUILDFORMGROUP(control,null)
+              groupContents.addControl(resultAB['objname'], resultAB['group'])
+            }
+          }
+          if (control.subtypehtml == "plainArray" ){
+            try{
+              var resultB = that.BUILDFORMARRAY(control,varient[control.name])
+              groupContents.addControl(resultB['objname'], resultB['array'])
+            }catch{
+            var resultBC = that.BUILDFORMARRAY(control,null)
+              groupContents.addControl(resultBC['objname'], resultBC['array'])
+            }
+          }
+        })
+        mainarray.push(groupContents)
+}
 
+
+        that.mainformgroup.addControl(htmlobj.name, mainarray)
+      }
+      console.log(that.mainformgroup)
+    })
+    this.mainformgroup.updateValueAndValidity();
+  }
 }

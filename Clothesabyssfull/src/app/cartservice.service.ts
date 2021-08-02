@@ -51,6 +51,7 @@ return data
     headers.append('Content-Type', 'application/json');
 
     let a = this.http.get('../assets/productCatagories/products.json', { headers }).toPromise().then((data: any) => {
+
       var dat = this.datap
       this.datap = data
       var x = this.box(type)
@@ -99,8 +100,19 @@ return data
 
   sortBySpecific(specific) {
     let that = this
+    var type;
     console.log(that.datap)
-    var type = that.datap['PRODUCTS'].filter( (objj)=> objj["TYPE"] === specific)
+if ( that.datap['PRODUCTS'][0].hasOwnProperty("data") ||  that.datap['PRODUCTS'][0].hasOwnProperty("DATA") ){
+  try{
+    type = that.datap['PRODUCTS'].filter( (objj)=> objj.DATA["TYPE"] === specific)
+  }catch{
+    type = that.datap['PRODUCTS'].filter( (objj)=> objj.data["TYPE"] === specific)
+  }
+}else{
+  type = that.datap['PRODUCTS'].filter( (objj)=> objj["TYPE"] === specific)
+}
+
+
     console.log(type)
     return type
 
@@ -108,9 +120,20 @@ return data
 
   sortByCatagory(catagory) {
     let that = this
-    var type = this.datap.product.filter(function(objj) {
-      return objj.productCatagory === catagory;
-    })
+    var type;
+    console.log(that.datap)
+if ( that.datap['PRODUCTS'][0].hasOwnProperty("data") ||  that.datap['PRODUCTS'][0].hasOwnProperty("DATA") ){
+  try{
+    type = that.datap['PRODUCTS'].filter( (objj)=> objj.DATA["CATAGORY"] === catagory)
+  }catch{
+    type = that.datap['PRODUCTS'].filter( (objj)=> objj.data["CATAGORY"] === catagory)
+  }
+}else{
+  type = that.datap['PRODUCTS'].filter( (objj)=> objj["CATAGORY"] === catagory)
+}
+
+
+    console.log(type)
     return type
   }
 

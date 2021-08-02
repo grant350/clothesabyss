@@ -13,14 +13,15 @@ var CTE = require('../checktableexist')
 
 module.exports = (req, res, next) => {
   console.log("DATAPUSH HAS STARTED LINE 16")
-var data =req.body.JSONDATA
+var data =req.body.JSONDATA.DATA
 //console.log(data)
-  if (req.permissions === "admin" && data['MANIPULATIONINFO']) {
+  if (req.permissions === "admin") {
     console.log("DATAPUSH: LINE18 is admin passed")
 
 var SQLKeyRemover = req.body.datastripperObjs.SQLKeyRemover
 var JSONKeyRemover = req.body.datastripperObjs.JSONKeyRemover
 
+console.log(req.body.datastripperObjs.SQLKeyRemover)
 
 var OBJECTOFDATA={
 "data": req.body.JSONDATA,
@@ -34,11 +35,19 @@ var OBJECTOFDATA={
 "JSONFILEURL":req.body['MANIPULATIONINFO'].JSONFILEURL,
 "JSONIDNAME":req.body['MANIPULATIONINFO'].jsonFileStartKey
 }
+
+console.log(OBJECTOFDATA['data'])
+if (OBJECTOFDATA['data']['data'] || OBJECTOFDATA['data']['DATA']){
+  OBJECTOFDATA['sqlObject']={'DATA':OBJECTOFDATA['sqlObject']}
+}else{
+  console.log("NO DATA TEXT FORMAT LINE 41")
+}
+
+
 // console.log("OBJECTOFDATA LINE 39")
 // console.log(OBJECTOFDATA)
 
 //investigate make more log find out how to prevent future errors
-
 
 
 var sqlstatments={
@@ -47,7 +56,6 @@ var sqlstatments={
 
 var rows = CTE(OBJECTOFDATA['TABLENAME']);
 console.log(rows)
-
 rows.then(ROWINFO=>{
 //console.log(ROWINFO);
 ROWINFO.forEach(row => {
@@ -99,11 +107,18 @@ db.execute(sqlstatments.beginpromiseSQL, []).then(([rows, fields]) => {
    "col": colnames
  }
 }).then((olddataObject) => {
+
 var sqldataobj = olddataObject.sqldataobj
  var KeyArray = [];
  var ValueArray = [];
  var QArray = [];
 var dta=sqldataobj
+try{
+  dta['MANIPULATIONINFO']=req.body.MANIPULATIONINFO
+}catch{
+console.log("COULD NOT SET MANIPULATION INFO")
+}
+
  olddataObject.col.forEach(cn => {
 // console.log(cn)
    if (cn.toLowerCase() === "date") {
@@ -115,6 +130,13 @@ var dta=sqldataobj
    if (dta[cn] !== null  && dta[cn] !== undefined || cn.toLowerCase() === "date") {
      KeyArray.push(cn)
      QArray.push("?")
+console.log("cn")
+console.log("cn")
+console.log(cn)
+console.log(cn)
+console.log(cn)
+console.log(cn)
+console.log(cn)
 
      if (dta[cn] instanceof Array || dta[cn] instanceof Object) {
        var rowvalue = JSON.stringify(dta[cn])
@@ -247,7 +269,9 @@ var dta=sqldataobj
 
 
 
-  }
+}else{
+  console.log("PERMISSION DENIED OR NO MANIPULATION INFO")
+}
 
 
 

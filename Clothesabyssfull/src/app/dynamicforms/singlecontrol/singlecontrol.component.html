@@ -1,5 +1,4 @@
-<div class="singlecontrol-ct"  *ngIf="!auth && control && singlecontrolenable" style="border:none;" (change)="runchange()">
-<p *ngIf="image">{{JSON.stringify(image)}}</p>
+<div class="singlecontrol-ct"  *ngIf="!auth" style="border:none;" >
 <div  class="ct" [ngClass]="{
   'ng-valid-main': status === 'VALID',
   'ng-pending-main': status === 'PENDING',
@@ -10,7 +9,7 @@
   </label>
 
 
- <div *ngIf="data.subtypehtml === 'image'" class="image-ct">
+ <div *ngIf="data.type === 'image' " class="image-ct">
    <button class="image-ct-btn" (click)="filePickersingle.click()">Pick Image</button>
 
   <input  style="display:none;" type="file" #filePickersingle (change)="onImagePicksinglecontrol($event,data.name,control.get(data.name))" name="{{data.name}}">
@@ -24,19 +23,22 @@
   </canvas> -->
   </div>
 
-<div *ngIf="data.subtypehtml === 'options'" class="image-ct">
+<div *ngIf="data.type === 'options'" class="image-ct">
 
 <app-options [auth]="auth" [ngStyle]="data.style" formControlName="{{data.name}}" [errorsfile]="errorsfile"  [data]="data"></app-options>
  </div>
 
-  <input matInput class="input-singlefield" [ngStyle]="data.style"  *ngIf="data.subtypehtml === 'singlefield' || data.type === 'field' "  formControlName="{{data.name}}" value="{{control.get(data.name).value}}" >
 
-<div *ngIf="data.subtypehtml === 'date' || data.type === 'date' "  style="display:flex;" >
+  <input matInput class="input-singlefield" [ngStyle]="data.style"  *ngIf="data.type === 'plainfield'"  formControlName="{{data.name}}" value="{{control.get(data.name).value}}" >
+
+
+
+<div *ngIf="data.type === 'date' || data.type === 'date' "  style="display:flex;" >
   <input style="margin-right:20px;" matInput class="input-singlefield" [ngStyle]="data.style"  formControlName="{{data.name}}" value="{{dateval}}" >
   <button class="image-ct-btn" (click)="autodate()"> AUTODATE</button>
 </div>
 
-  <textarea  class="textbox-content"  [ngStyle]="data.style" *ngIf="data.subtypehtml === 'textarea' || data.type === 'textarea' "  formControlName="{{data.name}}" value="{{control.get(data.name).value}}" >
+  <textarea  class="textbox-content"  [ngStyle]="data.style" *ngIf="data.type === 'textarea' || data.type === 'textarea' "  formControlName="{{data.name}}" value="{{control.get(data.name).value}}" >
   </textarea>
 
 

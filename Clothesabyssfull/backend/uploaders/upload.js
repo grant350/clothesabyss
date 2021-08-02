@@ -21,6 +21,14 @@ module.exports = (req, res, next) => {
     var t4 = MANIPULATIONINFO['TABLEID'] !== null && MANIPULATIONINFO['TABLEID'] !== undefined;
 
     var myPromiseA = new Promise((resolve, reject) => {
+      if (JSONDATA.DATA || JSONDATA.data){
+        try{
+          JSONDATA=JSONDATA.DATA
+        }catch{
+          JSONDATA=JSONDATA.data
+        }
+      }
+
       if (MANIPULATIONINFO['edit'] !== undefined) {
         console.log("edit is not undefined")
       };
@@ -132,12 +140,13 @@ module.exports = (req, res, next) => {
       } else {
         // send to to client
 
-        JSONDATA['MANIPULATIONINFO'] = MANIPULATIONINFO
-        console.log("43443")
-        console.log(JSONDATA)
-
+        // JSONDATA['MANIPULATIONINFO'] = MANIPULATIONINFO
+        // console.log("43443")
+        // console.log(JSONDATA)
+        // {JSONDATA,"MANIPULATIONINFO":MANIPULATIONINFO}
+        //
         res.json({
-          "JSONDATA": JSONDATA,
+          "JSONDATA": {"DATA":JSONDATA,"MANIPULATIONINFO":MANIPULATIONINFO},
           "ID": id,
           "datastripperObjs": req.body['datastripperObjs'],
           "MANIPULATIONINFO": req.body['MANIPULATIONINFO']
@@ -162,11 +171,10 @@ module.exports = (req, res, next) => {
             makepath(filenamepath)
             loopFolders(filenamepath)
           }
-          JSONDATA['MANIPULATIONINFO'] = MANIPULATIONINFO
           console.log("43443")
           console.log(JSONDATA)
           res.json({
-            "JSONDATA": JSONDATA,
+            "JSONDATA": {"DATA":JSONDATA,"MANIPULATIONINFO":MANIPULATIONINFO},
             "ID": ID,
             "datastripperObjs": req.body['datastripperObjs'],
             "MANIPULATIONINFO": req.body['MANIPULATIONINFO']

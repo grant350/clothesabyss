@@ -25,7 +25,7 @@
 </div>
   <div *ngFor="let arrayitem of onarray; let i = index">
 
-    <div class="switch" [ngSwitch]="data['controls'][i]['type']" (click)="arrow(i)">
+    <div class="switch" [ngSwitch]="data['multiformControls'][i]['subtypehtml']" (click)="arrow(i)">
 
 
       <div *ngSwitchCase="'formGroup'" [formGroup]="arrayitem">
@@ -33,7 +33,7 @@
           <mat-expansion-panel class="mat-expansion-panel" hideToggle>
             <mat-expansion-panel-header>
               <mat-panel-title>
-                {{data['controls'][i].name}}
+                {{data['multiformControls'][i].name}}
 
                 <div *ngIf="!array[i]"  style="position:absolute; right:20px;">
                   <img style="width:30px; height:30px; " src="../../../assets/icons/downarrow.svg" >
@@ -47,17 +47,16 @@
             </mat-expansion-panel-header>
             <mat-card class="card-ct">
               <div *ngFor="let card of Object.keys(arrayitem.value); let ci = index" style="display:block; width:80%; padding: 20px;" id="{{card}}-{{ci}}">
-                <label class="label" *ngIf="data['controls'][i].groupFields[ci].ClientName"> {{data['controls'][i].groupFields[ci].ClientName}}
+                <label class="label" *ngIf="data['multiformControls'][i].controls[ci].ClientName"> {{data['multiformControls'][i].controls[ci].ClientName}}
                 </label>
 
-                <label class="label" *ngIf="!data['controls'][i].groupFields[ci].ClientName"> {{card}} </label>
+                <label class="label" *ngIf="!data['multiformControls'][i].controls[ci].ClientName"> {{card}} </label>
                 <app-singlecontrol style="
                       width: 100%;
                       display: block;
                       border:none!important;
                       " [errorsfile]="errorsfile"
-                      [singlecontrolenable]="singlecontrolenable"
-                       [control]="arrayitem" [data]="data['controls'][i].groupFields[ci]"
+                       [control]="arrayitem" [data]="data['multiformControls'][i].controls[ci]"
                       >
                 </app-singlecontrol>
 
@@ -69,7 +68,7 @@
       <div *ngSwitchCase="'plainArray'" style="width:100%;">
         <mat-card class="mutli" style="width:100%;">
 
-          <app-formarray style="margin:0px; padding:0px; width:100%;" [auth]="auth" [control]="arrayitem" [errorsfile]="errorsfile" [data]="data.controls[i]">
+          <app-formarray style="margin:0px; padding:0px; width:100%;" [auth]="auth" [control]="arrayitem" [errorsfile]="errorsfile" [data]="data.multiformControls[i]">
           </app-formarray>
         </mat-card>
       </div>

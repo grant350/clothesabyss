@@ -10,15 +10,15 @@ import { GlobalFormService } from '../../../../globalformservice.service';
   styleUrls: ['./productadd-form.component.scss']
 })
 export class ProductaddFormComponent implements OnInit {
-public formObj: any;
-public enabled = true;
-public index: any;
-public dataobjvalues: any;
-public selectedValue="PRODUCTADDFORM";
-public formbuilderdataobj: any;
-public variablepath="PRODUCTCATAGORY";
+  public formObj: any;
+  public enabled = true;
+  public index: any;
+  public dataobjvalues: any;
+  public selectedValue = "PRODUCTADDFORM";
+  public formbuilderdataobj: any;
+  public variablepath = "PRODUCTCATAGORY";
 
-  constructor(private activatedRoute: ActivatedRoute,private gs: GlobalFormService, private gt: GETDATA, private changeDetector: ChangeDetectorRef) {
+  constructor(private activatedRoute: ActivatedRoute, private gs: GlobalFormService, private gt: GETDATA, private changeDetector: ChangeDetectorRef) {
     // console.log(this.index)
   }
 
@@ -27,7 +27,7 @@ public variablepath="PRODUCTCATAGORY";
   ngOnInit() {
     this.formObj = [
       // {
-      //   "html": "singlefield",
+      //   "html": "singleControl",
       //   "type": "singleControl",
       //   "name": "Age",
       //   "ClientName":"Age",
@@ -51,9 +51,9 @@ public variablepath="PRODUCTCATAGORY";
       // }
       // },
       //  {
-      //   "html":"singlefield",
+      //   "html":"singleControl",
       //   "type":"singleControl",
-      //   "subtypehtml":"singlefield",
+      //   "subtypehtml":"singleControl",
       //   "name":"USERNAME",
       //   "style":{
       //     "width":"60%",
@@ -102,9 +102,32 @@ public variablepath="PRODUCTCATAGORY";
       //   ]
       //
       // },
+
       {
-        "html": "options",
-        "type": "singleControl",
+        "subtypehtml": "singleControl",
+        "type": "image",
+        "name": "IMAGE",
+        "hidename": false,
+        "ClientName": "IMAGE",
+        "validation": {
+          "required": true,
+          "customValidator": "imageValidator",
+          "options": {
+            "datatype": { "Type": "image" },
+            "minX": 300,
+            "maxX": 15000,
+            "minY": 250,
+            "maxY": 15000
+          }
+          // "filesizeLimit":20000,
+          // "nameRestraintInclude":"blue",
+          // "type":"jpg"
+        }
+      },
+
+      {
+        "subtypehtml": "options",
+        "type": "options",
         "name": "CHOOSEOTHERPLATFORMS",
         "ClientName": "OTHERPLATFORMS EX(amazon,ebay)",
         "validation": {
@@ -123,8 +146,9 @@ public variablepath="PRODUCTCATAGORY";
         ]
 
       },
+
       {
-        "html": "options",
+        "subtypehtml": "options",
         "type": "singleControl",
         "name": "SHOWONSITE",
         "ClientName": "SHOW ON MAIN SITE",
@@ -137,7 +161,7 @@ public variablepath="PRODUCTCATAGORY";
         ]
       },
       {
-        "html": "plainArray",
+        "subtypehtml": "plainArray",
         "type": "plainArray",
         "name": "OTHERPLATFORMS",
         "textStyle": {
@@ -153,113 +177,116 @@ public variablepath="PRODUCTCATAGORY";
         "ClientName": "PLATFORMS",
         "groupFields": [
           {
-            "html": "singlefield",
-            "type": "singleControl",
-            "subtypehtml": "date",
-            "name": "DATE",
-            "hidename": false,
-            "style": {
-              "width": "60%",
-              "color": "black"
+            "controls": [{
+              "subtypehtml": "singleControl",
+              "type": "date",
+              "name": "DATE",
+              "hidename": false,
+              "style": {
+                "width": "60%",
+                "color": "black"
+              },
+              "textStyle": {
+                "color": "black"
+              },
+              "ClientName": "DATE",
+              "validation": {
+                "required": false,
+              }
             },
-            "textStyle": {
-              "color": "black"
+            {
+              "name": "PLATFORMNAME",
+              "ClientName": "PLATFORM NAME Sold on",
+              "hidename": false,
+              "type": "singleControl",
+              "subtypehtml": "singleControl",
+              "validation": {
+                "required": true,
+                "options": {
+                  "datatype": { "Type": "any" }
+                }
+              }
             },
-            "ClientName": "DATE",
-            "validation": {
-              "required": false,
-            }
-          },
-          {
-            "name": "PLATFORMNAME",
-            "ClientName": "PLATFORM NAME Sold on",
-            "hidename": false,
-            "type": "singleControl",
-            "subtypehtml": "singlefield",
-            "validation": {
-              "required": true,
-              "options": {
-                "datatype": { "Type": "any" }
+            {
+              "name": "PRODUCTTILE",
+              "ClientName": "PRODUCTTILE",
+              "hidename": false,
+              "type": "singleControl",
+              "subtypehtml": "singleControl",
+              "style": {
+                "width": "60%",
+                "height": "40px"
+              },
+              "validation": {
+                "required": true,
+                "options": {
+                  "length": {
+                    "minCharlength": 20,
+                    "maxCharlength": 80
+                  },
+                  "datatype": { "Type": "any" }
+                }
               }
-            }
-          },
-          {
-            "name": "PRODUCTTILE",
-            "ClientName": "PRODUCTTILE",
-            "hidename": false,
-            "type": "singleControl",
-            "subtypehtml": "singlefield",
-            "style": {
-              "width": "60%",
-              "height":"40px"
             },
-            "validation": {
-              "required": true,
-              "options": {
-                "length": {
-                  "minCharlength": 20,
-                  "maxCharlength": 80
-                },
-                "datatype": { "Type": "any" }
+            {
+              "name": "SALEPRICE",
+              "ClientName": "SALEPRICE",
+              "hidename": false,
+              "type": "singleControl",
+              "subtypehtml": "singleControl",
+              "validation": {
+                "customValidator": "generalValidator",
+                "required": true,
+                "options": {
+                  "datatype": { "Type": "float", "decimalplace": 2 }
+                }
+              }
+            },
+            {
+              "name": "PRODUCTPRICE",
+              "ClientName": "PRODUCTPRICE",
+              "hidename": false,
+              "type": "singleControl",
+              "subtypehtml": "singleControl",
+              "validation": {
+                "customValidator": "generalValidator",
+                "required": true,
+                "options": {
+                  "datatype": { "Type": "float", "decimalplace": 2 }
+                }
+              }
+            },
+            {
+              "name": "SHIPPINGCOST",
+              "ClientName": "SHIPPINGCOST",
+              "hidename": false,
+              "type": "singleControl",
+              "subtypehtml": "singleControl",
+              "validation": {
+                "customValidator": "generalValidator",
+                "required": true,
+                "options": {
+                  "datatype": { "Type": "float", "decimalplace": 2 }
+                }
+              }
+            },
+            {
+              "name": "FEES",
+              "ClientName": "FEES",
+              "hidename": false,
+              "type": "singleControl",
+              "subtypehtml": "singleControl",
+              "validation": {
+                "customValidator": "generalValidator",
+                "required": true,
+                "options": {
+                  "datatype": { "Type": "float", "decimalplace": 2 }
+                }
               }
             }
-          },
-          {
-            "name": "SALEPRICE",
-            "ClientName": "SALEPRICE",
-            "hidename": false,
-            "type": "singleControl",
-            "subtypehtml": "singlefield",
-            "validation": {
-              "customValidator": "generalValidator",
-              "required": true,
-              "options": {
-                "datatype": { "Type": "float", "decimalplace": 2 }
-              }
-            }
-          },
-          {
-            "name": "PRODUCTPRICE",
-            "ClientName": "PRODUCTPRICE",
-            "hidename": false,
-            "type": "singleControl",
-            "subtypehtml": "singlefield",
-            "validation": {
-              "customValidator": "generalValidator",
-              "required": true,
-              "options": {
-                "datatype": { "Type": "float", "decimalplace": 2 }
-              }
-            }
-          },
-          {
-            "name": "SHIPPINGCOST",
-            "ClientName": "SHIPPINGCOST",
-            "hidename": false,
-            "type": "singleControl",
-            "subtypehtml": "singlefield",
-            "validation": {
-              "customValidator": "generalValidator",
-              "required": true,
-              "options": {
-                "datatype": { "Type": "float", "decimalplace": 2 }
-              }
-            }
-          },
-          {
-            "name": "FEES",
-            "ClientName": "FEES",
-            "hidename": false,
-            "type": "singleControl",
-            "subtypehtml": "singlefield",
-            "validation": {
-              "customValidator": "generalValidator",
-              "required": true,
-              "options": {
-                "datatype": { "Type": "float", "decimalplace": 2 }
-              }
-            }
-          }
+            ]
+}
+
         ]
       },
       // {
@@ -352,9 +379,8 @@ public variablepath="PRODUCTCATAGORY";
       //   ]
       //   },
       {
-        "html": "singlefield",
-        "type": "singleControl",
-        "subtypehtml": "singlefield",
+        "type": "plainfield",
+        "subtypehtml": "singleControl",
         "name": "COMPANYNAME",
         "textStyle": {
           "color": "black"
@@ -365,7 +391,7 @@ public variablepath="PRODUCTCATAGORY";
         },
         //add To platforms later work on!!
         "ClientName": "COMPANY/STORE (Name)",
-        "valueAutoset":"clothesabyss",
+        "valueAutoset": "clothesabyss",
         "validation": {
           "required": true,
           "textStyle": {
@@ -383,9 +409,8 @@ public variablepath="PRODUCTCATAGORY";
         }
       },
       {
-        "html": "singlefield",
-        "type": "singleControl",
-        "subtypehtml": "singlefield",
+        "subtypehtml": "singleControl",
+        "type": "plainfield",
         "name": "TYPE",
         "textStyle": {
           "color": "black"
@@ -395,7 +420,7 @@ public variablepath="PRODUCTCATAGORY";
         },
         "ClientName": "Type (product special displayed on site)",
         "validation": {
-           "required": false
+          "required": false
           // "customValidator": "generalValidator",
           // "options": {
           //   "datatype": { "Type": "any" },
@@ -404,13 +429,12 @@ public variablepath="PRODUCTCATAGORY";
           //     "minCharlength": 3,
           //     "maxCharlength": 20
           //   }
-         }
+        }
       },
       {
-        "html": "singlefield",
-        "type": "singleControl",
+        "subtypehtml": "singleControl",
+        "type": "plainfield",
         "name": "SUBCATAGORY",
-        "subtypehtml": "singlefield",
         "textStyle": {
           "color": "black"
         },
@@ -432,10 +456,9 @@ public variablepath="PRODUCTCATAGORY";
         }
       },
       {
-        "html": "singlefield",
-        "type": "singleControl",
+        "subtypehtml": "singleControl",
+        "type": "plainfield",
         "name": "PRODUCTNAME",
-        "subtypehtml": "singlefield",
         "ClientName": "ProductName",
         "textStyle": {
           "color": "black"
@@ -459,9 +482,8 @@ public variablepath="PRODUCTCATAGORY";
 
       },
       {
-        "html": "singlefield",
-        "type": "singleControl",
-        "subtypehtml": "textarea",
+        "subtypehtml": "singleControl",
+        "type": "textarea",
         "name": "TITLE",
         "textStyle": {
           "color": "black"
@@ -485,10 +507,9 @@ public variablepath="PRODUCTCATAGORY";
         }
       },
       {
-        "html": "singlefield",
-        "type": "singleControl",
+        "subtypehtml": "singleControl",
+        "type": "plainfield",
         "name": "PRODUCTCATAGORY",
-        "subtypehtml": "singlefield",
         "ClientName": "ProductCatagory",
         "textStyle": {
           "color": "black"
@@ -507,7 +528,7 @@ public variablepath="PRODUCTCATAGORY";
       },
       //make an array for paragraphs
       {
-        "html": "plainArray",
+        "subtypehtml": "plainArray",
         "type": "plainArray",
         "name": "PARAGRAPHS",
         "textStyle": {
@@ -517,64 +538,71 @@ public variablepath="PRODUCTCATAGORY";
         "multiadder": false,
         "groupFields": [
           {
-            "name": "PARAGRAPH",
-            "ClientName": "Paragraph",
-            'subtypehtml': "textarea",
-            "hidename": false,
-              "style": {
-                "width": "80%",
-                "font-size": "16px",
-                "height": "60px"
-              },
-            "validation": {
-              "required": false,
-              // "customValidator": "generalValidator",
-              // "options": {
-              //   "datatype": { "Type": "any" },
-              //   "length": {
-              //     "minCharlength": 0,
-              //     "maxCharlength": 100
-              //   }
-              // }
-            }
+            "controls": [
+              {
+                "name": "PARAGRAPH",
+                "ClientName": "Paragraph",
+                'type': "textarea",
+                "hidename": false,
+                "style": {
+                  "width": "80%",
+                  "font-size": "16px",
+                  "height": "60px"
+                },
+                "validation": {
+                  "required": false,
+                  // "customValidator": "generalValidator",
+                  // "options": {
+                  //   "datatype": { "Type": "any" },
+                  //   "length": {
+                  //     "minCharlength": 0,
+                  //     "maxCharlength": 100
+                  //   }
+                  // }
+                }
+              }
+            ]
+
           }
         ]
       },
       {
-        "html": "plainArray",
+        "subtypehtml": "plainArray",
         "type": "plainArray",
         "name": "SPECIFICATIONS",
         "ClientName": "SPECIFICATIONS",
         "multiadder": false,
         "groupFields": [
           {
-            "name": "KEY",
-            "ClientName": "KEY",
-            'subtypehtml': "singlefield",
-            "validation": {
-              "required": true,
-              "customValidator": "generalValidator",
-              "options": {
-                "datatype": { "Type": "any" }
+            "controls": [{
+              "name": "KEY",
+              "ClientName": "KEY",
+              'type': "plainfield",
+              "validation": {
+                "required": false,
+                // "customValidator": "generalValidator",
+                // "options": {
+                //   "datatype": { "Type": "any" }
+                // }
               }
-            }
-          },
-          {
-            "name": "VALUE",
-            "ClientName": "VALUE",
-            'subtypehtml': "singlefield",
-            "validation": {
-              "required": true,
-              "customValidator": "generalValidator",
-              "options": {
-                "datatype": { "Type": "any" }
+            },
+            {
+              "name": "VALUE",
+              "ClientName": "VALUE",
+              'type': "plainfield",
+              "validation": {
+                "required": false,
+                // "customValidator": "generalValidator",
+                // "options": {
+                //   "datatype": { "Type": "any" }
+                // }
               }
-            }
+            }]
           }
         ]
       },
       {
-        "html": "options",
+        "subtypehtml": "options",
         "type": "singleControl",
         "name": "MULTISETPRODUCTOPTIONS",
         "ClientName": "Multiset",
@@ -630,7 +658,7 @@ public variablepath="PRODUCTCATAGORY";
       // },
 
       {
-        "html": "multiform",
+        "subtypehtml": "multiform",
         "type": "formArray",
         "name": "MULTISETPRODUCTS",
         "ClientName": "MULTISETPRODUCTS",
@@ -641,15 +669,16 @@ public variablepath="PRODUCTCATAGORY";
           "control": 'true',
           "equals": true
         },
-        "controls": [
+        "multiformControls": [
           {
             "name": "PRODUCT",
-            "type": "formGroup",
-            "groupFields": [
+            "subtypehtml": "formGroup",
+
+            "controls": [
               {
                 "name": "subProductImage",
-                "subtypehtml": "singlefield",
-                "datatype": "image",
+                "subtypehtml": "singleControl",
+                "type": "image",
                 "hidename": false,
                 "validation": {
                   "options": {
@@ -669,7 +698,7 @@ public variablepath="PRODUCTCATAGORY";
               },
               {
                 "name": "PRODUCTNAME",
-                "type": "field",
+                "type": "plainfield",
                 "hidename": false,
                 "validation": {
                   "required": false,
@@ -684,7 +713,7 @@ public variablepath="PRODUCTCATAGORY";
                 }
               },
               {
-                "name": "PRODUCTSPEC",
+                "name": "plainfield",
                 "type": "field",
                 "hidename": false,
                 "validation": {
@@ -696,12 +725,61 @@ public variablepath="PRODUCTCATAGORY";
                 }
               }
             ]
+
+
+
           }
         ]
       },
 
+
       {
-        "html": "multiform",
+        "subtypehtml": "formGroup",
+        "type": "group",
+        "name": "PERSONNAME",
+        "multiadder": true,
+        "hidename": false,
+        "ClientName": "personname",
+        "validation": {
+          "required": true
+        },
+        "controls": [
+          {
+            "subtypehtml": "singleControl",
+            "name": "FIRSTNAME",
+            "type": "plainfield",
+            "ClientName": "FIRSTNAME",
+            "hidename": false,
+            "validation": {
+              "required": true,
+              "customValidator": "generalValidator",
+              "options": {
+                "datatype": { "Type": "string" }
+              }
+            }
+          },
+          {
+            "subtypehtml": "singleControl",
+            "name": "LASTNAME",
+            "ClientName": "LASTNAME",
+            "type": "plainfield",
+            "hidename": false,
+            "validation": {
+              "required": true,
+              "customValidator": "generalValidator",
+              "options": {
+                "datatype": { "Type": "string" }
+              }
+            }
+          }
+
+        ]
+
+      },
+
+
+      {
+        "subtypehtml": "multiform",
         "type": "formArray",
         "name": "VARIENTS",
         "multiadder": true,
@@ -710,17 +788,18 @@ public variablepath="PRODUCTCATAGORY";
         "validation": {
           "required": true
         },
-        "controls": [
+        "multiformControls": [
+
           {
             "name": "VARIENTINFO",
-            "type": "formGroup",
+            "subtypehtml": "formGroup",
             "hidename": true,
             'ClientName': 'VARIENTINFO',
-            "groupFields": [
+            "controls": [
               {
                 "name": "MAINIMAGE",
-                "subtypehtml": "image",
-                "type": "singleControl",
+                "subtypehtml": "singleControl",
+                "type": "image",
                 "hidename": true,
                 "ClientName": "MAINIMAGE",
                 "validation": {
@@ -738,36 +817,27 @@ public variablepath="PRODUCTCATAGORY";
                   // "type":"jpg"
                 }
               },
-
               {
                 "name": "SKU",
                 "ClientName": "SKU/UPC",
                 "hidename": true,
-                "subtypehtml": "singlefield",
-                "type": "singleControl",
+                "subtypehtml": "singleControl",
+                "type": "plainfield",
                 "style": {
                   "width": "60%",
                   "font-size": "16px",
                   "height": "30px"
                 },
                 "validation": {
-                  "required": false,
-                  // "customValidator": "generalValidator",
-                  // "options": {
-                  //   "datatype": { "Type": "any" },
-                  //   "length": {
-                  //     "minCharlength": 8,
-                  //     "maxCharlength": 22
-                  //   }
-                  // }
+                  "required": false
                 }
               },
               {
                 "name": "INVENTORY",
                 "ClientName": "INVENTORY",
                 "hidename": true,
-                "subtypehtml": "singlefield",
-                "type": "singleControl",
+                "subtypehtml": "singleControl",
+                "type": "plainfield",
                 "style": {
                   "width": "20%",
                   "font-size": "16px",
@@ -787,10 +857,10 @@ public variablepath="PRODUCTCATAGORY";
               },
               {
                 "name": "WEIGHT",
-                "subtypehtml": "singlefield",
+                "subtypehtml": "singleControl",
                 "ClientName": "WEIGHT(Grams)",
                 "hidename": true,
-                "type": "singleControl",
+                "type": "plainfield",
                 "style": {
                   "width": "20%",
                   "font-size": "16px",
@@ -811,8 +881,8 @@ public variablepath="PRODUCTCATAGORY";
               {
                 "name": "COST",
                 "hidename": true,
-                "subtypehtml": "singlefield",
-                "type": "singleControl",
+                "subtypehtml": "singleControl",
+                "type": "plainfield",
                 "ClientName": "Cost",
                 "style": {
                   "width": "20%",
@@ -829,7 +899,7 @@ public variablepath="PRODUCTCATAGORY";
               },
               {
                 "name": "PRODUCTPRICE",
-                "subtypehtml": "singlefield",
+                "type": "plainfield",
                 "ClientName": "Product Price",
                 "hidename": true,
                 "style": {
@@ -837,7 +907,6 @@ public variablepath="PRODUCTCATAGORY";
                   "font-size": "16px",
                   "height": "30px"
                 },
-                "type": "singleControl",
                 "validation": {
                   "required": true,
                   "customValidator": "generalValidator",
@@ -849,14 +918,13 @@ public variablepath="PRODUCTCATAGORY";
               {
                 "name": "PRODUCTCONTENTS",
                 "hidename": true,
-                "subtypehtml": "textarea",
+                "type": "textarea",
                 "style": {
                   "width": "60%",
                   "font-size": "16px",
                   "height": "80px"
                 },
                 "ClientName": "Product Content",
-                "type": "singleControl",
                 "datatype": "textfield",
                 "validation": {
                   "required": false
@@ -865,8 +933,8 @@ public variablepath="PRODUCTCATAGORY";
               {
                 "name": "BINLOCATION",
                 "hidename": true,
-                "subtypehtml": "singlefield",
-                "type": "singleControl",
+                "subtypehtml": "singleControl",
+                "type": "plainfield",
                 "ClientName": "BIN LOCATION",
                 "style": {
                   "width": "20%",
@@ -887,9 +955,9 @@ public variablepath="PRODUCTCATAGORY";
               {
                 "name": "PRODUCTSALEPRICE",
                 "hidename": true,
-                "subtypehtml": "singlefield",
+                "subtypehtml": "singleControl",
                 "ClientName": "PRODUCT SALE PRICE",
-                "type": "singleControl",
+                "type": "plainfield",
                 "style": {
                   "width": "20%",
                   "font-size": "16px",
@@ -903,11 +971,13 @@ public variablepath="PRODUCTCATAGORY";
                     "datatype": { "Type": "float", "decimalPlace": 2 }
                   }
                 }
-              }
-            ]
+              }]
+
           },
+
           {
             "name": "LOCATION",
+            "subtypehtml": "plainArray",
             "type": "plainArray",
             "ClientName": "LOCATION",
             "hidename": true,
@@ -918,55 +988,59 @@ public variablepath="PRODUCTCATAGORY";
             },
             "substyle": {
             },
-            "groupFields": [  {
-                "name": "LOCATIONFOUND",
-                "hidename": false,
-                "style": {
-                  "width": "20%",
-                  "font-size": "16px",
-                  "height": "30px"
-                },
-                "subtypehtml": "singlefield",
-                "ClientName": "LOCATIONFOUND address",
-                "type": "singleControl",
-                "datatype": "float",
-                "validation": {
-                  "required": true,
-                  "customValidator": "generalValidator",
-                  "options": {
-                    "datatype": { "Type": "string" }
-                  }
-                }
-              },
+            "groupFields": [
               {
-                 "name": "NAMEOFSTORE",
-                 "hidename": false,
-                 "style": {
-                   "width": "20%",
-                   "font-size": "16px",
-                   "height": "30px"
-                 },
-                 "subtypehtml": "singlefield",
-                 "ClientName": "NAMEOFSTORE",
-                 "type": "singleControl",
-                 "datatype": "float",
-                 "validation": {
-                   "required": true,
-                   "customValidator": "generalValidator",
-                   "options": {
-                     "datatype": { "Type": "string" }
-                   }
-                 }
-               }
-            ],
-              "styles": {
-                "addButton": true
-              }
+                "controls": [
+                  {
+                    "name": "LOCATIONFOUND",
+                    "hidename": false,
+                    "style": {
+                      "width": "20%",
+                      "font-size": "16px",
+                      "height": "30px"
+                    },
+                    "ClientName": "LOCATIONFOUND address",
+                    "type": "plainfield",
+                    "datatype": "float",
+                    "validation": {
+                      "required": true,
+                      "customValidator": "generalValidator",
+                      "options": {
+                        "datatype": { "Type": "string" }
+                      }
+                    }
+                  },
+                  {
+                    "name": "NAMEOFSTORE",
+                    "hidename": false,
+                    "style": {
+                      "width": "20%",
+                      "font-size": "16px",
+                      "height": "30px"
+                    },
+                    "subtypehtml": "singleControl",
+                    "ClientName": "NAMEOFSTORE",
+                    "type": "plainfield",
+                    "datatype": "float",
+                    "validation": {
+                      "required": true,
+                      "customValidator": "generalValidator",
+                      "options": {
+                        "datatype": { "Type": "string" }
+                      }
+                    }
+                  }
+                ]
+              }],
+            "styles": {
+              "addButton": true
+            }
           },
 
           {
             "name": "OPTIONS",
             "type": "plainArray",
+            "subtypehtml": "plainArray",
             "ClientName": "OPTIONS (SPECIFICATIONS FOR VARIENTS)",
             "hidename": true,
             "style": {
@@ -979,31 +1053,34 @@ public variablepath="PRODUCTCATAGORY";
             },
             "groupFields": [
               {
-                "name": "KEY",
-                "ClientName": "key",
-                "hidename": false,
-                "type": "singleControl",
-                "subtypehtml": "singlefield",
-                "validation": {
-                  "required": true,
-                  "options": {
-                    "datatype": { "Type": "any" }
+                "controls": [{
+                  "name": "KEY",
+                  "ClientName": "key",
+                  "hidename": false,
+                  "type": "plainfield",
+                  "subtypehtml": "singleControl",
+                  "validation": {
+                    "required": true,
+                    "options": {
+                      "datatype": { "Type": "any" }
+                    }
                   }
-                }
-              },
-              {
-                "name": "VALUE",
-                "ClientName": "VALUE",
-                "hidename": false,
-                "subtypehtml": "singlefield",
-                "type": "singleControl",
-                "validation": {
-                  "required": true,
-                  "options": {
-                    "datatype": { "Type": "any" }
+                },
+                {
+                  "name": "VALUE",
+                  "ClientName": "VALUE",
+                  "hidename": false,
+                  "subtypehtml": "singleControl",
+                  "type": "plainfield",
+                  "validation": {
+                    "required": true,
+                    "options": {
+                      "datatype": { "Type": "any" }
+                    }
                   }
-                }
-              }
+                }]
+}
+
             ],
             "styles": {
               "addButton": true
@@ -1014,6 +1091,7 @@ public variablepath="PRODUCTCATAGORY";
             "name": "IMAGEPAIR",
             "ClientName": "Image Pair",
             "type": "plainArray",
+            "subtypehtml": "plainArray",
             "style": {
               "padding": "0px",
               "margin": "0px",
@@ -1023,26 +1101,30 @@ public variablepath="PRODUCTCATAGORY";
             },
             "groupFields": [
               {
-                "name": "ADDIMAGE",
-                "ClientName": "ADDIMAGE",
-                "subtypehtml": "image",
-                "type": "singleControl",
-                "hidename": false,
-                "validation": {
-                  "required": true,
-                  "customValidator": "imageValidator",
-                  "options": {
-                    "datatype": { "Type": "image" },
-                    "minX": 300,
-                    "maxX": 6000,
-                    "minY": 250,
-                    "maxY": 6000
+                "controls": [{
+                  "name": "ADDIMAGE",
+                  "ClientName": "ADDIMAGE",
+                  "subtypehtml": "singleControl",
+                  "type": "image",
+
+                  "hidename": false,
+                  "validation": {
+                    "required": true,
+                    "customValidator": "imageValidator",
+                    "options": {
+                      "datatype": { "Type": "image" },
+                      "minX": 300,
+                      "maxX": 6000,
+                      "minY": 250,
+                      "maxY": 6000
+                    }
+                    // "filesizeLimit":20000,
+                    // "nameRestraintInclude":"blue",
+                    // "type":"jpg"
                   }
-                  // "filesizeLimit":20000,
-                  // "nameRestraintInclude":"blue",
-                  // "type":"jpg"
-                }
+                }]
               }
+
             ],
             "styles": {
               "addButton": true
@@ -1056,8 +1138,8 @@ public variablepath="PRODUCTCATAGORY";
     console.log("line 975")
     this.variablepath = "PRODUCTCATAGORY"
     this.formObj = JSON.stringify(this.formObj)
-    var x:any = this.gs.getParamIndex("PRODUCTADDFORM")
-    if (x.params && x){
+    var x: any = this.gs.getParamIndex("PRODUCTADDFORM")
+    if (x.params && x) {
       this.index = x.params['index']
       this.selectedValue = x.params['selectedValue']
     }
@@ -1072,8 +1154,11 @@ public variablepath="PRODUCTCATAGORY";
     } else {
       this.index = null
     }
+
     this.formbuilderdataobj = {}
-    this.formbuilderdataobj["MainJsonData"] = { }
+    this.formbuilderdataobj["MainJsonData"] = {}
+
+
 
     console.log(this.index)
     var RemoveKeysForSQL = [];
@@ -1082,27 +1167,33 @@ public variablepath="PRODUCTCATAGORY";
     var fileMap = {};
     //edit:parseInt(this.index)
     RemoveKeysForSQL = [
-     "AGE",
-     "MULTISET",
-     "GENDERS",
-     "CHOOSEOTHERPLATFORMS"
+      "AGE",
+      "MULTISET",
+      "GENDERS",
+      "CHOOSEOTHERPLATFORMS",
+      "IMAGE",
+      "PERSONNAME"
 
-   ];
+    ];
 
-   RemoveKeysForJSON = [
-     "AGE",
-     "MULTISET",
-     "GENDERS",
-     "BINLOCATION",
-     "COST",
-     "SUPPLIER",
-     "MULTISETPRODUCTOPTIONS",
-     "MANIPULATIONINFO",
-     "CHOOSEOTHERPLATFORMS"
+    RemoveKeysForJSON = [
+      "AGE",
+      "MULTISET",
+      "PERSONNAME",
+      "IMAGE",
+      "GENDERS",
+      "BINLOCATION",
+      "COST",
+      "SUPPLIER",
+      "MULTISETPRODUCTOPTIONS",
+      "MANIPULATIONINFO",
+      "CHOOSEOTHERPLATFORMS"
 
-   ];
+    ];
 
-      console.log(fileMap)
+this.formbuilderdataobj["MainJsonData"] = { "DATA": {} }
+this.formbuilderdataobj["MainJsonData"]["DATA"]
+    console.log(fileMap)
     this.formbuilderdataobj["MANIPULATIONINFO"] = {
       "FileMap": {
         "VARIENTS": "VARIENT",
@@ -1112,11 +1203,11 @@ public variablepath="PRODUCTCATAGORY";
       "TABLEID": "PRODUCTID",
       "edit": parseInt(this.index),
       "JSONFileIDMap": {
-        "PRODUCTS":"PRODUCTID",
-        "VARIENTS":"SPECID"
+        "PRODUCTS": "PRODUCTID",
+        "VARIENTS": "SPECID"
       },
       "jsonFileStartKey": "PRODUCTS",
-      "JSONFILEURL":"src/assets/productCatagories/products.json",
+      "JSONFILEURL": "src/assets/productCatagories/products.json",
       "path": {
         "startpath": "src/assets/productCatagories/productImages/",
         "containerfolder": "product",

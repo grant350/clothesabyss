@@ -24,29 +24,23 @@
 <div class="select"  [formGroup]="cont"  *ngFor="let cont of arrayofControls; let index=index; " >
   {{index}}
 <mat-card class="card-ct section-suboption">
-<div class="group" *ngFor="let field of data.groupFields; let zi=index;">
-  {{zi}}
-  {{stringcontrol[field.name]}}
-  <app-singlecontrol style="
-  width: 100%;
-  display: block;
-  border:none!important;
-  "
-  [errorsfile]="errorsfile"
-  [control]="cont" [data]="field"
-    >
-  </app-singlecontrol>
+  <div class="item" *ngFor="let field of data.groupFields[0].controls;">
+    {{stringcontrol[field.name]}}
 
-<!--
-  style="
-        width: 100%;
-        display: block;
-        border:none!important;
-        " [errorsfile]="errorsfile"
-        [singlecontrolenable]="singlecontrolenable"
-         [control]="arrayitem" [data]="data['controls'][i].groupFields[ci]" -->
 
-</div>
+      <app-singlecontrol style="
+      width: 100%;
+      display: block;
+      border:none!important;
+      "
+      [errorsfile]="errorsfile"
+      [control]="cont" [data]="field"
+        >
+      </app-singlecontrol>
+
+  </div>
+
+
 
 
 <div class="button-aligner">

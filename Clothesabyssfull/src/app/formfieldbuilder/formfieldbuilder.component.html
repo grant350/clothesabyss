@@ -1,9 +1,9 @@
 
 <form class="form-group" *ngIf="enabled" [formGroup]="mainformgroup" enctype="multipart/form-data">
-
+{{ enabled }}
   <div class="form-array"  >
   <div *ngFor="let formObject of formObj; let i = index">
-  <div class="col-md-9"  [ngSwitch]="formObject.html">
+  <div class="col-md-9"  [ngSwitch]="formObject.subtypehtml">
     <app-checkbox  *ngSwitchCase="'checkbox'" [auth]="auth" [control]="mainformgroup.get(formObject.name)" [data]="formObject" [errorsfile]="errorsfile" style="width:100%; min-height:100%; height:auto;">
     </app-checkbox>
 
@@ -13,10 +13,15 @@
     <app-formarray   *ngSwitchCase="'plainArray'" [auth]="auth" [control]="mainformgroup" [errorsfile]="errorsfile" [data]="formObject" >
     </app-formarray>
 
+    <app-groupcontrols  *ngSwitchCase="'formGroup'" [auth]="auth" [control]="mainformgroup" [errorsfile]="errorsfile" [data]="formObject" >
+    </app-groupcontrols>
+
     <app-options   *ngSwitchCase="'options'" [auth]="auth" [control]="mainformgroup" [errorsfile]="errorsfile"  [data]="formObject" >
     </app-options>
-    <app-singlecontrol  *ngSwitchCase="'singlefield'" [auth]="auth" [errorsfile]="errorsfile" [control]="mainformgroup" [data]="formObject" >
+
+    <app-singlecontrol  *ngSwitchCase="'singleControl'" [auth]="auth" [errorsfile]="errorsfile" [control]="mainformgroup" [data]="formObject" >
     </app-singlecontrol>
+
     <app-auth  *ngSwitchCase="'auth'"  [auth]="auth" [errorsfile]="errorsfile" [control]="mainformgroup" [data]="formObject" >
     </app-auth>
 

@@ -35,10 +35,9 @@
               "src/flickity.scss"
             ],
             "scripts": [
-              "./node_modules/jquery/dist/jquery.min.js",
               "./node_modules/chartjs/chart.js",
               "./node_modules/chart.js/dist/chart.js"
-            ]
+                  ]
           },
           "configurations": {
             "production": {
@@ -104,8 +103,6 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "../node_modules/jquery/dist/jquery.min.js",
-              "../node_modules/jquery/dist/chartjs/chart.js"
 
             ]
           }

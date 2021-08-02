@@ -1,1 +1,28 @@
-<p>groupcontrols works!</p>
+<div class="group-ct"  *ngIf="!auth && !control.get(data.name).disabled " [ngStyle]="data.style" >
+
+
+<div class="ct" [ngClass]="{
+  'ng-valid-main': subFormGroup.status === 'VALID',
+  'ng-pending-main': subFormGroup.status === 'PENDING',
+ 'ng-invalid-main': subFormGroup.status === 'INVALID'
+}" [formGroup]="subFormGroup">
+
+
+{{data.name}}
+<div class="select " style="margin-left:20px;" *ngFor="let dcontrol of data.controls; let index=index;"  >
+
+  <app-singlecontrol  style="
+  width: 100%;
+  display: block;
+  border:none!important;
+  "
+  [errorsfile]="errorsfile"
+  [control]="subFormGroup" [data]="dcontrol"
+    >
+  </app-singlecontrol>
+
+</div>
+
+
+</div>
+</div>

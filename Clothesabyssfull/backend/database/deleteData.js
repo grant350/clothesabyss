@@ -68,8 +68,8 @@ module.exports = (req, res, next) => {
 
         ///////////****
         try {
-          var sline = `DELETE FROM ${ob.TABLENAME} WHERE ${ob.TABLEID} = ${index};`
-          db.execute(sline).then(([rows, fields]) => {}).catch((err) => {
+          var sline2= `DELETE FROM ${tablename} WHERE ${ob.TABLEID} = ${index};`
+          db.execute(sline2).then(([rows, fields]) => {}).catch((err) => {
             console.log("error  Delete() sql")
           })
         } catch {

@@ -18,15 +18,22 @@ export class customValidators {
           var isValid = true
           if (validation.showIf.judgeBy === 'value') {
             if (mainformgroup.get(name).value === validation.showIf.controlValue) {
-              mainformgroup.get(validation.showIf.FormShowHide).reset()
-              mainformgroup.get(validation.showIf.FormShowHide).enable()
+try{
+  mainformgroup.get(validation.showIf.FormShowHide).reset()
+  mainformgroup.get(validation.showIf.FormShowHide).enable()
+
+}catch{console.log("could not reset and enable custom validator")}
 
 
             } else {
               // supercontrol.get(data.showIf.FormShowHide).disable()
+              try{
               if (!mainformgroup.get(validation.showIf.FormShowHide).disabled) {
                 mainformgroup.get(validation.showIf.FormShowHide).disable()
               }
+            }catch{
+              console.log("could not disable customValidator")
+            }
             }
 
           } else {
@@ -306,10 +313,10 @@ export class customValidators {
                 if (z) {
                   var n = control.value.toString()
                   function isFloat(n) {
-                    console.log(n)
-                    console.log(n.indexOf('.') != -1)
-                    console.log(!isNaN(n))
-                    console.log(Number(parseFloat(n)) === parseFloat(n))
+                    // console.log(n)
+                    // console.log(n.indexOf('.') != -1)
+                    // console.log(!isNaN(n))
+                    // console.log(Number(parseFloat(n)) === parseFloat(n))
                     if (!isNaN(n) && (n.toString().indexOf('.') != -1) && Number(parseFloat(n)) === parseFloat(n)) {
                       return true
                     } else {

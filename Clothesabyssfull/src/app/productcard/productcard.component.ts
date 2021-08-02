@@ -22,8 +22,12 @@ export class ProductcardComponent  implements OnInit {
   //@Input() products: any;
 ngOnInit(){
   console.log(this.product)
-  console.log(this.product)
-  console.log(this.product)
+if (this.product.hasOwnProperty('DATA') || this.product.hasOwnProperty('data')){
+  try{this.product=this.product['DATA']
+    }catch{
+    this.product=this.product['data']
+  }
+}
 
 }
 

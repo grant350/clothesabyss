@@ -1,17 +1,16 @@
 import { Component, OnInit, Input, HostListener, ViewChild, ElementRef, Renderer2, OnChanges, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormArray, FormBuilder, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, FormsModule, ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, Validators, AbstractControl } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { BehaviorSubject, Subscription } from 'rxjs';
 import { customValidators } from '../../formfieldbuilder/customvalidators';
 import { FormSubmitting } from '../../formsubmiting.service';
 import { cloneAbstractControl } from './listformAddControl';
-
+import { BehaviorSubject, Subscription ,Subject,Observable, of} from 'rxjs';
 @Component({
   selector: 'app-listform',
   templateUrl: './listform.component.html',
   styleUrls: ['./listform.component.scss']
 })
-export class ListFormComponent implements OnInit, OnChanges {
+export class ListFormComponent implements OnInit {
   @Input() data: any;
   @Input() errorsfile: any;
   @Input() control: any;
@@ -24,7 +23,6 @@ export class ListFormComponent implements OnInit, OnChanges {
   public arraycountSub = new BehaviorSubject<any>(this.arraycount);
   public onarraypositionSub = new BehaviorSubject<any>(this.onarrayposition);
   public onarray: any;
-  public imageArray: any = []
   public controlcopy: any;
   public valuecopy: any;
   public imageGroup = {};
@@ -33,16 +31,21 @@ export class ListFormComponent implements OnInit, OnChanges {
   public formActive = true
   public arrayControls = []
   public singlecontrolenable=true
+
+  public observerOnArray=new Subject<any>()
+
   constructor(private fb: FormBuilder, private fs: FormSubmitting, private http: HttpClient) {
 
   }
 
-  ngOnChanges(changes) {
-    //console.log(changes)
 
-  }
 
   //edit the form using onarray meaning which form you are edititng
+
+  sub(){
+      return this.observerOnArray.asObservable();
+  }
+
 
   removeSelectedForm(position) {
     var a = this.control.get(this.data.name).controls
@@ -61,10 +64,6 @@ export class ListFormComponent implements OnInit, OnChanges {
     this.onarray = this.arrayControls[position]
     this.onarrayposition = position
     this.arraycount = position
-    console.log(this.onarray)
-    this.singlecontrolenable = false;
-    this.singlecontrolenable = true;
-
 
 
   }
@@ -93,8 +92,6 @@ export class ListFormComponent implements OnInit, OnChanges {
     this.arrayControls.push(temparray);
     this.onarray = this.arrayControls[this.arraycount];
     this.control.get(this.data.name).updateValueAndValidity();
-    this.singlecontrolenable = false;
-    this.singlecontrolenable = true;
 
   }
 
@@ -128,20 +125,13 @@ export class ListFormComponent implements OnInit, OnChanges {
 
   addControl(arrayitem, index) {
 
-    //console.log(arrayitem)
-    //console.log(index)
-
     var value = arrayitem.value[0]
     var newobj = {}
     var formgroup = this.fb.group({})
     Object.keys(value).forEach((key) => {
       newobj[key] = ""
-      //console.log(newobj[key])
-      //console.log(key)
-      //console.log(this.data.controls[index])
-      //console.log(index)
     })
-    this.data.controls[index].groupFields.forEach((field) => {
+    this.data.multiformControls[index].groupFields.forEach((field) => {
       //console.log(field)
 
       //console.log(field.name)
@@ -185,113 +175,35 @@ export class ListFormComponent implements OnInit, OnChanges {
   }
 
 
-  dataURItoBlob(dataURI): Blob {
-    const byteString = atob(dataURI.split(',')[1]);
-    const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-    const ab = new ArrayBuffer(byteString.length);
-    let ia = new Uint8Array(ab);
-    for (let i = 0; i < byteString.length; i++) {
-      ia[i] = byteString.charCodeAt(i);
-    }
-    return new Blob([ab], { type: mimeString });
-  }
 
-  onImagePick(e, zi, cardname, controlpick, type) {
-
-
-    var ncont = this.control.get(this.data.name).controls[this.arraycount].controls['array']
-    const file = (e.target).files[0]
-    //console.log(e.target)
-
-    const reader = new FileReader();
-    reader.readAsDataURL(file)
-
-
-    reader.onload = (e) => {
-      var img: any = new Image;
-      var url = e.target.result;
-      img.src = e.target.result;
-      if (type === 'array') {
-
-        if (this.imageGroup[cardname] instanceof Array && this.imageGroup[cardname]) {
-
-          if (this.imageGroup[cardname][zi]) {
-            this.imageGroup[cardname].splice(zi, 1, reader.result)
-          }
-          else {
-            this.imageGroup[cardname].push(reader.result)
-          }
-        } else {
-          this.imageGroup[cardname] = []
-          this.imageGroup[cardname].push(reader.result)
-          //console.log(this.imageGroup[cardname])
-          //console.log(this.imageGroup[cardname])
-          //console.log(this.imageGroup[cardname])
-          //console.log(this.imageGroup[cardname])
-
-        }
-
-        //console.log(this.imageGroup)
-
-      } else {
-        //console.log(this.imageGroup)
-        this.imageGroup[cardname] = reader.result
-        //console.log(this.imageGroup)
-      }
-      // var imagefile = this.dataURItoBlob(reader.result) //blob
-      var keyexist = false
-
-      img.onload = function() {
-        //console.log(img.width)
-        //console.log(img.width)
-        //console.log(img.width)
-        //console.log(img.width)
-        //console.log(file.name)
-        //console.log(file.size)
-        //console.log(file.type)
-        var ob = { "64bit": reader.result, "image_structure": { "width": img.width, "height": img.height, "filename": file.name, "filesize": file.size, "filetype": file.type } }
-        //set value to this ob
-        controlpick.parent.patchValue({ [cardname]: ob })
-        controlpick.parent.updateValueAndValidity();
-      }
-
-    }
-
-    // this.control.get(this.data.name).patchValue()
-
-    //console.log(this.arraycount)
-    // controlpick.parent.patchValue({ [cardname]: file })
-    // controlpick.parent.updateValueAndValidity();
-    //console.log(this.control)
-  }
 
 
   ngOnInit() {
     //console.log(this.data.name)
+console.log(this.data)
+console.log(this.data)
+console.log(this.data)
 
     console.log("this.errorsfile")
 
     console.log(this.errorsfile)
     //console.log(!this.data.hide)
     if (this.data.hide !== null || this.data.hide !== undefined) {
-      if (this.data.hide) {
-        this.control.get(this.data.name).disable()
 
+      if (this.data.hide) {
+        try {
+           this.control.get(this.data.name).disable()
+        }catch{
+          console.log("major error could not disable")
+        }
       }
 
-
-
+    }
       try {
 
 
         if (this.control.get(this.data.name).controls !== undefined || this.control.get(this.data.name).controls !== null) {
-
-          //console.log("CONTROLLLLLLLL:::>>>>>")
-          //console.log(this.control)
-
           var a = this.control.get(this.data.name).controls[0]
-          //console.log("this.control.get(this.data.name).controlszzzz")
-          //console.log(a.controls)
 
           var temparray = [];
           Object.keys(a.controls).forEach((key) => {
@@ -300,6 +212,9 @@ export class ListFormComponent implements OnInit, OnChanges {
           });
           //console.log(temparray)
           this.arrayControls.push(temparray)
+
+          this.observerOnArray.next(this.arrayControls[this.arraycount])
+
           this.onarray = this.arrayControls[this.arraycount]
           //console.log(this.onarray)
           //console.log("this.onarray")
@@ -318,5 +233,6 @@ export class ListFormComponent implements OnInit, OnChanges {
 
 
     }
+
+
   }
-}

@@ -10,10 +10,9 @@ import { customValidators } from '../../formfieldbuilder/customvalidators';
   templateUrl: './singlecontrol.component.html',
   styleUrls: ['./singlecontrol.component.scss']
 })
-export class SinglecontrolComponent implements OnInit,OnChanges {
-  public imagect = true
+export class SinglecontrolComponent implements OnInit {
   @Input() data: any;
-  @Input() control: FormGroup;
+  @Input() control: any;
   @Input() errorsfile: any;
   @Input() auth: any;
   //@Input() value:any
@@ -28,29 +27,29 @@ export class SinglecontrolComponent implements OnInit,OnChanges {
 
 
   constructor(private renderer: Renderer2) {
-    this.singlecontrolenable = true
+    //this.singlecontrolenable = true
   }
+//
+// ngOnChanges(){
+// // console.log("change happend")
+// // console.log(this.image)
+// // this.control.get(this.data.name).statusChanges.subscribe(s => {
+// //
+// // console.log(this.control.get(this.data.name).value)
+// // if ( this.control.get(this.data.name)['64bit'] || this.control.get(this.data.name)['path'] ) {
+// //   console.log("has one path or 64bit")
+// //   try {
+// //     this.image = this.control.get(this.data.name)['path']
+// //   }catch{
+// //     this.image = this.control.get(this.data.name)['64bit']
+// //     console.log("line 156 cannot get canvas image ")
+// //   }
+// // }
+// //
+// // })
+//
+// }
 
-ngOnChanges(){
-console.log("change happend")
-console.log(this.image)
-this.control.get(this.data.name).statusChanges.subscribe(s => {
-
-console.log(this.control.get(this.data.name).value)
-if ( this.control.get(this.data.name)['64bit'] || this.control.get(this.data.name)['path'] ) {
-  console.log("has one path or 64bit")
-  try {
-    this.image = this.control.get(this.data.name)['path']
-    this.getImageToCanvas(this.control.get(this.data.name))
-  }catch{
-    this.image = this.control.get(this.data.name)['64bit']
-    console.log("line 156 cannot get canvas image ")
-  }
-}
-
-})
-
-}
 
 
   autodate() {
@@ -75,87 +74,33 @@ if ( this.control.get(this.data.name)['64bit'] || this.control.get(this.data.nam
       controlpick.updateValueAndValidity()
       controlpick.parent.updateValueAndValidity()
     }
-
+//works
   }
 
-  runchange() {
-  }
-
-
-  getImageToCanvas(obj) {
-    //
-    // if (obj['64bit']) { console.log("64")}
-    // if (obj['path']) {console.log("path") }
-    //
-    // var path = obj['path'];
-    // if (!path){
-    //   path = obj['64bit'];
-    // }
-    // if (path){
-    //
-    // }else{return false}
-    // var filetype = obj.image_structure['filetype'];
-
-    //("XHR")
-    //(xhr)
-
-    function TABLENAME(image_url) {
-    //   //("image_url line 252")
-    //   //(image_url)
-    //   var http = new XMLHttpRequest();
-    //   http.open('HEAD', image_url, false);
-    //   http.send();
-    //   //("http.satus")
-    //   //(http.status)
-    //   return http.status != 404;
-    // }
-    // var x = imageExists(path)
-    // //(x)
-    //
-    // if (x) {
-    //   xhr.onload = (e) => {
-    //     var blob = new Blob([xhr.response], { type: "image/png" })
-    //     var url = URL.createObjectURL(blob)
-    //     //("SUCH A BITCH BLOB")
-    //     //(blob)
-    //     //(url)
-    //     console.log(url)
-    //
-    //     const reader = new FileReader()
-    //     reader.readAsDataURL(blob)
-    //     reader.onload = function(e) {
-    //       var img: any = new Image;
-    //       var url = e.target.result;
-    //       img.src = e.target.result;
-    //       // this.image = reader.result
-    //       var canvas = <HTMLCanvasElement>document.getElementById('canvasimg')
-    //       var ctx = canvas.getContext('2d');
-    //       canvas.width = 200
-    //       canvas.height = 200
-    //       ctx.drawImage(img, 0, 0, 200, 200)
-    //     }
-    //   }
-    // } else {
-    //   this.control.patchValue({ [this.data.name]: null })
-    //   this.control.updateValueAndValidity();
-    //   // return false
-    // }
-    // xhr.open('GET', path)
-    // xhr.responseType = "arraybuffer"
-    // xhr.send()
-  }
-}
 
 
   ngOnInit() {
-    console.log("LINE 78 running ")
-    console.log(this.control.get(this.data.name).parent)
-    console.log(this.data)
-    console.log(this.data.valueAutoset)
-    if (this.data.valueAutoset) {
-      this.control.patchValue({ [this.data.name]: this.data.valueAutoset })
-      this.control.get(this.data.name).patchValue(this.data.valueAutoset)
+  if (this.data.type.toLowerCase() == "image"){
+    if (this.control.get(this.data.name).value){
+      console.log(this.control.get(this.data.name).value)
+      console.log(this.control.get(this.data.name).value)
+      console.log(this.control.get(this.data.name).value)
+      console.log(this.control.get(this.data.name).value)
+      console.log(this.control.get(this.data.name).value)
+
+      try{
+        this.image = this.control.get(this.data.name).value['64bit']
+      }catch{
+        this.image = this.control.get(this.data.name).value['path']
+
+        console.log("could NOT set IMAGE line 100")
+      }
     }
+  }
+
+
+
+
     if (this.data.name === "DATE" || this.data.name === "date") {
       this.dateval = this.control.get(this.data.name).value
     }
@@ -164,20 +109,17 @@ if ( this.control.get(this.data.name)['64bit'] || this.control.get(this.data.nam
     this.control.get(this.data.name).statusChanges.subscribe(s => {
       try {
         this.status = s
-        if ( this.control.get(this.data.name)['64bit'] || this.control.get(this.data.name)['path'] ) {
-          try {
-            this.image = this.control.get(this.data.name)['path']
-            this.getImageToCanvas(this.control.get(this.data.name))
-          }catch{
-            this.image = this.control.get(this.data.name)['64bit']
-            console.log("line 156 cannot get canvas image ")
-          }
-
-         }
+        // if ( this.control.get(this.data.name)['64bit']) {
+        //   try {
+        //     this.image = this.control.get(this.data.name)['path']
+        //   }catch{
+        //     this.image = this.control.get(this.data.name)['64bit']
+        //   }
+        //   //check imagepath()
+        //  }
        } catch{
   console.log("NO Status");
 }
-
      })
 
   }
@@ -203,29 +145,22 @@ onImagePicksinglecontrol(e, cardname, controlpick) {
       var keyexist = false
       that_.image = reader.result
       img.onload = function() {
-
         var ob = { "64bit": reader.result,  "image_structure": { "width": img.width, "height": img.height, "filename": file.name, "filesize": file.size, "filetype": file.type } }
         try {
           controlpick.parent.patchValue({ [cardname]: ob })
           controlpick.parent.updateValueAndValidity();
-          controlpick.updateValueAndValidity()
           that_.parent.parent.updateValueAndValidity()
           that_.parent.updateValueAndValidity()
+          controlpick.updateValueAndValidity()
         } catch{
           controlpick.updateValueAndValidity()
         }
-        // var canvas = <HTMLCanvasElement>document.getElementById('canvasimg')
-        // var ctx = canvas.getContext('2d');
-        // canvas.width = 200
-        // canvas.height = 200
-        // ctx.drawImage(img, 0, 0, 200, 200)
-        // console.log(this.parent)
 
-        // if (this.parent){
-        //   this.parent.updateValueAndValidity()
-        //   console.log("updated value in single control")
-        //   console.log(this.parent)
-        // }
+        if (this.parent){
+          this.parent.updateValueAndValidity()
+          console.log("updated value in single control")
+          console.log(this.parent)
+        }
       }
 
     }

@@ -34,8 +34,8 @@ export class FormarrayComponent implements OnInit {
   AddGroup() {
     console.log("ADDING GROUP")
     var copygroup: FormGroup = this.arrayofControls[0]
-    console.log("copygroup")
-    //console.log(copygroup)
+    //console.log("copygroup")
+    ////console.log(copygroup)
     var newGroup: FormGroup;
     if (copygroup instanceof FormGroup) {
       const formGroup = new FormGroup({}, copygroup.validator, copygroup.asyncValidator);
@@ -45,11 +45,15 @@ export class FormarrayComponent implements OnInit {
       })
       // formGroup.reset()
       formGroup.reset()
-      formGroup.updateValueAndValidity()
       this.arrayofControls.push(formGroup)
-      this.parent.updateValueAndValidity()
-      //console.log("FORMGROUP")
-      //console.log(this.parent)
+try{
+  this.parent.updateValueAndValidity()
+}catch{
+  console.log("cannot update parent")
+  formGroup.updateValueAndValidity()
+
+}
+
     }
 
   }
@@ -63,31 +67,36 @@ export class FormarrayComponent implements OnInit {
 
   ngOnInit() {
     if (this.data.hide) {
+    try {
       this.control.get(this.data.name).disable()
+    }catch{
+        console.log("major error cannot disable")
+    }
     }
     this.array.push(false);
     this.stringcontrol = JSON.stringify(this.control.value)
     var arrayitem;
     if (this.control instanceof FormArray === false && this.control instanceof Array === false) {
       arrayitem = this.control.get(this.data.name)
-      console.log("arrayItem")
-      console.log(arrayitem)
-      console.log("control")
-      console.log(this.control)
+      //console.log("arrayItem")
+      //console.log(arrayitem)
+      //console.log("control")
+      //console.log(this.control)
 
     } else {
-      //console.log("COULD NOT ADD CONTROL TO FORMARRAY")
+      ////console.log("COULD NOT ADD CONTROL TO FORMARRAY")
       this.parent = this.control
       this.control = this.control.parent
-      //console.log("THE CONTROL")
+      ////console.log("THE CONTROL")
       arrayitem = this.control.get(this.data.name)
       arrayitem.updateValueAndValidity()
+      this.parent.updateValueAndValidity()
     }
-    //console.log(arrayitem)
-    //console.log("arrayitem")
+    ////console.log(arrayitem)
+    ////console.log("arrayitem")
     this.arrayofControls = arrayitem.controls
+    // ////console.log(this.arrayofControls)
     // //console.log(this.arrayofControls)
-    // console.log(this.arrayofControls)
   }
 
 }
