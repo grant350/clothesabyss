@@ -13,7 +13,7 @@ module.exports =  (req,res,next)=> {
   var token;
   try {
      token = req.headers.authorization.split(' ')[1]
-    console.log(token)
+    //console.log(token)
   }
   catch {
   console.log("no token here")

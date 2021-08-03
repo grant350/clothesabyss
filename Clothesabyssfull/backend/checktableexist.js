@@ -18,16 +18,14 @@ WHERE TABLE_NAME = '${tname.toUpperCase()}' AND TABLE_SCHEMA='maindatabase';`
   return db.execute(sqlline, [])
     .then(([rows, fields]) => {
       if (rows.length > 0) {
-        //console.log("tableExist")
+        console.log("TABLE EXIST CHECKTABLE LINE 21")
         return rows
       } else {
-        //console.log("this table is going to be made now...")
         return false
       }
     }).catch((err) => {
       //console.log(err)
       //console.log("table does not exist ")
-      messageClientErrors.push("Table Does Not Exist")
     })
 
 

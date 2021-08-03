@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "test": "jest",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "start:server": "nodemon server.js"
@@ -30,6 +30,7 @@
     "bcrypt": "^5.0.0",
     "bluebird": "^3.7.2",
     "blueimp-canvas-to-blob": "^3.28.0",
+    "bufferlist": "^0.1.0",
     "chart.js": "^3.4.0",
     "chartjs": "^0.3.24",
     "clone": "^2.1.2",
@@ -73,6 +74,7 @@
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~5.0.0",
+    "jest": "^24.9.0",
     "karma": "~5.0.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage-istanbul-reporter": "~3.0.2",
@@ -81,7 +83,6 @@
     "protractor": "~7.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~6.1.0",
-    "typescript": "~3.9.7",
-    "jest":"^24.9.0"
+    "typescript": "~3.9.7"
   }
 }

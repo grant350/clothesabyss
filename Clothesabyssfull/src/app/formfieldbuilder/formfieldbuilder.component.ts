@@ -370,14 +370,18 @@ checkIMAGE(formgroup,objdata,name){
          console.log(that.dataobjvalues)
          console.log(htmlobj.name)
 
-                    if (that.dataobjvalues[htmlobj.name]  !== null && that.dataobjvalues[htmlobj.name]  !== undefined){
+if (that.dataobjvalues){
+  if (that.dataobjvalues[htmlobj.name]  !== null && that.dataobjvalues[htmlobj.name]  !== undefined){
 
-                      that.dataobjvalues[htmlobj.name].forEach(varient=>{
-                        run(varient)
-                      })
-                    }else{
-                      run(null)
-                    }
+    that.dataobjvalues[htmlobj.name].forEach(varient=>{
+      run(varient)
+    })
+  }
+}else{
+  run(null)
+}
+
+
 
 // run(null)
 

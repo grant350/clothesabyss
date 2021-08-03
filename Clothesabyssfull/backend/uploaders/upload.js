@@ -8,43 +8,98 @@ var LOGINSECRET = process.env.LOGINSECRET;
 var path = require('path')
 var fs = require('fs');
 var CTE = require('../checktableexist')
+var validation = require('./Validation.js')
+
+
 
 module.exports = (req, res, next) => {
 
-  if (req.permissions.toLowerCase() === "admin") {
+
+
+var tocontinue=false;
+
+console.log(req.permissions)
+if(validation.checkIfDefinedVariable(req.permissions,"LINE 31 UPLOADER Error checking defined req.permisions")){
+  try {
+    req.permissions=req.permissions.toLowerCase()
+  }catch{
+  //  console.log("Couldnot make lowercase")
+  }
+  tocontinue=true
+}
+
+
+  if (req.permissions === "admin" ) {
+
     var JSONDATA = req.body.MainJsonData
     var MANIPULATIONINFO = req.body.MANIPULATIONINFO
     var DATASTRIPPEROBJS = req.body.datastripperObjs
-    var t1 = JSONDATA !== null && JSONDATA !== undefined;
-    var t2 = MANIPULATIONINFO !== null && MANIPULATIONINFO !== undefined;
-    var t3 = MANIPULATIONINFO['TABLENAME'] !== null && MANIPULATIONINFO['TABLENAME'] !== undefined;
-    var t4 = MANIPULATIONINFO['TABLEID'] !== null && MANIPULATIONINFO['TABLEID'] !== undefined;
+
+
+
+
+    console.log(MANIPULATIONINFO)
+    console.log(MANIPULATIONINFO)
+    console.log(MANIPULATIONINFO)
+    console.log(MANIPULATIONINFO)
+    console.log(MANIPULATIONINFO)
+
+    function toContinue(...array){
+      console.log(array)
+      if (array.indexOf(false) !== -1){
+        tocontinue=false
+        return false
+      }else{return true}
+    }
+
+
+
+
+
+    if (tocontinue){
+          var c = validation.checkOBJDefined(JSONDATA,"UPLOADER Error checking defined JSONDATA");
+          var a = validation.checkOBJDefined(MANIPULATIONINFO,"UPLOADER Error checking defined MANIPULATIONINFO");
+          var b = validation.checkOBJDefined(DATASTRIPPEROBJS,"UPLOADER Error checking defined DATASTRIPPEROBJS");
+          var d = validation.checkOBJDefined(MANIPULATIONINFO['TABLENAME'],"UPLOADER Error checking defined mani-tablename undefined");
+          var e = validation.checkOBJDefined(MANIPULATIONINFO['TABLEID'],"UPLOADER Error checking defined MANIPULATIONINFO['TABLEID'] undefined");
+        tocontinue = toContinue(a,b,c,d,e)
+    }
+    if (tocontinue){
+      JSONDATA = validation.turnKeysToCAP(JSONDATA,"ERROR JSONNOT PROVIDED OR OTHER ERROR");
+    }
+
 
     var myPromiseA = new Promise((resolve, reject) => {
-      if (JSONDATA.DATA || JSONDATA.data){
+     if (JSONDATA.DATA || JSONDATA.data){
         try{
           JSONDATA=JSONDATA.DATA
         }catch{
           JSONDATA=JSONDATA.data
         }
       }
-
-      if (MANIPULATIONINFO['edit'] !== undefined) {
-        console.log("edit is not undefined")
-      };
-      if (t1 && t2 && t3 && t4) {
+      if (tocontinue) {
         resolve(true)
       } else {
-        console.log("error line 43")
-        resolve(false)
+        console.log("error resolve false promise in upload cannot run")
+        reject(new Error('toContiue in promise faileld myPromiseA'))
       }
+    }).catch(error=>{
+      console.log(error)
+        res.json({
+          "ERRORLINE": "76",
+          "file": "upload.js",
+          "cause": "FAILED PROMISE MAJOR ERROR",
+          "status": "serverError"
+        })
     });
-    var myPromiseB = myPromiseA.then((answer) => {
-      console.log(answer)
-      console.log(`LINE 58 answer ${answer}`)
 
+
+
+
+
+
+    var myPromiseB = myPromiseA.then((answer,err) => {
       if (answer) {
-        //check if table id and table name work
         var sqlline = `SELECT COLUMN_NAME
   FROM INFORMATION_SCHEMA.COLUMNS
   WHERE TABLE_NAME = '${MANIPULATIONINFO['TABLEID'].toUpperCase()}' AND TABLE_SCHEMA='maindatabase'`;
@@ -58,53 +113,52 @@ module.exports = (req, res, next) => {
             return false;
           }
         }
+
         var tableBool = tableExists(MANIPULATIONINFO['TABLENAME'], MANIPULATIONINFO['TABLEID'])
         if (tableBool) {
           console.log("passed tableexist");
-          //next
-          //return rows colnames
-          //test if file paths are ready
           return true
-
         } else {
           // if no table
           res.json({
             "ERRORMESSAGE": "TABLE DOES NOT EXIST",
-            "ERRORLINE": "87",
+            "ERRORLINE": "112",
             "status": "serverError",
             "cause": "tablename not found"
           })
           return false
         }
-      } else {
-        //if no answer
-        res.json({
-          "ERRORLINE": "125",
-          "file": "upload.js",
-          "cause": "NO JSONDATA && MANIPULATIONINFO",
-          "status": "serverError"
-        })
+      }else{
+        var error =  new Error('promiseB failed')
+        console.log(error)
+        return new Error('promiseB failed')
       }
-
     });
 
     var myPromiseC = myPromiseB.then((isActive) => {
-      console.log(isActive)
-      console.log(`isActive: ${isActive}`)
+      if (isActive){
+        console.log(isActive)
+        console.log(`isActive: ${isActive}`)
 
-      if (isActive) {
-        var SQLID = setSQLID()
-        console.log(SQLID)
-        return SQLID
+          var SQLID = setSQLID()
+          console.log(SQLID)
+          return SQLID
+
+      }else{
+        return false
       }
 
     }).then((id) => {
       // if files to upload else
-      var a1 = MANIPULATIONINFO['path'] !== null && MANIPULATIONINFO['path'] !== undefined;
-      var a2 = MANIPULATIONINFO['FileMap'] !== null && MANIPULATIONINFO['FileMap'] !== undefined;
-      var a3 = MANIPULATIONINFO['JSONFileIDMap'] !== null && MANIPULATIONINFO['JSONFileIDMap'] !== undefined;
+      if (id){
+        tocontiue = validation.checkOBJDefined( MANIPULATIONINFO['path'],"UPLOADER Error checking defined MANIPULATIONINFO['path'] undefined id check");
+        // var a2 = validation.checkOBJDefined( MANIPULATIONINFO['FileMap'],"UPLOADER Error checking defined MANIPULATIONINFO['FileMap'] undefined id check");
+        //
+        // tocontinue = toContinue(ab,ac)
 
-      if (a1 && id) {
+      // var a3 = MANIPULATIONINFO['JSONFileIDMap'] !== null && MANIPULATIONINFO['JSONFileIDMap'] !== undefined;
+
+      if (tocontiue && id) {
         function checkFileMap(map, data) {
           try {
             var arrayofbools = []
@@ -130,60 +184,60 @@ module.exports = (req, res, next) => {
             return false
           }
         }
-
-        function checkPath(pathobj) {
-          return true
-        }
         var fileMapbool = checkFileMap(MANIPULATIONINFO['FileMap'], JSONDATA);
-        //set index id in sql table for edit when added data from data push;
         UPLOAD(MANIPULATIONINFO['TABLENAME'], id);
       } else {
-        // send to to client
-
-        // JSONDATA['MANIPULATIONINFO'] = MANIPULATIONINFO
-        // console.log("43443")
-        // console.log(JSONDATA)
-        // {JSONDATA,"MANIPULATIONINFO":MANIPULATIONINFO}
-        //
         res.json({
           "JSONDATA": {"DATA":JSONDATA,"MANIPULATIONINFO":MANIPULATIONINFO},
           "ID": id,
-          "datastripperObjs": req.body['datastripperObjs'],
-          "MANIPULATIONINFO": req.body['MANIPULATIONINFO']
+          "datastripperObjs": req.body['datastripperObjs']
         })
       }
-
+}else{
+  return new Error('promiseC failed')
+}
       //var pathmade = checkPath(MANIPULATIONINFO['path']);
-    });
+    }).catch(err=>{
+      console.log(err)
+      res.json({
+        "message": "no permission to upload",
+        "failed": true
+      })
+    });;
 
 
     function UPLOAD(TABLENAME, ID) {
-      console.log("UPLOADING")
-      var sqlline = `INSERT INTO ${TABLENAME}`
-      var sqlline2 = `Select * from ${TABLENAME}`
-      console.log(`${sqlline}`)
-      db.execute(sqlline2, [])
-        .then(([rows, fields]) => {
-          var startpathlink = MANIPULATIONINFO['path']['startpath']
-          var containerfolder = MANIPULATIONINFO['path']['containerfolder']
-          if (startpathlink && containerfolder) {
-            filenamepath = startpathlink + "/" + containerfolder + ID;
-            makepath(filenamepath)
-            loopFolders(filenamepath)
-          }
-          console.log("43443")
-          console.log(JSONDATA)
-          res.json({
-            "JSONDATA": {"DATA":JSONDATA,"MANIPULATIONINFO":MANIPULATIONINFO},
-            "ID": ID,
-            "datastripperObjs": req.body['datastripperObjs'],
-            "MANIPULATIONINFO": req.body['MANIPULATIONINFO']
-          })
-        }).catch((err) => {
-          console.log(err)
-          console.log("Table Does Not Exist")
-        })
+      var startpathlink = MANIPULATIONINFO['path']['startpath']
+      var containerfolder = MANIPULATIONINFO['path']['containerfolder']
 
+      var b1 = validation.checkOBJDefined( startpathlink,"UPLOADER Error checking defined startpathlink undefined UPLOAD() check");
+      var b2 = validation.checkOBJDefined( containerfolder,"UPLOADER Error checking defined containerfolderTest undefined UPLOAD() check");
+
+      if (b1 && b2){
+
+        console.log("UPLOADING")
+        var sqlline = `INSERT INTO ${TABLENAME}`
+        var sqlline2 = `Select * from ${TABLENAME}`
+        console.log(`${sqlline}`)
+        db.execute(sqlline2, [])
+          .then(([rows, fields]) => {
+            if (startpathlink && containerfolder) {
+              filenamepath = startpathlink + "/" + containerfolder + ID;
+              makepath(filenamepath)
+              loopFolders(filenamepath)
+            }
+            res.json({
+              "JSONDATA": {"DATA":JSONDATA,"MANIPULATIONINFO":MANIPULATIONINFO},
+              "ID": ID,
+              "datastripperObjs": req.body['datastripperObjs']
+                      })
+          }).catch((err) => {
+            console.log(err)
+            console.log("Table Does Not Exist")
+          })
+      }else{
+        return new Error("ERROR LINE 224 startpathlinkTest and containerfolderTest FAILED")
+      }
 
 
 
@@ -263,7 +317,8 @@ module.exports = (req, res, next) => {
             console.log("line189: No bufferfile")
           }
           filedata = {}
-          filedata["64bit"] = ""
+          filedata["64bit"] = null
+          filedata=null
           delete filedata;
           console.log("absoluteFilePath LINE 197")
           console.log(absoluteFilePath)
@@ -278,10 +333,11 @@ module.exports = (req, res, next) => {
           var selectedkeyobj = JSONDATA[keyo]
           if (selectedkeyobj.hasOwnProperty("64bit")) {
             var fullfilepath = storefiles(path, selectedkeyobj)
-            console.log("FULLPATH")
-            console.log(fullfilepath)
+            // console.log("FULLPATH")
+            // console.log(fullfilepath)
             selectedkeyobj.path = fullfilepath
             console.log(selectedkeyobj.path)
+            selectedkeyobj["64bit"]=null
             delete selectedkeyobj["64bit"]
           }
 
@@ -294,6 +350,7 @@ module.exports = (req, res, next) => {
             if (obj.hasOwnProperty("64bit")) {
               var fullfilepath = storefiles(path, obj)
               obj.path = fullfilepath
+              obj["64bit"]=null
               delete obj["64bit"]
             }
             if (obj instanceof Array && !obj instanceof Object) {

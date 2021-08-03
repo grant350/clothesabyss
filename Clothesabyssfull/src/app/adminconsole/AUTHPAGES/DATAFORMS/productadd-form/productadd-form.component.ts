@@ -1192,7 +1192,6 @@ export class ProductaddFormComponent implements OnInit {
     ];
 
 this.formbuilderdataobj["MainJsonData"] = { "DATA": {} }
-this.formbuilderdataobj["MainJsonData"]["DATA"]
     console.log(fileMap)
     this.formbuilderdataobj["MANIPULATIONINFO"] = {
       "FileMap": {

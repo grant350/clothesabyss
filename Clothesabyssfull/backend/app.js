@@ -17,6 +17,9 @@ var sqlpost = require('./database/sqlpost');
 var datapush = require('./database/datapush')
 var getData=require('./database/getData')
 
+
+//unittest
+// var unittest = require('./uploaders/unittest.test')
 //Login
 var checkAuthTokenPermissions = require('./AUTH/checkAuthTokenPermissions')
 var login = require('./AUTH/login');
@@ -29,10 +32,6 @@ var verify = require('./AUTH/verifyDataToken')
 //Auththentication EmailCode
 //var emailcodemaker = require("./emailcodemaker");
 
-//var emailmailer = require('./emailmailer');
-//var verifyemail = require('./verifyemail');
-//var checkAuth = require('./checkauth')
-
 //paypal transaction proccess
 var paypalapiOutbound = require('./apis/paypalapiOutbound')
 var paypalapi = require('./apis/paypalapi')
@@ -41,18 +40,22 @@ var ttms = 1000 * 60 * 60 * 3
 var tokentime = `${ttms}ms`
 var jwt = require('jsonwebtoken');
 //Garbbage below?
-
 //App Set UP
+
+
+
+
+
 app.use(bp.json({
   extended: true,
   limit: '500mb'
 }))
+
 app.use(bp.urlencoded({
   extended: true
 }))
 
 app.use(cors({credentials: true, origin: true}))
-
 
 
 
@@ -111,9 +114,11 @@ app.post('/api', paypalapiOutbound , urlencodedParser, function(req, res) {});
 
 
 
+
+
 app.listen(port, function() {
   console.log("hello... hello... hello... is there anybody in there?  Just nod if you can hear me. Is there anyone home.\n ");
-  console.log("THE DICK SIDE OF THE MOON........DICK........... I AM THE COMPUTER, I AM THE EYE OF THE UNIVERSE. ∆ ∆ ∆ ∆ ∆ ∆ ∆ ∆ ∆ ")
+  console.log("THE DICK SIDE OF THE MOON... started on port 4200")
 
 })
 
