@@ -73,14 +73,9 @@ export class ListFormComponent implements OnInit {
     var mainFormGroup: FormArray = this.control.get(this.data.name)
     var a = this.control.get(this.data.name).controls
     var addvarient: any = mainFormGroup.controls[0]
-    console.log("ADDV")
-    console.log(addvarient)
-
     var newvarientObject: FormGroup = this.fb.group({})
     var a = cloneAbstractControl(addvarient)
-    console.log("A :71")
     mainFormGroup.push(a)
-    console.log(a)
     this.array = []
     var temparray = [];
     var item: any = mainFormGroup.controls[this.arraycount]
@@ -97,9 +92,7 @@ export class ListFormComponent implements OnInit {
 
 
 
-  clicks(a) {
-    //console.log(a)
-  }
+  clicks(a) {}
 
 
 
@@ -111,12 +104,7 @@ export class ListFormComponent implements OnInit {
 
   removeControl(arrayitem, index, gi) {
     setTimeout(() => {
-      // update your data
-
-      //this.imageArray.splice(gi, 1)
-      //console.log(arrayitem.controls)
       arrayitem.controls.splice(gi, 1)
-      //console.log(arrayitem.controls)
       arrayitem.value.splice(gi, 1)
     }, 500)
 
@@ -132,9 +120,7 @@ export class ListFormComponent implements OnInit {
       newobj[key] = ""
     })
     this.data.multiformControls[index].groupFields.forEach((field) => {
-      //console.log(field)
 
-      //console.log(field.name)
       if (Object.keys(value).indexOf(field.name) !== -1) {
         if (field.validation) {
           if (field.validation.required) {
@@ -179,22 +165,13 @@ export class ListFormComponent implements OnInit {
 
 
   ngOnInit() {
-    //console.log(this.data.name)
-console.log(this.data)
-console.log(this.data)
-console.log(this.data)
-
-    console.log("this.errorsfile")
-
-    console.log(this.errorsfile)
-    //console.log(!this.data.hide)
     if (this.data.hide !== null || this.data.hide !== undefined) {
 
       if (this.data.hide) {
         try {
            this.control.get(this.data.name).disable()
         }catch{
-          console.log("major error could not disable")
+          // console.log("major error could not disable")
         }
       }
 
@@ -210,22 +187,12 @@ console.log(this.data)
             this.array.push(false)
             temparray.push(a.controls[key])
           });
-          //console.log(temparray)
           this.arrayControls.push(temparray)
 
           this.observerOnArray.next(this.arrayControls[this.arraycount])
 
           this.onarray = this.arrayControls[this.arraycount]
-          //console.log(this.onarray)
-          //console.log("this.onarray")
-          //console.log(this.onarray)
-          //console.log(this.onarray)
-
-
-
         }
-
-
       } catch{
 
         //console.log("MAJOR ERROR IN LISTFORM 313")

@@ -14,35 +14,24 @@ var validation = require('./Validation.js')
 
 module.exports = (req, res, next) => {
 
-
-
 var tocontinue=false;
-
+var isadmin;
 console.log(req.permissions)
 if(validation.checkIfDefinedVariable(req.permissions,"LINE 31 UPLOADER Error checking defined req.permisions")){
   try {
     req.permissions=req.permissions.toLowerCase()
+    isadmin=req.permissions === "admin"
   }catch{
-  //  console.log("Couldnot make lowercase")
   }
   tocontinue=true
 }
 
 
-  if (req.permissions === "admin" ) {
+  if (isadmin && tocontiue ) {
 
     var JSONDATA = req.body.MainJsonData
     var MANIPULATIONINFO = req.body.MANIPULATIONINFO
     var DATASTRIPPEROBJS = req.body.datastripperObjs
-
-
-
-
-    console.log(MANIPULATIONINFO)
-    console.log(MANIPULATIONINFO)
-    console.log(MANIPULATIONINFO)
-    console.log(MANIPULATIONINFO)
-    console.log(MANIPULATIONINFO)
 
     function toContinue(...array){
       console.log(array)
@@ -51,11 +40,6 @@ if(validation.checkIfDefinedVariable(req.permissions,"LINE 31 UPLOADER Error che
         return false
       }else{return true}
     }
-
-
-
-
-
     if (tocontinue){
           var c = validation.checkOBJDefined(JSONDATA,"UPLOADER Error checking defined JSONDATA");
           var a = validation.checkOBJDefined(MANIPULATIONINFO,"UPLOADER Error checking defined MANIPULATIONINFO");
@@ -68,15 +52,7 @@ if(validation.checkIfDefinedVariable(req.permissions,"LINE 31 UPLOADER Error che
       JSONDATA = validation.turnKeysToCAP(JSONDATA,"ERROR JSONNOT PROVIDED OR OTHER ERROR");
     }
 
-
     var myPromiseA = new Promise((resolve, reject) => {
-     if (JSONDATA.DATA || JSONDATA.data){
-        try{
-          JSONDATA=JSONDATA.DATA
-        }catch{
-          JSONDATA=JSONDATA.data
-        }
-      }
       if (tocontinue) {
         resolve(true)
       } else {
@@ -92,9 +68,6 @@ if(validation.checkIfDefinedVariable(req.permissions,"LINE 31 UPLOADER Error che
           "status": "serverError"
         })
     });
-
-
-
 
 
 
@@ -137,54 +110,22 @@ if(validation.checkIfDefinedVariable(req.permissions,"LINE 31 UPLOADER Error che
 
     var myPromiseC = myPromiseB.then((isActive) => {
       if (isActive){
-        console.log(isActive)
-        console.log(`isActive: ${isActive}`)
-
-          var SQLID = setSQLID()
-          console.log(SQLID)
-          return SQLID
-
+            var SQLID = validation.SQLID( "UPLOADER Error SQLID cannot make id.");
+            if (SQLID){
+              return SQLID
+            }else{
+              return new Error("sqlid is not defined or is not a number")
+            }
       }else{
         return false
       }
-
     }).then((id) => {
       // if files to upload else
       if (id){
         tocontiue = validation.checkOBJDefined( MANIPULATIONINFO['path'],"UPLOADER Error checking defined MANIPULATIONINFO['path'] undefined id check");
-        // var a2 = validation.checkOBJDefined( MANIPULATIONINFO['FileMap'],"UPLOADER Error checking defined MANIPULATIONINFO['FileMap'] undefined id check");
-        //
-        // tocontinue = toContinue(ab,ac)
-
-      // var a3 = MANIPULATIONINFO['JSONFileIDMap'] !== null && MANIPULATIONINFO['JSONFileIDMap'] !== undefined;
 
       if (tocontiue && id) {
-        function checkFileMap(map, data) {
-          try {
-            var arrayofbools = []
-            Object.keys(map).forEach(k => {
-              if (data[k]) {
-                arrayofbools.push(true)
-              } else {
-                arrayofbools.push(false)
-              }
-            })
-            if (arrayofbools.indexOf(true) != -1) {
-              if (arrayofbools.indexOf(false) != -1) {
-                console.log("checkFileMap has true and false in array fix")
-                return true
-              } else {
-                return true
-              }
-            } else {
-              return false
-            }
-          } catch {
-            console.log('ERROR ')
-            return false
-          }
-        }
-        var fileMapbool = checkFileMap(MANIPULATIONINFO['FileMap'], JSONDATA);
+        fileMapChecker = validation.checkFileMap(MANIPULATIONINFO['FileMap'], JSONDATA,"UPLOADER Error checking defined checkFileMap filemap is not defined or not match");
         UPLOAD(MANIPULATIONINFO['TABLENAME'], id);
       } else {
         res.json({
@@ -194,7 +135,7 @@ if(validation.checkIfDefinedVariable(req.permissions,"LINE 31 UPLOADER Error che
         })
       }
 }else{
-  return new Error('promiseC failed')
+  return new Error('promiseC failed no id')
 }
       //var pathmade = checkPath(MANIPULATIONINFO['path']);
     }).catch(err=>{
@@ -207,6 +148,7 @@ if(validation.checkIfDefinedVariable(req.permissions,"LINE 31 UPLOADER Error che
 
 
     function UPLOAD(TABLENAME, ID) {
+      console.log("UPLOAD FUNCTION")
       var startpathlink = MANIPULATIONINFO['path']['startpath']
       var containerfolder = MANIPULATIONINFO['path']['containerfolder']
 
@@ -214,245 +156,60 @@ if(validation.checkIfDefinedVariable(req.permissions,"LINE 31 UPLOADER Error che
       var b2 = validation.checkOBJDefined( containerfolder,"UPLOADER Error checking defined containerfolderTest undefined UPLOAD() check");
 
       if (b1 && b2){
-
-        console.log("UPLOADING")
-        var sqlline = `INSERT INTO ${TABLENAME}`
+        // var sqlline = `INSERT INTO ${TABLENAME}`
         var sqlline2 = `Select * from ${TABLENAME}`
-        console.log(`${sqlline}`)
         db.execute(sqlline2, [])
           .then(([rows, fields]) => {
-            if (startpathlink && containerfolder) {
               filenamepath = startpathlink + "/" + containerfolder + ID;
-              makepath(filenamepath)
-              loopFolders(filenamepath)
-            }
-            res.json({
-              "JSONDATA": {"DATA":JSONDATA,"MANIPULATIONINFO":MANIPULATIONINFO},
-              "ID": ID,
-              "datastripperObjs": req.body['datastripperObjs']
-                      })
+               var madepath = validation.makepath( filenamepath,"UPLOADER Error making path UPLOAD FUNCTION line 220-? filenamepath COULD not make.");
+              if (madepath){
+                var fileMap = MANIPULATIONINFO['FileMap']
+                var path;
+                var foldername;
+                function loopFolderscallback(obj,keyo){
+
+                  if (fileMap[keyo]) {
+                    foldername = fileMap[keyo]
+                    path = countfiles(path, foldername);
+                      var path = validation.countfiles(path, foldername,"UPLOADER Error looping folders loopFolderscallback FUNCTION line 150-? countfiles COULD not run.");
+                  }
+
+                  if (obj.hasOwnProperty("64bit")) {
+                    var fullfilepath = validation.storefiles(path, obj,"UPLOADER Error looping folders loopFolderscallback FUNCTION line 150-? storefiles COULD not run.");
+                    if (fullfilepath !== null || fullfilepath !== undefined){
+                      var fullfilepath = storefiles(path, obj)
+                      obj.path = fullfilepath
+                      console.log(obj.path)
+                      obj["64bit"]=null
+                      delete obj["64bit"]
+                    }
+                  };
+                }
+                var madefiles = validation.loopFolders( JSONDATA,loopFolderscallback,"UPLOADER Error looping folders UPLOAD FUNCTION line 220-? loopFolders COULD  notrun.");
+
+                if (madefiles){
+                  res.json({
+                    "JSONDATA": {"DATA":JSONDATA,"MANIPULATIONINFO":MANIPULATIONINFO},
+                    "ID": ID,
+                    "datastripperObjs": req.body['datastripperObjs']
+                  })
+                }else{
+                  res.json({"ERROR":"line 198 madefiles returned false upload"})
+                }
+              }
           }).catch((err) => {
             console.log(err)
             console.log("Table Does Not Exist")
           })
+          // var storedfiles = validation.storefiles( JSONDATA,filenamepath,fileMap,"UPLOADER Error looping folders storefiles FUNCTION line 230-? storefiles COULD not run.");
+
       }else{
         return new Error("ERROR LINE 224 startpathlinkTest and containerfolderTest FAILED")
       }
-
-
-
-      function makepath(astartpath) {
-        if (fs.existsSync(astartpath)) {
-          return true
-        } else {
-          fs.mkdirSync(astartpath, {
-            recursive: true
-          }, function(err) {
-            //  console.log(err)
-          })
-          return true
-        }
-      }
-
-      function countfiles(thepath, foldername) {
-        var newcontainerpath;
-        var newcontainerfolder;
-        var value = foldername.match(/[1-9]/i)
-        newcontainerfolder = foldername.replace(value, "")
-        var files = fs.readdirSync(thepath)
-        if (files.length > 1) {
-          var filesarray = files.filter(file => file.includes(newcontainerfolder));
-          var length = filesarray.length;
-          newcontainerpath = thepath + "/" + (newcontainerfolder + length);
-          makepath(newcontainerpath)
-          return newcontainerpath
-        } else {
-          newcontainerpath = thepath + "/" + (newcontainerfolder + '0');
-          makepath(newcontainerpath)
-          return newcontainerpath
-        }
-      }
-
-      function storefiles(fullpath, filedata) {
-        var absoluteFilePath;
-        if (fullpath) {
-          var filedatabuf;
-          var bufferfile;
-          try {
-            filedatabuf = filedata["64bit"].replace(/^data:image\/\w+;base64,/, "");
-            bufferfile = Buffer.from(filedatabuf, 'base64')
-          } catch {
-            console.log("ERROR FILE CANNOT BE MADE FROM base64 LINE266")
-          }
-          var mimeValidator = {
-            "image/png": ".png",
-            "image/jpg": ".jpg",
-            "image/jpeg": ".jpeg"
-          };
-          console.log(bufferfile)
-          if (bufferfile) {
-            if (mimeValidator[filedata.image_structure.filetype]) {
-              var extension = mimeValidator[filedata.image_structure.filetype]
-              var filename = filedata.image_structure.filename
-              console.log(`filename ${filename}`)
-              if (filename.includes(extension)) {
-                filename = filename.replace(extension, "")
-              }
-
-              let dateTime = Date.now();
-              console.log(dateTime);
-              dateTime = dateTime.toString()
-              if (extension) {
-                absoluteFilePath = (fullpath + "/" + filename + dateTime + extension)
-              } else {
-                absoluteFilePath = (fullpath + "/" + filename + dateTime + extension)
-              }
-              fs.writeFile(absoluteFilePath, bufferfile, function(err) {
-                console.log(err)
-              });
-              absoluteFilePath = absoluteFilePath.replace("src", "")
-              console.log(absoluteFilePath)
-            }
-          } else {
-            console.log("line189: No bufferfile")
-          }
-          filedata = {}
-          filedata["64bit"] = null
-          filedata=null
-          delete filedata;
-          console.log("absoluteFilePath LINE 197")
-          console.log(absoluteFilePath)
-          return absoluteFilePath
-        }
-      };
-
-      function loopFolders(path) {
-        var foldername;
-        var fileMap = MANIPULATIONINFO['FileMap']
-        Object.keys(JSONDATA).forEach((keyo, index) => {
-          var selectedkeyobj = JSONDATA[keyo]
-          if (selectedkeyobj.hasOwnProperty("64bit")) {
-            var fullfilepath = storefiles(path, selectedkeyobj)
-            // console.log("FULLPATH")
-            // console.log(fullfilepath)
-            selectedkeyobj.path = fullfilepath
-            console.log(selectedkeyobj.path)
-            selectedkeyobj["64bit"]=null
-            delete selectedkeyobj["64bit"]
-          }
-
-          if (fileMap[keyo]) {
-            foldername = fileMap[keyo]
-            path = countfiles(path, foldername);
-          }
-
-          function superlooper(obj, getkey) {
-            if (obj.hasOwnProperty("64bit")) {
-              var fullfilepath = storefiles(path, obj)
-              obj.path = fullfilepath
-              obj["64bit"]=null
-              delete obj["64bit"]
-            }
-            if (obj instanceof Array && !obj instanceof Object) {
-              obj.forEach((item, sindex) => {
-                superlooper(item)
-              })
-            }
-            if (obj instanceof Object) {
-              Object.keys(obj).forEach((key) => {
-                superlooper(obj[key], key)
-              })
-            }
-          }
-          superlooper(selectedkeyobj, keyo)
-        });
-        return JSONDATA
-      }
-
-
     };
 
 
-    async function setSQLID() {
-      var SQLID = null
-      try {
-        if (MANIPULATIONINFO['edit'] >= 1) {
-          SQLID = MANIPULATIONINFO['edit']
-        }
-      } catch {
-        console.log("NOT EDIT")
-      }
-
-      if (SQLID >= 1 && MANIPULATIONINFO['path']) {
-        try {
-          var rmdir = startpathlink + "/" + MANIPULATIONINFO['path']['containerfolder'] + SQLID
-          fs.rmdirSync(rmdir, {
-            recursive: true
-          })
-        } catch {
-          console.log("error no filepath to remove")
-        }
-        return SQLID
-      } else {
-        //makeID
-
-        //insert null to tablecells
-        var sqlline = `SELECT COLUMN_NAME
-      FROM INFORMATION_SCHEMA.COLUMNS
-      WHERE TABLE_NAME = '${MANIPULATIONINFO['TABLEID'].toUpperCase()}' AND TABLE_SCHEMA='maindatabase'`;
-        async function setCellsNull(tableName) {
-          try {
-            const query = `SELECT COLUMN_NAME
-        FROM INFORMATION_SCHEMA.COLUMNS
-        WHERE TABLE_NAME = '${tableName.toUpperCase()}' AND TABLE_SCHEMA='maindatabase';`;
-
-            var SQLID = null
-            let result = await db.execute(query).then(([rows, fields]) => {
-              var z = []
-              var v = []
-              rows.forEach((i, index) => {
-                console.log(i)
-                if (index >= 1) {
-                  z.push(i['COLUMN_NAME'])
-                  v.push("null")
-                }
-              });
-              var x = v.join(',')
-              var insertempty = `INSERT INTO ${req.body['MANIPULATIONINFO']['TABLENAME']} (${z}) VALUES(${x})`
-
-              var result2 = db.execute(insertempty).then(([rows, fields]) => {
-                SQLID = rows['insertId'];
-                console.log(SQLID)
-                return SQLID
-              }).catch(err => {
-                console.log(err)
-              })
-              return result2;
-            });
-            console.log(`result ${result}`)
-            console.log(result)
-            SQLID = result
-            if (result) {
-              return SQLID;
-            }
-          } catch (err) {
-            return false;
-          }
-        }
-
-
-        var answer = await setCellsNull(MANIPULATIONINFO['TABLENAME'])
-        return answer
-      }
-
-    }
-
-
-
-
-
-
-    console.log(req.body)
+    // var madesqlid = validation.setSQLID( JSONDATA,filenamepath,fileMap,"UPLOADER Error setSQLID was not made FUNCTION line 230-? setSQLID COULD not run.");
 
   } else {
     console.log("NO permission")

@@ -2,27 +2,36 @@ import { BrowserModule, HAMMER_GESTURE_CONFIG, HammerModule } from '@angular/pla
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpHeaders, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
-import { DataService } from './products.service';
-import { ServerService } from './server.service';
-import { RoleGuard } from './roleroute-guard.service';
-import { RoleUser } from './roleroute-guard.service';
-import { PageHandleService } from './pageHandling.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GestureConfig } from '@angular/material';
+
+
+//SERVICES
+import { DataService } from './products.service';
+import { ServerService } from './server.service';
+import { PageHandleService } from './pageHandling.service';
 import { FormSubmitting } from './formsubmiting.service';
 import { GlobalFormService } from './globalformservice.service';
-
-
 import {GETDATA} from './getData.service';
-
 import { CartService } from './cartservice.service';
 import { AuthInterceptor } from './interceptor.service';
+import * as $ from 'jquery';
+import 'hammerjs';
+import { MaterialModule } from './material.module'
+
+//GUARDS
+import { RoleGuard } from './roleroute-guard.service';
+import { RoleUser } from './roleroute-guard.service';
+
 // import {  } from './adminconsole/AUTHPAGES/home/home.component';
 
-
+//PAGES MAIN
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
+
+
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
@@ -34,36 +43,45 @@ import { CollectionPageComponent } from './pages/collection-page/collection-page
 import { ListCollectionComponent } from './pages/list-collection/list-collection.component';
 import { SearchComponent } from './search/search.component';
 import { ImgSizerItemComponent } from './img-sizer-item/img-sizer-item.component';
-import * as $ from 'jquery';
-
 import { ProductSliderMainComponent } from './product-slider-main/product-slider-main.component';
 import { ProductcardComponent } from './productcard/productcard.component';
 import { ContainerSlideComponent } from './container-slide/container-slide.component';
 import { CatagoryImgsComponent } from './catagory-imgs/catagory-imgs.component';
 import { FrowComponent } from './frow/frow.component';
-import { GestureConfig } from '@angular/material';
-
-import 'hammerjs';
-import { MaterialModule } from './material.module'
-
+import { CartpageComponent } from './pages/cartpage/cartpage.component';
 import { ImageCatagoryCtComponent } from './image-catagory-ct/image-catagory-ct.component';
 import { AboutFrow1Component } from './about-frow1/about-frow1.component';
 import { AboutFrow2Component } from './about-frow2/about-frow2.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CartpageComponent } from './pages/cartpage/cartpage.component';
 import { ProductBannerComponent } from './product-banner/product-banner.component';
 import { ProductDropdownSpecComponent } from './product-dropdown-spec/product-dropdown-spec.component';
 import { RelatedsliderComponent } from './relatedslider/relatedslider.component';
+
+//FORMS
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+//PAGE SUCCESS
 import { SuccessComponent } from './success/success.component';
 
+//PAYMENT
 import { StripeComponent } from './stripe/stripe.component';
+
+//LOGIN SIGNUP
 import { LoginComponent } from './pages/accounts/login/login.component';
+import { SignupComponent } from './pages/accounts/signup/signup.component';
+
 // import { SalesComponent } from './adminconsole/sales/sales.component';
 // import { OtherinfoComponent } from './adminconsole/otherinfo/otherinfo.component';
-
-
-import { SignupComponent } from './pages/accounts/signup/signup.component';
+//delete
 import { EmailauthComponent } from './pages/accounts/emailauth/emailauth.component';
+//deleete
+
+
+//ADMIN
+import { AdminHomeComponent } from './adminconsole/AUTHPAGES/home/adminhome.component';
+import { ProductaddFormComponent } from './adminconsole/AUTHPAGES/DATAFORMS/productadd-form/productadd-form.component';
+
+
+//ACCOUNT
 import { TestaccountspageComponent } from './pages/accounts/testaccountspage/testaccountspage.component';
 import { MainsettingsComponent } from './pages/accounts/mainsettings/mainsettings.component';
 import { OrdersComponent } from './pages/accounts/orders/orders.component';
@@ -73,10 +91,6 @@ import { VerifycodeComponent } from './pages/accounts/verifycode/verifycode.comp
 import { MessageComponent } from './pages/message/message.component';
 import { FullbackgroundimageComponent } from './fullbackgroundimage/fullbackgroundimage.component';
 
-import { AdminHomeComponent } from './adminconsole/AUTHPAGES/home/adminhome.component';
-import { ProductaddFormComponent } from './adminconsole/AUTHPAGES/DATAFORMS/productadd-form/productadd-form.component';
-
-//try to remove product edit form
 //FORMBUILDER
 import { FormfieldbuilderComponent } from './formfieldbuilder/formfieldbuilder.component';
 import { ListFormComponent } from './dynamicforms/listform/listform.component';

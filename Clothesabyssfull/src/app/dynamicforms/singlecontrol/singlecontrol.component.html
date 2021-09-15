@@ -5,7 +5,8 @@
  'ng-invalid-main': status === 'INVALID'
 }" [formGroup]="control">
   <label class="fieldlabel" *ngIf="!data.hidename">
-    <span style="font-size:18px;" [ngStyle]="data.textStyle">{{data.ClientName}}</span>
+    <span style="font-size:18px;" [ngStyle]="data.textStyle">{{data.ClientName}}
+    </span>
   </label>
 
 
@@ -13,9 +14,8 @@
    <button class="image-ct-btn" (click)="filePickersingle.click()">Pick Image</button>
 
   <input  style="display:none;" type="file" #filePickersingle (change)="onImagePicksinglecontrol($event,data.name,control.get(data.name))" name="{{data.name}}">
-
-  <div class="selectedimg-ct" *ngIf="image" style="max-height:200px; max-width:300px;">
-      <img src="{{image}}" accept="image/*" style="max-height:200px; max-width:300px;" class="selectedimg" >
+  <div class="selectedimg-ct"  *ngIf="image" style="max-height:200px; max-width:300px;">
+      <img [src]="image" accept="image/*" style="max-height:200px; max-width:300px;" class="selectedimg" >
   </div>
 <!--
   <canvas *ngIf="image" class="canvas-ct" id="canvasimg">
@@ -23,10 +23,10 @@
   </canvas> -->
   </div>
 
-<div *ngIf="data.type === 'options'" class="image-ct">
+<app-options *ngIf="data.type === 'options'" [auth]="auth" [ngStyle]="data.style" [errorsfile]="errorsfile"  [control]="control" [data]="data">
 
-<app-options [auth]="auth" [ngStyle]="data.style" formControlName="{{data.name}}" [errorsfile]="errorsfile"  [data]="data"></app-options>
- </div>
+</app-options>
+
 
 
   <input matInput class="input-singlefield" [ngStyle]="data.style"  *ngIf="data.type === 'plainfield'"  formControlName="{{data.name}}" value="{{control.get(data.name).value}}" >

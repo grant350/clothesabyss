@@ -11,10 +11,23 @@ export class OptionsComponent implements OnInit {
   @Input() control: any;
   @Input() errorsfile: any;
   @Input() auth: any;
-
+  public status:any;
+  public opt:any;
   constructor() { }
 
+updateValue(e,opt){
+  // console.log(opt)
+  // console.log(this.control.get(this.data.name).status)
+  // console.log(e)
+  this.control.value = e.target.value
+
+
+
+}
+
   ngOnInit() {
-  }
+    };
+
+
 
 }

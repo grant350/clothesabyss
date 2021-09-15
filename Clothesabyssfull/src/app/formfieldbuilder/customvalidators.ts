@@ -22,7 +22,9 @@ try{
   mainformgroup.get(validation.showIf.FormShowHide).reset()
   mainformgroup.get(validation.showIf.FormShowHide).enable()
 
-}catch{console.log("could not reset and enable custom validator")}
+}catch{
+//console.log("could not reset and enable custom validator")
+}
 
 
             } else {
@@ -32,7 +34,7 @@ try{
                 mainformgroup.get(validation.showIf.FormShowHide).disable()
               }
             }catch{
-              console.log("could not disable customValidator")
+              // console.log("could not disable customValidator")
             }
             }
 
@@ -62,7 +64,7 @@ try{
     restraints, control: AbstractControl
   ): Observable<{ [key: string]: any }> {
 
-    console.log("IMAGE VALIDATORRRRR")
+    // console.log("IMAGE VALIDATORRRRR")
 
     //  console.log(file)
     var newobservable = Observable.create(
@@ -106,7 +108,7 @@ try{
                     }
                   }
                   catch{
-                    console.log("someerror")
+                    // console.log("someerror")
                   }
                 }
                 break;
@@ -123,7 +125,7 @@ try{
                     }
                   }
                   catch{
-                    console.log("someerror")
+                    // console.log("someerror")
                   }
                 }
                 break;
@@ -139,7 +141,7 @@ try{
                     }
                   }
                   catch{
-                    console.log("someerror")
+                    // console.log("someerror")
                   }
                 }
                 break;
@@ -148,8 +150,8 @@ try{
           })
 
 
-          console.log("VALID?")
-          console.log(greenlight && end !== null)
+          // console.log("VALID?")
+          // console.log(greenlight && end !== null)
 
           if (greenlight && end !== null) {
             observer.next(null)
@@ -208,7 +210,7 @@ try{
 
         }
         control.parent.statusChanges.subscribe((info) => {
-          console.log(info)
+          // console.log(info)
         })
         control.parent.updateValueAndValidity()
 
@@ -230,10 +232,11 @@ try{
     var newobservable = Observable.create(
       (observer: Observer<{ [key: string]: any }>) => {
         var arrayofbools = [];
-
+// console.log(control.value)
+// console.log(param.options)
         if (control.value && param.options) {
           var target = param.options
-
+          // console.log(target)
           for (let i in target) {
             function looper(obj, key) {
 
@@ -381,7 +384,6 @@ try{
             }
           }
           function Regex(obj) {
-            console.log(obj)
             if (obj) {
               obj.forEach((pat) => {
                 if (pat) {
@@ -440,14 +442,17 @@ try{
 
           function Charlength(obj) {
             if (obj.mincharlength) {
-              if ((control.value).length >= obj.mincharlength) {
+              // console.log('cntvallen',control.value);
+              // console.log('cntvallen',control.value.toString());
+
+              if ((control.value).toString().length >= obj.mincharlength) {
                 arrayofbools.push(null)
               } else {
                 arrayofbools.push(false)
               }
             }
             if (obj.maxcharlength) {
-              if ((control.value).length <= obj.maxcharlength) {
+              if ((control.value).toString().length <= obj.maxcharlength) {
                 arrayofbools.push(null)
               } else {
                 arrayofbools.push(false)
@@ -515,6 +520,7 @@ try{
 
 
           }
+          // console.log("arraybools",arrayofbools)
           if (arrayofbools.indexOf(false) !== -1) {
             observer.next({ failed: true })
             observer.complete();

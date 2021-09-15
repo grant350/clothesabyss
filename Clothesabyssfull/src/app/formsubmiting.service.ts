@@ -18,28 +18,94 @@ export class FormSubmitting {
   public AuthListeners = {
     "SignUpCodeView": new Subject<any>()
   }
-  /*
-  {"path":"/assets/productCatagory/womens/product#/varient1"}
-  */
+  public arrayImage=[];
+
+
   constructor(private http: HttpClient, public router: Router, private activatedRoute: ActivatedRoute,private ss:ServerService) {
-    //get token from dataservice
+ var _this = this
+    function makeImage(){
+      var path = '/assets/images/'
+      var arrayOfImages = [
+        'surboard1.png', 'superbeach.jpg', 'teamimg_square.jpg', 'Screen Shot 2021-02-15 at 7.58.28 AM.png', 'stuffs.png', 'productidea.png'
+      ];
+
+
+
+      var type={
+        "jpg":"image/jpg",
+        "jpeg":"image/jpeg",
+        "png":'image/png'
+      }
+
+
+      function dataURItoBlob(path, img ) {
+        var type={
+          "jpg":"image/jpg",
+          "jpeg":"image/jpeg",
+          "png":'image/png'
+        }
+        var index=path.lastIndexOf('.')
+        var ftype = path.slice(index).replace('.','');
+        console.log(path)
+        img= path.slice(0,index)
+
+        var filetype = type[ftype];
+        console.log(filetype)
+
+        var xhr = new XMLHttpRequest()
+        function imageExists(image_url) {
+          var http = new XMLHttpRequest();
+          http.open('HEAD', image_url, false);
+          http.send();
+          return http.status != 404;
+        }
+
+        var imageExistBool = imageExists(path)
+
+        if (imageExistBool) {
+           xhr.onload = (e) => {
+            var blob = new Blob([xhr.response], { type: filetype })
+            var url = URL.createObjectURL(blob)
+            const reader = new FileReader()
+            reader.readAsDataURL(blob)
+             reader.onload = function() {
+
+              var bit = reader.result
+                   var ob = { "64bit": bit, "path":path, "image_structure": { "width":1000, "height": 1000, "filename": img, "filesize": 3333, "filetype": filetype } }
+                   if (ob){
+                     _this.arrayImage.push(ob)
+
+                   }
+
+
+            }
+          }
+        }
+        xhr.open('GET', path)
+        xhr.responseType = "arraybuffer"
+        xhr.send()
+      }
+      arrayOfImages.forEach(img=>{
+        dataURItoBlob(path+img,img)
+
+
+      })
+    }
+    makeImage()
+    console.log(this.arrayImage)
   }
+
+
+
+
+
+GetArrayOfImages(){
+  return this.arrayImage
+}
 
   SignUpCodeView() {
     return this.AuthListeners.SignUpCodeView.asObservable();
   }
-
-
-  setImageGroup(name,group) {
-    this.imageGroups[name] = group
-    console.log(this.imageGroups)
-  }
-
-  getImageGroup(name) {
-    return this.imageGroups[name]
-  }
-
-
 
 
   getCookie(name) {
@@ -53,228 +119,67 @@ export class FormSubmitting {
     return null;
   }
 
-
-
   deleteCookie(name) {
     document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=localhost;`;
   }
 
-  //SSL CERTIFICATE
-
-  ProductServerData(jsondata) {
-    console.log(jsondata);
-
-    if (jsondata.data && jsondata.data !== null && jsondata.data !== undefined) {
-      console.log("jsondata.data LINE:73")
-
-      console.log(jsondata.data)
-      this.postConnnection("http://localhost:4201/databasePush", jsondata, null)
-
-    } else {
-      "not json to submit"
-    }
-  }
-
-
-
-
-
-  returndata(data) {
-    return data
-  }
-
-  //change all cookies and auths next week
-
-  postConnnection(link, formdata, serverDataType) {
+  postConnnection(link, formdata, callback) {
       var datatoken = this.getCookie('DataToken')
       var headerss = {
         "Authorization": "Bearer " + datatoken,
         "content-type": "application/json"
       };
       this.http.post(link, formdata, { headers: headerss }).subscribe((serverData: any) => {
-        console.log(serverData)
-        this[serverDataType](serverData)
+        callback(serverData)
       });
     }
 
 
 
 
-  KEYTOUPPERCASE(jsondata) {
-    var arrayofkeys = Object.keys(jsondata)
-    arrayofkeys.forEach((key, index) => {
-      key = key.toUpperCase()
-    })
-    //not a deep loop
-    console.log(jsondata)
-    return jsondata;
-    //loop all keys to uppercase for server
-  }
 
 
 
-addDataCallback(returninfo){
-  console.log(returninfo);
-
-  if (returninfo.JSONDATA && returninfo.JSONDATA !== null && returninfo.JSONDATA !== undefined) {
-    console.log("jsondata.data LINE:73")
-    this.postConnnection("http://localhost:4201/databasePush", returninfo, null)
-  } else {
-    "not json to submit"
-  }
-}
-
-
-
-
-ADDDATA(datajson){
-//insert into DemoTable values(STR_TO_DATE('06-01-2019', '%m-%d-%Y'));
-//change edit {"name":idname,"ID":index} to just the index edit = 32
-console.log("datajson line 134 in ADDDATA")
-console.log(datajson)
- //this.postConnnection("http://localhost:4201/filesUpload", datajson,"addDataCallback")
-
- var datatoken = this.getCookie('DataToken')
- if (datatoken){
-   var headerss = {
-     "Authorization": "Bearer " + datatoken,
-     "content-type": "application/json"
-   };
-   this.http.post("http://localhost:4201/filesUpload", datajson, { headers: headerss }).subscribe((serverData: any) => {
-     console.log(serverData)
-     this.addDataCallback(serverData)
-   });
- }
+// ADDDATA(datajson){
+// console.log(datajson)
+//  // var datatoken = this.getCookie('DataToken')
+//  // if (datatoken){
+//  //   var headerss = {
+//  //     "Authorization": "Bearer " + datatoken,
+//  //     "content-type": "application/json"
+//  //   };
+//  //   this.http.post("http://localhost:4201/filesUpload", datajson, { headers: headerss }).subscribe((serverData: any) => {
+//  //     console.log(serverData)
+//  //     this.addDataCallback(serverData)
+//  //   });
+//  // }
+//
+//
+// }
 
 
-}
-
-
-
-
-
-
-
-  addProduct(formdatajson,id) {
-
-    var RemoveKeysForSQL = [
-      "AGE",
-      "MULTISET",
-      "GENDERS",
-      "MULTISETPRODUCTOPTIONS"
-    ];
-
-    var RemoveKeysForJSON = [
-      "AGE",
-      "MULTISET",
-      "GENDERS",
-      "BINLOCATION",
-      "COST",
-      "SUPPLIER",
-      "MULTISETPRODUCTOPTIONS",
-      "MANIPULATIONINFO"
-    ];
-    var IDMAP = {
-      "PRODUCTS":"PRODUCTID",
-      "VARIENTS":"SPECID"
-    }
-
-localStorage.removeItem('products')
-    var edit=null
+  ADDDATA(formdatajson) {
+    var id=false
+      var edit=false;
     if (id && id !== null && id !== undefined){
-       edit={"id":id,"name":"PRODUCTID"}
+       edit=true
     }
-    //make uppercase keys
-    this.KEYTOUPPERCASE(formdatajson)
-    //make files in server with the names connected to formdata
-    var fileMap = {
-      "VARIENTS": "VARIENT",
-      "MULTISETPRODUCTS": "MULTISETPRODUCTS"
-    };
-      //path to store the files
+
     var path = `src/assets/productCatagories/productImages/${formdatajson.PRODUCTCATAGORY}`
     this.postConnnection(
-      "http://localhost:4201/filesUpload", {
-        "MainJsonData": formdatajson,
-
-          "MANIPULATIONINFO":{
-           "fileMap": fileMap,
-            "TABLENAME":"PRODUCTFORM",
-            "TABLEID":"PRODUCTID",
-            "JSONFILEURL":"src/assets/productCatagories/products.json",
-            "edit":edit,
-            "jsonFileStartKey": "PRODUCTS",
-            "path": {
-              "startpath": path,
-              "containerfolder": "product",
-            }
-          },
-          "SQLINFO":{
-            "JSONKeyRemover": RemoveKeysForJSON,
-            "SQLKeyRemover": RemoveKeysForSQL,
-            // "SQLVALUETYPES": SQLVALUETYPES,
-            "JSONFileIDMap": IDMAP
-            // "jsonFileStartKey": "PRODUCTS"
-            // "JSONFILEURL":"src/assets/productCatagories/products.json"
-          }
-
-      },
-      "ProductServerData")
-
+          "http://localhost:4201/dataPush", {
+            "DATA": formdatajson,
+            "EDIT":edit,
+            "FUNCTION":"addProduct",
+            "PARAMS":[path]
+    }, function (received){
+      console.log('success')
+    });
   }
 
 
 
 
-
-
-
-  addMapData(formdatajson,id) {
-    var RemoveKeysForSQL = [];
-    //to create table
-    var SQLVALUETYPES = {
-    }
-    localStorage.removeItem('mapdata');
-    var edit=null
-    if (id && id !== null && id !== undefined){
-       edit={"id":id,"name":"MAPID"}
-    }
-
-console.log("ADD MAP DATA FUNCTION ACTIVATED")
-
-console.log(formdatajson)
-console.log(id)
-
-this.KEYTOUPPERCASE(formdatajson)
-//make files in server with the names connected to formdata
-var fileMap = {
-};
-var path = `src/assets/mapDATA`
-this.postConnnection(
-  "http://localhost:4201/filesUpload", {
-    "MainJsonData": formdatajson,
-      "MANIPULATIONINFO":{
-       "FileMap": fileMap,
-        "TABLENAME":"MAPUI",
-        "TABLEID":"MAPID",
-        "edit":edit,
-        "path": {
-          "startpath": path,
-          "containerfolder": "PRODUCTIMAGE",
-        }
-      },
-      "SQLINFO":{
-        "SQLKeyRemover": RemoveKeysForSQL,
-        "SQLVALUETYPES": SQLVALUETYPES,
-      }
-
-  },
-  "ProductServerData")
-
-
-
-
-  }
 
 
 

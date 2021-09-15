@@ -1,10 +1,11 @@
-<div class="radiobuttons-ct ng-invalid" *ngIf="!auth" style="margin-left: 30px; margin-top:50px; margin-bottom:50px;"  [ngClass]="{'ng-valid': control.get(data.name).status === 'VALID'}"   [formGroup]="control">
-  <label id="example-radio-group-label">{{data.ClientName}}</label>
+<div style="border:none;">
+<div class="radiobuttons-ct " *ngIf="!auth" style="margin-left: 30px; margin-top:50px; margin-bottom:50px; border:none!important;"   [formGroup]="control">
+
   <mat-radio-group style="border:none!important; margin-left:20px;"
     aria-labelledby="example-radio-group-label"
     class="example-radio-group"
     formControlName="{{this.data.name}}">
-    <mat-radio-button class="example-radio-button" *ngFor="let opt of data.options" [value]="opt">
+    <mat-radio-button  class="example-radio-button" *ngFor="let opt of data.options" [value]="opt" (click)="updateValue($event,opt)">
       {{opt}}
     </mat-radio-button>
   </mat-radio-group>
@@ -12,3 +13,4 @@
 
 </div>
 <!-- //switch checkbox showIf to this radiobutton and move code to it as well -->
+</div>

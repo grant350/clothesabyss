@@ -9,3 +9,19 @@
     border-left: 5px solid #046d04
      !important;
 }
+.ng-invalid-main  {
+      border-radius: 5px!important;
+      border-left: 5px solid red!important;
+    }
+    .ng-valid-main  {
+    border-radius: 5px!important;
+    border-left: 5px solid #046d04!important;
+}
+
+.ng-pending-main{
+  border-radius: 5px!important;
+  border-left: 5px solid orange!important;
+}
+.input-singlefield{
+  margin-left:20px; border:1px solid black!important;
+}

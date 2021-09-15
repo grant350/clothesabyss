@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChildren, ViewChild, QueryList, ElementRef, Renderer2, OnChanges, Output } from '@angular/core';
+import { Component, OnInit, Input, ViewChildren, ViewChild, AfterContentInit,QueryList, ElementRef, Renderer2, OnChanges, Output } from '@angular/core';
 import { FormControl, FormBuilder, FormArray, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, ControlValueAccessor, FormsModule, Validators, AbstractControl } from '@angular/forms';
 import { customValidators } from '../../formfieldbuilder/customvalidators';
 import { FormSubmitting } from '../../formsubmiting.service';
@@ -12,7 +12,7 @@ import { cloneAbstractControl } from './AddControl';
   templateUrl: './formarray.component.html',
   styleUrls: ['./formarray.component.scss']
 })
-export class FormarrayComponent implements OnInit {
+export class FormarrayComponent implements AfterContentInit {
   @Input() data: any;
   @Input() errorsfile: any;
   @Input() control: any;
@@ -23,7 +23,9 @@ export class FormarrayComponent implements OnInit {
   public array: any = [];
   public arrayofControls: FormArray;
   public parent: any;
-  constructor() { }
+  constructor() {
+//console.log(this.control)
+  }
 
   arrow(index) {
     this.array[index] = !this.array[index];
@@ -32,10 +34,10 @@ export class FormarrayComponent implements OnInit {
 
 
   AddGroup() {
-    console.log("ADDING GROUP")
+    //console.log("ADDING GROUP")
     var copygroup: FormGroup = this.arrayofControls[0]
-    //console.log("copygroup")
-    ////console.log(copygroup)
+    ////console.log("copygroup")
+    //////console.log(copygroup)
     var newGroup: FormGroup;
     if (copygroup instanceof FormGroup) {
       const formGroup = new FormGroup({}, copygroup.validator, copygroup.asyncValidator);
@@ -49,7 +51,7 @@ export class FormarrayComponent implements OnInit {
 try{
   this.parent.updateValueAndValidity()
 }catch{
-  console.log("cannot update parent")
+  //console.log("cannot update parent")
   formGroup.updateValueAndValidity()
 
 }
@@ -65,12 +67,12 @@ try{
     this.control.get(this.data.name).removeAt(index)
   }
 
-  ngOnInit() {
+  ngAfterContentInit() {
     if (this.data.hide) {
     try {
       this.control.get(this.data.name).disable()
     }catch{
-        console.log("major error cannot disable")
+        //console.log("major error cannot disable")
     }
     }
     this.array.push(false);
@@ -78,24 +80,24 @@ try{
     var arrayitem;
     if (this.control instanceof FormArray === false && this.control instanceof Array === false) {
       arrayitem = this.control.get(this.data.name)
-      //console.log("arrayItem")
-      //console.log(arrayitem)
-      //console.log("control")
+      ////console.log("arrayItem")
+      ////console.log(arrayitem)
+      //console.log("control formarray")
       //console.log(this.control)
 
     } else {
-      ////console.log("COULD NOT ADD CONTROL TO FORMARRAY")
+      //////console.log("COULD NOT ADD CONTROL TO FORMARRAY")
       this.parent = this.control
       this.control = this.control.parent
-      ////console.log("THE CONTROL")
+      //////console.log("THE CONTROL")
       arrayitem = this.control.get(this.data.name)
-      arrayitem.updateValueAndValidity()
-      this.parent.updateValueAndValidity()
+      // arrayitem.updateValueAndValidity()
+      // this.parent.updateValueAndValidity()
     }
-    ////console.log(arrayitem)
-    ////console.log("arrayitem")
+    //////console.log(arrayitem)
+    //////console.log("arrayitem")
     this.arrayofControls = arrayitem.controls
-    // ////console.log(this.arrayofControls)
+    // //////console.log(this.arrayofControls)
     // //console.log(this.arrayofControls)
   }
 

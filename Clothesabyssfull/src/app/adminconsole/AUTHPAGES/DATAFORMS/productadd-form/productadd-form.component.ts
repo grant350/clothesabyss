@@ -126,7 +126,7 @@ export class ProductaddFormComponent implements OnInit {
       },
 
       {
-        "subtypehtml": "options",
+        "subtypehtml": "singleControl",
         "type": "options",
         "name": "CHOOSEOTHERPLATFORMS",
         "ClientName": "OTHERPLATFORMS EX(amazon,ebay)",
@@ -139,7 +139,9 @@ export class ProductaddFormComponent implements OnInit {
             "controlValue": "true"
           }
         },
-
+        "style":{
+           "height":"100px"
+        },
         "options": [
           "false",
           "true"
@@ -148,9 +150,12 @@ export class ProductaddFormComponent implements OnInit {
       },
 
       {
-        "subtypehtml": "options",
-        "type": "singleControl",
+        "subtypehtml": "singleControl",
+        "type": "options",
         "name": "SHOWONSITE",
+        "style":{
+           "height":"100px"
+        },
         "ClientName": "SHOW ON MAIN SITE",
         "validation": {
           "required": true,
@@ -602,8 +607,8 @@ export class ProductaddFormComponent implements OnInit {
         ]
       },
       {
-        "subtypehtml": "options",
-        "type": "singleControl",
+        "subtypehtml": "singleControl",
+        "type": "options",
         "name": "MULTISETPRODUCTOPTIONS",
         "ClientName": "Multiset",
         "validation": {
@@ -615,7 +620,7 @@ export class ProductaddFormComponent implements OnInit {
             "controlValue": "true"
           }
         },
-
+        "style":{"height":"100px"},
         "options": [
           "false",
           "true"
@@ -733,49 +738,49 @@ export class ProductaddFormComponent implements OnInit {
       },
 
 
-      {
-        "subtypehtml": "formGroup",
-        "type": "group",
-        "name": "PERSONNAME",
-        "multiadder": true,
-        "hidename": false,
-        "ClientName": "personname",
-        "validation": {
-          "required": true
-        },
-        "controls": [
-          {
-            "subtypehtml": "singleControl",
-            "name": "FIRSTNAME",
-            "type": "plainfield",
-            "ClientName": "FIRSTNAME",
-            "hidename": false,
-            "validation": {
-              "required": true,
-              "customValidator": "generalValidator",
-              "options": {
-                "datatype": { "Type": "string" }
-              }
-            }
-          },
-          {
-            "subtypehtml": "singleControl",
-            "name": "LASTNAME",
-            "ClientName": "LASTNAME",
-            "type": "plainfield",
-            "hidename": false,
-            "validation": {
-              "required": true,
-              "customValidator": "generalValidator",
-              "options": {
-                "datatype": { "Type": "string" }
-              }
-            }
-          }
-
-        ]
-
-      },
+      // {
+      //   "subtypehtml": "formGroup",
+      //   "type": "group",
+      //   "name": "PERSONNAME",
+      //   "multiadder": true,
+      //   "hidename": false,
+      //   "ClientName": "personname",
+      //   "validation": {
+      //     "required": true
+      //   },
+      //   "controls": [
+      //     {
+      //       "subtypehtml": "singleControl",
+      //       "name": "FIRSTNAME",
+      //       "type": "plainfield",
+      //       "ClientName": "FIRSTNAME",
+      //       "hidename": false,
+      //       "validation": {
+      //         "required": true,
+      //         "customValidator": "generalValidator",
+      //         "options": {
+      //           "datatype": { "Type": "string" }
+      //         }
+      //       }
+      //     },
+      //     {
+      //       "subtypehtml": "singleControl",
+      //       "name": "LASTNAME",
+      //       "ClientName": "LASTNAME",
+      //       "type": "plainfield",
+      //       "hidename": false,
+      //       "validation": {
+      //         "required": true,
+      //         "customValidator": "generalValidator",
+      //         "options": {
+      //           "datatype": { "Type": "string" }
+      //         }
+      //       }
+      //     }
+      //
+      //   ]
+      //
+      // },
 
 
       {
@@ -1006,7 +1011,7 @@ export class ProductaddFormComponent implements OnInit {
                       "required": true,
                       "customValidator": "generalValidator",
                       "options": {
-                        "datatype": { "Type": "string" }
+                        "datatype": { "Type": "any" }
                       }
                     }
                   },

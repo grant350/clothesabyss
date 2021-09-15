@@ -27,7 +27,7 @@
   <div class="item" *ngFor="let field of data.groupFields[0].controls;">
     {{stringcontrol[field.name]}}
 
-
+    {{cont.get(field.name).value}}
       <app-singlecontrol style="
       width: 100%;
       display: block;

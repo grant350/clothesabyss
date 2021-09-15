@@ -28,6 +28,17 @@ var fakeobjUP={
 }
 
 
+var fakeurl="src/assets/productCatagories/productImages/makeup"
+var fakeurlFail="src/assets/productCatagories/productImages/gondi"
+
+test('sshould return true with false path, path succefuly made', ()=>{
+  expect(validation.makepath(fakeurlFail,"ERROR TEST() UNITTEST ")).toEqual(true);
+})
+
+test('sshould return true, path already made succefuly made', ()=>{
+  expect(validation.makepath(fakeurl,"ERROR TEST() UNITTEST ")).toEqual(true);
+})
+
 
 // validation.checkOBJDefined()
 
