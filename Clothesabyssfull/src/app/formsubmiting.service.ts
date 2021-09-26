@@ -39,6 +39,7 @@ export class FormSubmitting {
 
 
       function dataURItoBlob(path, img ) {
+        var imagename = img
         var type={
           "jpg":"image/jpg",
           "jpeg":"image/jpeg",
@@ -71,7 +72,7 @@ export class FormSubmitting {
              reader.onload = function() {
 
               var bit = reader.result
-                   var ob = { "64bit": bit, "path":path, "image_structure": { "width":1000, "height": 1000, "filename": img, "filesize": 3333, "filetype": filetype } }
+                   var ob = { "64bit": bit, "path":path, "image_structure": { "width":1000, "height": 1000, "filename": imagename, "filesize": 3333, "filetype": filetype } }
                    if (ob){
                      _this.arrayImage.push(ob)
 
@@ -124,57 +125,37 @@ GetArrayOfImages(){
   }
 
   postConnnection(link, formdata, callback) {
+    console.log("POSTCONNECTION")
+    console.log(arguments)
       var datatoken = this.getCookie('DataToken')
       var headerss = {
         "Authorization": "Bearer " + datatoken,
         "content-type": "application/json"
       };
+
       this.http.post(link, formdata, { headers: headerss }).subscribe((serverData: any) => {
         callback(serverData)
       });
     }
 
-
-
-
-
-
-
-// ADDDATA(datajson){
-// console.log(datajson)
-//  // var datatoken = this.getCookie('DataToken')
-//  // if (datatoken){
-//  //   var headerss = {
-//  //     "Authorization": "Bearer " + datatoken,
-//  //     "content-type": "application/json"
-//  //   };
-//  //   this.http.post("http://localhost:4201/filesUpload", datajson, { headers: headerss }).subscribe((serverData: any) => {
-//  //     console.log(serverData)
-//  //     this.addDataCallback(serverData)
-//  //   });
-//  // }
-//
-//
-// }
-
-
-  ADDDATA(formdatajson) {
-    var id=false
-      var edit=false;
-    if (id && id !== null && id !== undefined){
-       edit=true
+  ADDDATA(formdatajson, path, index) {
+    if (index && index !== null && index !== undefined){
+      console.log('edit')
+    }else{
+      index=null
     }
-
-    var path = `src/assets/productCatagories/productImages/${formdatajson.PRODUCTCATAGORY}`
+    console.log(arguments)
+//addproduct will be passed in as a parameter later
     this.postConnnection(
-          "http://localhost:4201/dataPush", {
+          "http://localhost:4201/databasePush", {
             "DATA": formdatajson,
-            "EDIT":edit,
+            "INDEX":index,
             "FUNCTION":"addProduct",
-            "PARAMS":[path]
+            "PATH":path
     }, function (received){
       console.log('success')
     });
+
   }
 
 

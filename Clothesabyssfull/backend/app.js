@@ -10,7 +10,7 @@ var app = express();
 var cors = require("cors");
 var session = require('express-session')
 //FilesUpload
-var upload = require('./uploaders/upload');
+// var upload = require('./uploaders/upload');
 //Data posting
 var deleteData = require('./database/deleteData')
 var sqlpost = require('./database/sqlpost');
@@ -75,16 +75,11 @@ app.use((req, res, next) => {
 
 
 
-
-
-
-
-//filesUpload
-app.post('/filesUpload',checkAuthTokenPermissions,upload, (req, res, next) => {})
-//use for all below
-
 app.post('/databasePush',checkAuthTokenPermissions,datapush,(req, res, next) => {})
+
 app.get('/getData',checkAuthTokenPermissions,getData,(req, res, next) => {})
+
+
 app.get('/deleteData',checkAuthTokenPermissions,deleteData, (req, res, next) => {})
 
 app.post('/mapui',checkAuthTokenPermissions,datapush,(req, res, next) => {})
@@ -97,11 +92,11 @@ app.post('/graphui',checkAuthTokenPermissions,datapush,(req, res, next) => {})
 app.post('/signup',signup,(req, res, next) => {})
 app.post('/login',login, (req, res, next) => {});
 app.post('/verifyDataToken', verify, (req, res, next) => {
-  console.log(req.headers)
-  console.log(req.headers.Authorization)
+  // console.log(req.headers)
+  // console.log(req.headers.Authorization)
 });
 app.get('/verifyDataToken', (req, res, next) => {
-  console.log(req.headers);
+  // console.log(req.headers);
   res.send(req.headers.Authorization)
 })
 app.post('/logout', logout, (req, res, next) => {});

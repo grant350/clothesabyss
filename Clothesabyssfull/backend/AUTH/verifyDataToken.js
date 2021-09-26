@@ -17,15 +17,13 @@ module.exports  = (req,res, next) => {
 var token;
 try {
    token = req.headers.authorization.split(' ')[1]
-  console.log(token)
+  // console.log(token)
 }
 catch {
 console.log("no token here")
 }
-console.log("token29")
-console.log(token)
+console.log(token,"token")
   jwt.verify(token,LOGINSECRET, (err,result) => {
-    console.log(err)
     if (result){
       console.log("result: 22 verifydata");
         console.log("result")
@@ -35,7 +33,6 @@ console.log(token)
     else{
       console.log("token expired:failed");
       res.json({"message":"tokenexpired","line":29,"token":false})
-
     }
 
   })

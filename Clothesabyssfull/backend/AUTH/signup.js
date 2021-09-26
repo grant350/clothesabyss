@@ -39,12 +39,12 @@ module.exports = function signupUser(req, res) {
 
         var hf = hashfunc(code);
 
-        console.log(hf)
-        console.log("hf")
-        console.log(hf)
-        console.log("hf")
-        console.log(hf)
-        console.log(hf)
+        // console.log(hf)
+        // console.log("hf")
+        // console.log(hf)
+        // console.log("hf")
+        // console.log(hf)
+        // console.log(hf)
   var date = new Date();
   var nulltid = {
     "date": date,

@@ -103,27 +103,27 @@ export class ProductaddFormComponent implements OnInit {
       //
       // },
 
-      {
-        "subtypehtml": "singleControl",
-        "type": "image",
-        "name": "IMAGE",
-        "hidename": false,
-        "ClientName": "IMAGE",
-        "validation": {
-          "required": true,
-          "customValidator": "imageValidator",
-          "options": {
-            "datatype": { "Type": "image" },
-            "minX": 300,
-            "maxX": 15000,
-            "minY": 250,
-            "maxY": 15000
-          }
-          // "filesizeLimit":20000,
-          // "nameRestraintInclude":"blue",
-          // "type":"jpg"
-        }
-      },
+      // {
+      //   "subtypehtml": "singleControl",
+      //   "type": "image",
+      //   "name": "IMAGE",
+      //   "hidename": false,
+      //   "ClientName": "IMAGE",
+      //   "validation": {
+      //     "required": true,
+      //     "customValidator": "imageValidator",
+      //     "options": {
+      //       "datatype": { "Type": "image" },
+      //       "minX": 300,
+      //       "maxX": 15000,
+      //       "minY": 250,
+      //       "maxY": 15000
+      //     }
+      //     // "filesizeLimit":20000,
+      //     // "nameRestraintInclude":"blue",
+      //     // "type":"jpg"
+      //   }
+      // },
 
       {
         "subtypehtml": "singleControl",
@@ -1148,107 +1148,7 @@ export class ProductaddFormComponent implements OnInit {
       this.index = x.params['index']
       this.selectedValue = x.params['selectedValue']
     }
-    this.makebigobject();
   };
-
-
-  makebigobject() {
-
-    if (parseInt(this.index) >= 1) {
-      console.log("343 edit salesdata")
-    } else {
-      this.index = null
-    }
-
-    this.formbuilderdataobj = {}
-    this.formbuilderdataobj["MainJsonData"] = {}
-
-
-
-    console.log(this.index)
-    var RemoveKeysForSQL = [];
-    var RemoveKeysForJSON = [];
-    var IDMAP = {};
-    var fileMap = {};
-    //edit:parseInt(this.index)
-    RemoveKeysForSQL = [
-      "AGE",
-      "MULTISET",
-      "GENDERS",
-      "CHOOSEOTHERPLATFORMS",
-      "IMAGE",
-      "PERSONNAME"
-
-    ];
-
-    RemoveKeysForJSON = [
-      "AGE",
-      "MULTISET",
-      "PERSONNAME",
-      "IMAGE",
-      "GENDERS",
-      "BINLOCATION",
-      "COST",
-      "SUPPLIER",
-      "MULTISETPRODUCTOPTIONS",
-      "MANIPULATIONINFO",
-      "CHOOSEOTHERPLATFORMS"
-
-    ];
-
-this.formbuilderdataobj["MainJsonData"] = { "DATA": {} }
-    console.log(fileMap)
-    this.formbuilderdataobj["MANIPULATIONINFO"] = {
-      "FileMap": {
-        "VARIENTS": "VARIENT",
-        "MULTISETPRODUCTS": "MULTISETPRODUCTS"
-      },
-      "TABLENAME": "PRODUCTFORM",
-      "TABLEID": "PRODUCTID",
-      "edit": parseInt(this.index),
-      "JSONFileIDMap": {
-        "PRODUCTS": "PRODUCTID",
-        "VARIENTS": "SPECID"
-      },
-      "jsonFileStartKey": "PRODUCTS",
-      "JSONFILEURL": "src/assets/productCatagories/products.json",
-      "path": {
-        "startpath": "src/assets/productCatagories/productImages/",
-        "containerfolder": "product",
-      }
-    };
-    this.formbuilderdataobj["datastripperObjs"] = {
-      "JSONKeyRemover": RemoveKeysForJSON,
-      "SQLKeyRemover": RemoveKeysForSQL
-    };
-
-    console.log(this.formbuilderdataobj)
-
-
-    this.formbuilderdataobj = JSON.stringify(this.formbuilderdataobj)
-
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   reloadTree() {
     this.enabled = false;

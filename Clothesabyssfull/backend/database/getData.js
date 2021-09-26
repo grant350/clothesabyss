@@ -4,13 +4,13 @@ var db = require('../database');
 
 module.exports = (req, res, next) => {
 
-console.log(req.permissions)
+// console.log(req.permissions)
     if (req.permissions === "admin") {
       var messageClientErrors = []
 
       var table = req.query.tablename
       //var removeKeys = req.body.tableName
-console.log(table)
+// console.log(table)
 
 if (table){
   var sqlline = `SELECT * from ${table}`

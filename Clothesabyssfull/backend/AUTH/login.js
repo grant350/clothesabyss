@@ -21,7 +21,7 @@ if (dataobj){
     "password":req.body.JSONData['PASSWORD'],
     "code":req.body.JSONData['CODE']
   }
-  console.log(userobj);
+  // console.log(userobj);
 newLogin(userobj)
 }else{console.log("recieved nothing")}
 
@@ -34,7 +34,7 @@ function newLogin(userobj){
     .then(([rows, fields]) => {
       if (rows.length >0){
         bcrypt.compare(userobj.password,rows[0].password,(err, resp) => {
-          console.log(resp)
+          // console.log(resp)
           if (resp){
             if (rows[0].permissions === "admin"){
 
@@ -90,12 +90,12 @@ var  token = jwt.sign(adminobj, IdTokenSECRET, {
 
 var sqlline2 = `DELETE FROM TokenIds WHERE id = ?;`
 db.execute(sqlline2, [userid]).then(([rows, fields]) => {
-  console.log("rows")
-  console.log(rows)
+  // console.log("rows")
+  // console.log(rows)
   var sqlline3 = 'Insert Into TokenIds VALUES(?,?);'
   db.execute(sqlline3, [userid, token]).then(([rows, fields]) => {
-    console.log("rows")
-    console.log(rows)
+    // console.log("rows")
+    // console.log(rows)
   })
 })
     emailsender(code,email,emailmessage)
@@ -114,9 +114,9 @@ function userlogin(username,userid,permissions,userdata){
 }
 
 function emailsender(code, email, emailmessage){
-console.log("email"+email)
-console.log(email)
-console.log(code)
+// console.log("email"+email)
+// console.log(email)
+// console.log(code)
 
     let transporter = nodemailer.createTransport({
       service: 'gmail',

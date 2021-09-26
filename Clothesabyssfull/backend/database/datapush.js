@@ -7,31 +7,72 @@ var jwt = require('jsonwebtoken');
 const saltRounds = 10;
 var LOGINSECRET = process.env.LOGINSECRET;
 var fs = require('fs')
-var RK = require('../removekeysJSON')
-var CTE = require('../checktableexist')
+var uploader = require('./uploaders/mainfileuploader/upload');
+var splittables = require('./DButilityfunctions/SQLSPLITTABLES');
+var MakeSqlString = require('./DButilityfunctions/MakeSqlString');
+
+// var RK = require('../removekeysJSON')
+// var CTE = require('../checktsableexist')
+
 
 
 var functionObjectMAP = {
   "addProduct": require('./functions/addProduct')
 }
 
+
+
 module.exports = (req, res, next) => {
 
-console.log(req.body);
+// console.log("fwoiefjwoifj")
+ if (req.permissions === "admin") {
+   // console.log(Object.keys(req.body));
+   var pickedFunction = req.body['FUNCTION']
+   var object = functionObjectMAP[pickedFunction](req.body['PATH'])
+   // console.log(object)
+   req.body.MANIPULATIONINFO = object
+
+//req.body['DATA'],object,req.body['INDEX']
+   var promise = uploader(req,res,next);
+promise.then(item=>{
+  console.log(item,'item')
+var newobj = splittables(item['returnobj'],object['TABLEMAP']);
+var sqlstring = MakeSqlString(newobj,item['returnID'])
+//tables have been split
 
 
-//expected obj
-/*
-{
-  "DATA": formdatajson,
-  "EDIT":edit,
-  "FUNCTION":"addProduct",
-  "PARAMS":[path]
-}
-*/
 
-var startFunction = functionObjectMAP[req.body.FUNCTION]();
-  console.log(startFunction)
+
+
+
+
+// gonna delete jsonkeys
+
+// split function for jsondata to split into two tables make looper;
+//[product,varient]
+
+// make three until functions REMOVE[idnex]JSON put new JSON if JSON file exist
+// remove sql row to add data
+
+
+})
+
+   // res.json({
+   //      "worked": true
+   //    })
+ }
+
+
+
+
+
+//CHECK IF FILES by grabbing the upload folder file;
+// then push contents
+
+
+//
+// var startFunction = functionObjectMAP[req.body.FUNCTION]();
+//   console.log(startFunction)
 
 
 
@@ -278,7 +319,7 @@ var startFunction = functionObjectMAP[req.body.FUNCTION]();
 // }
 //
 //
-
+// next()
 
 
 

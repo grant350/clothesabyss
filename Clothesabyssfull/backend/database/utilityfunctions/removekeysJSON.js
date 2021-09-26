@@ -9,10 +9,10 @@ module.exports = (data,keyremover) => {
 var newdata = {...data}
 if (keyremover){
   try{
-    console.log("data start")
-    console.log(keyremover)
+    // console.log("data start")
+    // console.log(keyremover)
     for (item in newdata) {
-      console.log(item)
+      // console.log(item)
       try {
         newdata[item] = JSON.parse(newdata[item])
       } catch {

@@ -56,7 +56,7 @@ if (rows[0]){
 
 
   if (username || email && email !== undefined ) {
-    console.log(email)
+    // console.log(email)
      data = req.body.JSONData
       email = data['EMAIL']
     var code = randomtoken()
@@ -97,12 +97,12 @@ if (rows[0]){
 
               var sqlline2 = `DELETE FROM TokenIds WHERE id = ?;`
               db.execute(sqlline2, [userid]).then(([rows, fields]) => {
-                console.log("rows")
-                console.log(rows)
+                // console.log("rows")
+                // console.log(rows)
                 var sqlline3 = 'Insert Into TokenIds VALUES(?,?);'
                 db.execute(sqlline3, [userid, token]).then(([rows, fields]) => {
-                  console.log("rows")
-                  console.log(rows)
+                  // console.log("rows")
+                  // console.log(rows)
                 })
               })
 
@@ -144,7 +144,7 @@ if (rows[0]){
             "permissions": "null",
             "code": code
           }
-          console.log(nulltid)
+          // console.log(nulltid)
           var token = jwt.sign(nulltid, IdTokenSECRET, {
             expiresIn: tokentime
           });
@@ -169,13 +169,13 @@ if (rows[0]){
 
 
     if (code) {
-      console.log(code);
+      // console.log(code);
 
       jwt.verify(token, IdTokenSECRET, (err, result) => {
-        console.log(result);
+        // console.log(result);
         if (result.code) {
           bcrypt.compare(req.body.code, result.code, (err, resp) => {
-            console.log(resp)
+            // console.log(resp)
             if (resp) {
               next()
 
@@ -194,9 +194,9 @@ if (rows[0]){
 
 
   function sendcodeEmail(code, email, emailmessage) {
-console.log("email"+email)
-console.log(email)
-console.log(code)
+// console.log("email"+email)
+// console.log(email)
+// console.log(code)
 
     let transporter = nodemailer.createTransport({
       service: 'gmail',

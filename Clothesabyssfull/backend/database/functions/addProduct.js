@@ -1,33 +1,15 @@
-var RemoveKeysForSQL = [];
-var RemoveKeysForJSON = [];
 
+module.exports = function (varpath) {
 
-
-//get function name FUNCTION({})
-
-
-
-module.exports = function (obj, path) {
-
-  function KEYTOUPPERCASE(obj) {
-    var arrayofkeys = Object.keys(jsondata)
-    arrayofkeys.forEach((key, index) => {
-      key = key.toUpperCase()
-    })
-    //not a deep loop
-    console.log(jsondata)
-    return jsondata;
-    //loop all keys to uppercase for server
-  }
-  obj = KEYTOUPPERCASE(obj);
-
-  RemoveKeysForSQL=['AGE',
+  var RemoveKeysForSQL = ['AGE',
     'MULTISET',
     'GENDERS',
-    'MULTISETPRODUCTOPTIONS'
+    'MULTISETPRODUCTOPTIONS',
+    'CHOOSEOTHERPLATFORMS',
+    'IMAGE'
   ]
 
-  RemoveKeysForJSON = [
+  var RemoveKeysForJSON = [
     "AGE",
     "MULTISET",
     "GENDERS",
@@ -38,32 +20,37 @@ module.exports = function (obj, path) {
     "MANIPULATIONINFO"
   ];
 
-  var IDMAP = {
+   /* number loop coutnts the keys; varients Foreach (specid1 , specid2) so and so on. it adds a key for the occurance of others;
+   */
+  var IDCounter = {
     "PRODUCTS": "PRODUCTID",
     "VARIENTS": "SPECID"
+    //delete this
   }
+
+   // when [key] = "VARIENTS" it makes folder called VARIENT. only if files exist
   var fileMap = {
     "VARIENTS": "VARIENT",
-    "MULTISETPRODUCTS": "MULTISETPRODUCTS"
+    "MULTISETPRODUCTS": "MULTISETPRODUCT"
   };
+
+  //[name of tablename , dataformat in columns or as whole string obj];
+  var tableMap = {"MAIN":{"name":"PRODUCTS","type":"columns","IDNAME":"PRODUCTID"},"VARIENTS":{"IDNAME":"SPECID","name":"VARIENTS","type":"dataobj",'dataobjName':'PRODUCT'}}
+//  var tableMap = {"MAIN":["Products","dataobj"],"VARIENTS":["VARIENTS","dataobj"]}
 
 
   var manipulationInfo =  {
     "fileMap": fileMap,
-    "TABLENAME": "PRODUCTFORM",
+    "TABLEMAP":tableMap,
+    "TABLENAME": "PRODUCTS",
     "TABLEID": "PRODUCTID",
     "JSONFILEURL": "src/assets/productCatagories/products.json",
-    "edit": edit,
     "jsonFileStartKey": "PRODUCTS",
-    "path": {
-      "startpath": path,
-      "containerfolder": "product",
-    },
-    "SQLINFO": {
+    "path": 'src/assets/productCatagories/productImages/'+varpath,
+    "containerfolder":'Product',
       "JSONKeyRemover": RemoveKeysForJSON,
       "SQLKeyRemover": RemoveKeysForSQL,
-      "JSONFileIDMap": IDMAP
-    }
+      "IDCounter": IDCounter
   };
-
+  return manipulationInfo;
 }

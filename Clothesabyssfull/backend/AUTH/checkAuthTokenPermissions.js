@@ -35,7 +35,7 @@ module.exports =  (req,res,next)=> {
           db.execute(finduser, [username, username]).then(([rows, fields]) => {
             if (rows[0]) {
               req.permissions = rows[0].permissions
-              console.log(req.permissions)
+              // console.log(req.permissions)
               next()
             }else{
               res.json({"noUser":"true","failed":true})
