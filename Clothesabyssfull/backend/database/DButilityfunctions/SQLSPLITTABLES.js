@@ -6,11 +6,12 @@ module.exports = function (MAINOBJ,tablemap) {
 //   VARIENTS: { 'VARIENTS': 'dataobj' ]
 // }
 
-
+//
                Object.keys(MAINOBJ).forEach((key)=>{
                  var obj = MAINOBJ[key]
                  if (tablemap[key]){
                    tablemap[key]['data']=MAINOBJ[key]
+                   console.log('datamap',tablemap[key]['data'])
                  } else {
                    if (tablemap['MAIN']['data']){
                      tablemap['MAIN']['data'][key]=MAINOBJ[key]

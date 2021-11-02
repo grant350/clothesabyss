@@ -16,6 +16,8 @@ var deletePath = require('../../utilityfunctions/deletePath');
 var fileObjectLoop = require('../../utilityfunctions/fileObjectLooper');
 var makepath = require('../../utilityfunctions/makepath');
 var removekeys = require('../../utilityfunctions/removeKeysJSON');
+var ColumnMatcher = require('../../DButilityfunctions/ColumnMatcher');
+var  GETCOLUMNS = require('../../DButilityfunctions/GETCOLUMNS');
 
 module.exports = (req, res, next) => {
   var data = req.body['DATA']
@@ -26,13 +28,40 @@ module.exports = (req, res, next) => {
 
     console.log("upload file")
 
-  var myPromiseA = new Promise((resolve, reject) => {
 
-    if (data && manipulationinfo){
-       resolve(true)
-    } else {
-      reject(new Error('no data to work with'))
-    }
+
+
+
+//before continuing make sure to check all data obj is correct manipulation info
+// check if sql insert columns match
+
+if (index){
+  //removepath of product0 ect.....
+}
+
+
+
+
+
+
+  var myPromiseA = new Promise(async (resolve, reject) => {
+
+    var columns = await GETCOLUMNS( manipulationinfo['TABLEMAP'])
+    console.log(columns)
+    var ignorePatternMap=[]
+    Object.keys(manipulationinfo['TABLEMAP']).forEach(key=>{
+      ignorePatternMap.push(manipulationinfo['TABLEMAP'][key].name)
+    })
+    console.log('ignorePatternMap',ignorePatternMap)
+    var matched = ColumnMatcher(data, columns, ignorePatternMap, manipulationinfo['ColumnMatcherIgnorePattern'])
+    console.log(matched)
+    if (matched){
+    resolve(true)
+  } else {
+    return false
+    reject(new Error('no data to work with'))
+  }
+
   })
 
   var myPromiseB = myPromiseA.then(async (item)=>{
@@ -47,7 +76,7 @@ module.exports = (req, res, next) => {
 
   var getid = myPromiseB.then( async (answer)=>{
     if (answer){
-        deletePath(manipulationinfo['path'])
+        // deletePath(manipulationinfo['path'])
         let res = await MAKESQLID(manipulationinfo['TABLENAME'],manipulationinfo['TABLEID'],index)
         if (res !== false){
           return res
@@ -66,11 +95,21 @@ var loopOBJ = getid.then( (ID)=>{
 
     makepath(manipulationinfo['path'])
     let obj = fileObjectLoop(data, manipulationinfo['fileMap'], manipulationinfo['path'], manipulationinfo['containerfolder'],ID)
-    return {"returnobj":removekeys(obj,manipulationinfo['SQLKeyRemover']),"returnID":ID}
+    console.log('sampleDataCapture');
+    var d ={"returnobj":removekeys(obj,manipulationinfo['SQLKeyRemover']),"returnID":ID}
+// var path = require('path');
+//
+//     fs.writeFile(path.join(__dirname, '../../utilityFiles/ExampleData.js'), JSON.stringify(d),function (err){
+//       console.log("wrote file data ")
+//       console.log(err)
+//     })
+
+    return d
   } else {
     return false
   }
 })
+
 return loopOBJ;
 next()
 

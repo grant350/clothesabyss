@@ -419,12 +419,12 @@ export class FormfieldbuilderComponent implements AfterContentInit {
       }
       if (htmlobj.subtypehtml == "multiform") {
         var mainarray = that.fb.array([])
-        var groupContents = that.fb.group({})
 
         if (that.dataobjvalues) {
           if (that.dataobjvalues[htmlobj.name] !== null && that.dataobjvalues[htmlobj.name] !== undefined) {
 
             that.dataobjvalues[htmlobj.name].forEach(varient => {
+              console.log('varient',varient)
               run(varient)
             })
           }
@@ -437,6 +437,7 @@ export class FormfieldbuilderComponent implements AfterContentInit {
         // run(null)
 
         function run(varient) {
+          var groupContents = that.fb.group({})
 
 
           htmlobj.multiformControls.forEach(control => {
@@ -463,6 +464,7 @@ export class FormfieldbuilderComponent implements AfterContentInit {
           })
           mainarray.push(groupContents)
         }
+
         that.mainformgroup.addControl(htmlobj.name, mainarray)
       }
       // console.log(that.mainformgroup)

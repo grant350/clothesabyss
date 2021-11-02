@@ -40,6 +40,7 @@ module.exports = function (varpath) {
 
 
   var manipulationInfo =  {
+    "ColumnMatcherIgnorePattern":["CHOOSEOTHERPLATFORMS","MULTISETPRODUCTOPTIONS"],
     "fileMap": fileMap,
     "TABLEMAP":tableMap,
     "TABLENAME": "PRODUCTS",

@@ -8,8 +8,12 @@ const saltRounds = 10;
 var LOGINSECRET = process.env.LOGINSECRET;
 var fs = require('fs')
 var uploader = require('./uploaders/mainfileuploader/upload');
-var splittables = require('./DButilityfunctions/SQLSPLITTABLES');
-var MakeSqlString = require('./DButilityfunctions/MakeSqlString');
+var SQLSPLITTABLES = require('./DButilityfunctions/SQLSPLITTABLES');
+var writeToDatabase = require('./DButilityfunctions/writeToDatabase');
+var removekeysJSON = require('./utilityfunctions/removekeysJSON');
+var ColumnMatcher = require('./DButilityfunctions/ColumnMatcher');
+var  GETCOLUMNS = require('./DButilityfunctions/GETCOLUMNS');
+var RemoveAddJSONData = require('./DButilityfunctions/removeAddJSONData');
 
 // var RK = require('../removekeysJSON')
 // var CTE = require('../checktsableexist')
@@ -34,10 +38,82 @@ module.exports = (req, res, next) => {
 
 //req.body['DATA'],object,req.body['INDEX']
    var promise = uploader(req,res,next);
+   var item;
+   var ID;
 promise.then(item=>{
-  console.log(item,'item')
-var newobj = splittables(item['returnobj'],object['TABLEMAP']);
-var sqlstring = MakeSqlString(newobj,item['returnID'])
+  item = item;
+  ID = item['returnID']
+    console.log('matched columns');
+        var newJSONObject = null;
+        var newSQLObject = null
+        var testdata = item['returnobj'];
+        if (object['JSONKeyRemover']){
+          newJSONObject = removekeysJSON(testdata,object['JSONKeyRemover'])
+        }
+        if (object['SQLKeyRemover']){
+              newSQLObject = removekeysJSON(testdata,object['SQLKeyRemover'])
+        }
+        console.log('success removed keys..')
+        return {"newJSONObject":newJSONObject,"newSQLObject":newSQLObject}
+
+}).then(newobjs=>{
+
+    if (object['JSONFILEURL'] && object['jsonFileStartKey']){
+      var url = object['JSONFILEURL'];
+      var startkey = object['jsonFileStartKey'];
+      var tableidname = object['TABLEID'];
+        RemoveAddJSONData(url,startkey, tableidname, ID);
+        return newobjs
+    }else {
+      console.log('no jsonfile continue');
+      return newobjs
+    }
+
+
+
+}).then(writeDataObjs=>{
+
+console.log('writing data ')
+
+var splittablesObj = SQLSPLITTABLES(writeDataObjs['newSQLObject'],object['TABLEMAP'])
+
+
+writeToDatabase(splittablesObj, ID);
+var url = object['JSONFILEURL'];
+var startkey = object['jsonFileStartKey'];
+var tableidname = object['TABLEID'];
+RemoveAddJSONData(url,startkey,tableidname,ID, writeDataObjs['newJSONObject'])
+
+})
+
+//   expect(GETCOLUMNS.length >= 1).toBe(true)
+
+
+//delete anydata related to it;
+//data , ID , jsonpath, manipulationinfo
+//copy obj and send in removekeysJSON() sql,json
+
+
+
+
+
+
+
+
+//pushtosql
+//push to jsonfile if exist
+
+
+
+
+
+
+
+//
+//   console.log(item,'item')
+// var newobj = splittables(item['returnobj'],object['TABLEMAP']);
+// var sqlstring = MakeSqlString(newobj,item['returnID'])
+
 //tables have been split
 
 
@@ -55,7 +131,6 @@ var sqlstring = MakeSqlString(newobj,item['returnID'])
 // remove sql row to add data
 
 
-})
 
    // res.json({
    //      "worked": true

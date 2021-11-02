@@ -16,7 +16,7 @@ if (keyremover){
       try {
         newdata[item] = JSON.parse(newdata[item])
       } catch {
-        console.log("could not parse 270")
+        // console.log("could not parse 270")
       }
       if (keyremover.indexOf(item) !== -1) {
         delete newdata[item]

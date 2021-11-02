@@ -12,8 +12,13 @@ var countfiles = require('./utilityfunctions/countfiles');
 var makepath = require('./utilityfunctions/makepath');
 var deletePath = require('./utilityfunctions/deletePath');
 var storefiles = require('./utilityfunctions/storefiles')
-var image64bitExample = require('./utilityfunctions/image64bitExample');
+var image64bitExample = require('./utilityFiles/image64bitExample');
 
+
+
+test('unit test one start', ()=>{
+  expect(true).toBe(true)
+})
 
 // test('DBCheckTable takes tablename as param; Should return true', async ()=>{
 // let res = await DBCheckTable(tablename)
@@ -99,6 +104,15 @@ var image64bitExample = require('./utilityfunctions/image64bitExample');
     DATA: '{"SHOWONSITE":true,"COMPANYNAME":"clothesabyss","TYPE":"mainslider","SUBCATAGORY":"foundationstick","PRODUCTNAME":"seomfowiefoi","TITLE":"sofinewonifwion","PRODUCTCATAGORY":"makeup","PARAGRAPHS":[{"PARAGRAPH":""}],"SPECIFICATIONS":[{"KEY":"","VALUE":""}],"MULTISETPRODUCTOPTIONS":false,"VARIENTS":[{"VARIENTINFO":{"MAINIMAGE":{"image_structure":{"width":4000,"height":3000,"filename":"GOPR0050.jpeg","filesize":3251260,"filetype":"image/jpeg"},"path":"/assets/productCatagories/productImages/makeup/product9/VARIENT0/GOPR00501627879952513.jpeg"},"SKU":"","INVENTORY":"2323","WEIGHT":"23","PRODUCTPRICE":"23.23","PRODUCTCONTENTS":"","PRODUCTSALEPRICE":"23.23"},"LOCATION":[{"LOCATIONFOUND":"wef","NAMEOFSTORE":"wefw"}],"OPTIONS":[{"KEY":"wfewef","VALUE":"wef"}],"IMAGEPAIR":[{"ADDIMAGE":{"image_structure":{"width":389,"height":342,"filename":"Screen Shot 2020-12-14 at 8.15.04 AM.png","filesize":162528,"filetype":"image/png"},"path":"/assets/productCatagories/productImages/makeup/product9/VARIENT0/Screen Shot 2020-12-14 at 8.15.04 AM1627879952518.png"}}]}]}',
            MANIPULATIONINFO: '{"FileMap":{"VARIENTS":"VARIENT","MULTISETPRODUCTS":"MULTISETPRODUCTS"},"TABLENAME":"PRODUCTFORM","TABLEID":"PRODUCTID","edit":null,"JSONFileIDMap":{"PRODUCTS":"PRODUCTID","VARIENTS":"SPECID"},"jsonFileStartKey":"PRODUCTS","JSONFILEURL":"src/assets/productCatagories/products.json","path":{"startpath":"src/assets/productCatagories/productImages/makeup","containerfolder":"product"}}'
     */
+
+
+
+
+
+
+
+
+
 
 
     setTimeout(function() {
